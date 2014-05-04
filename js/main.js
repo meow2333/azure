@@ -53,7 +53,7 @@ $(document).ready(function(){
                     animation: {
                         duration: 1500
                     },
-                    backgroundColor: '#06122a',
+                    backgroundColor: '#efece2',
                     type: 'spline'
                 },
                 title: {
@@ -103,7 +103,8 @@ $(document).ready(function(){
                         width: 1,
                         color: '#808080'
                     }],
-                    min: 0
+                    min: 0,
+                    minRange: 300
                 },
                 tooltip: {
                     crosshairs: true,
@@ -120,7 +121,7 @@ $(document).ready(function(){
                     align: 'right',
                     verticalAlign: 'middle',
                     borderWidth: 0,
-                    itemHiddenStyle: {color: '#333333'},
+                    itemHiddenStyle: {color: '#999999'},
                     itemHoverStyle: {color: '#ffffff'},
                     itemStyle: {
                         'padding-bottom': '10px',
@@ -132,28 +133,33 @@ $(document).ready(function(){
                 series: [{
                     name: 'AQI',
                     id: 'aqi',
-                    data: aqi
+                    data: aqi,
+                    color: '#7f81e7'
                 }, {
                     name: 'PM2.5',
                     id: 'pm2_5',
                     data: pm2_5,
-                    color: '#acb0b8'
+                    color: '#e9de62'
                 }, {
                     name: 'PM10',
                     id: 'pm10',
-                    data: pm10
+                    data: pm10,
+                    color: '#d8dc9d'
                 }, {
                     name: 'SO2',
                     id: 'so2',
-                    data: so2
+                    data: so2,
+                    color: '#e7907f'
                 }, {
                     name: 'NO2',
                     id: 'no2',
-                    data: no2
+                    data: no2,
+                    color: '#addbdb'
                 }, {
                     name: 'O3',
                     id: 'o3',
-                    data: o3
+                    data: o3,
+                    color: '#7fe7b0'
                 }]
             });
         });
