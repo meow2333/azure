@@ -1,0 +1,13 @@
+{
+  "name": "azure",
+  "version": "0.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-htmlmin": "~0.3.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-compass": "~0.7.2",
+    "grunt-contrib-cssmin": "~0.8.0",
+    "matchdep": "*"
+  }
+}

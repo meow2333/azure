@@ -278,7 +278,9 @@ $(document).ready(function(){
                 }
                 Controller.states.singleShow = false;
             }
+            chart.exportChart();
         })
         $('.switch').css('height', $(window).height())
+
     })()
 });
