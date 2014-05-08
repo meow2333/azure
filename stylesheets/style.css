@@ -225,26 +225,33 @@ a, img, div {
     _______________________________________________________
     
 */
-@media only screen and (max-height: 835px) {
+@media only screen and (max-height: 1800px) {
   /* line 167, ../sass/style.scss */
   .start .text {
     bottom: 197.48413px;
   }
   /* line 170, ../sass/style.scss */
   .start .text .title {
+    margin-left: 5px;
+    margin-right: 5px;
     margin-bottom: 28.49603px;
   }
-  /* line 177, ../sass/style.scss */
+  /* line 175, ../sass/style.scss */
+  .start .text .subTitle {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  /* line 180, ../sass/style.scss */
   .start .start-c {
     bottom: 80.18651px;
   }
-  /* line 180, ../sass/style.scss */
+  /* line 183, ../sass/style.scss */
   .start .start-c .start-btn {
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 186, ../sass/style.scss */
+  /* line 189, ../sass/style.scss */
   .start .byWeilan {
     bottom: 30px;
   }
