@@ -1,8 +1,193 @@
 @import "compass/reset";
 @import "compass/css3";
+@import "compass/layout/sticky-footer";
+@import "compass/utilities/general/clearfix";
 
 body {
     position: relative;
     overflow: hidden;
-    background: #f5f5f5;
+    background: #fcfcfc;
+    width: 100%;
+    font-size: 62.5%;
+}
+footer {
+    /*@include sticky-footer(10%);
+    height: 10%;
+    width: 100%;
+    background: #666;*/
+}
+
+/*
+    _______________________________________________________
+    
+    Grids
+    _______________________________________________________
+    
+*/
+
+.content {
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.grid-6 {
+    width: 100%;
+    float: left;
+}
+
+
+.grid-3 {
+    width: 49%;
+    margin-right: 2%;
+    float: left;
+}
+
+.grid-2 {
+    width: 32%;
+    margin-right: 2%;
+    float: left;
+}
+
+.grid-1 {
+    width: 15%;
+    margin-right: 2%;
+    float: left;
+}
+
+.nrm {
+    margin-right: 0;
+    float: left;
+}
+
+/*
+    _______________________________________________________
+    
+    Colors
+    _______________________________________________________
+    
+*/
+
+$bg: #0075a9;
+$gray-blue: #9db5cb; 
+
+/* 
+    _______________________________________________________
+    
+    fonts 
+    _______________________________________________________
+    
+*/
+a, img, div {
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    text-decoration: none;
+}
+
+$heiti: "STHeiti", "SimHei";
+$songti: "STSong", "SimSun";
+$xisong: "LiSong Pro Light", "SimSun";
+
+/*
+    _______________________________________________________
+    
+    Functions
+    _______________________________________________________
+    
+*/
+
+@mixin madeD($type, $value, $pvalue) {
+    #{$type}: ($value/$pvalue)*100%;
+}
+@mixin fonts($value) {
+    font-size: ($value/16);
+}
+
+.clearfix {
+    @include clearfix;
+}
+.viewport, .start {
+    height: 100%;
+    width: 100%;
+}
+.byWeilan {
+    position: absolute;
+    width: 100%;
+}
+.start {
+    text-align: center;
+    color: $gray-blue;
+    @include background-image(radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)));
+
+    .text {
+        width: 100%;
+        position: absolute;
+
+        .title {
+            @include fonts(74em);
+            font-family: $heiti;
+        }
+        .subTitle {
+            @include fonts(34em);
+            font-family: $xisong;
+        }
+    }
+    .start-c {
+        width: 100%;
+        position: absolute;
+
+        .start-btn {
+            display: block;
+            margin: 0 auto;
+            @include madeD(width, 285px, 1920px);
+            @include fonts(50em);
+            background: $bg;
+            @include border-radius(5px);
+            color: #fff;
+            font-family: $heiti;
+        }
+    }
+}
+
+/*
+    _______________________________________________________
+    
+    Responsive break-points 
+    _______________________________________________________
+    
+*/
+
+
+@media only screen and (max-height: 835px) {
+    @mixin cal-835($type, $value) {
+        #{$type}: ($value/1260px)*835px;
+    }
+
+    .start {
+
+        .text {
+            @include cal-835(bottom, (61px+30px+30px+65px+112px));
+
+            .title {
+                @include cal-835(margin-bottom, (43px));
+            }
+            .subTitle {
+                
+            }
+        }
+        .start-c {
+            @include cal-835(bottom, (61px+30px+30px));
+
+            .start-btn {
+                width: 163px;
+                height: 65px;
+                line-height: 65px;
+            }
+        }
+        .byWeilan {
+            bottom: 30px;
+        }
+    }
+}
+@media only screen and (max-height: 370px) {
+
 }

@@ -63,9 +63,189 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 4, ../sass/style.scss */
+/* line 6, ../sass/style.scss */
 body {
   position: relative;
   overflow: hidden;
-  background: #f5f5f5;
+  background: #fcfcfc;
+  width: 100%;
+  font-size: 62.5%;
+}
+
+/* line 13, ../sass/style.scss */
+footer {
+  /*@include sticky-footer(10%);
+  height: 10%;
+  width: 100%;
+  background: #666;*/
+}
+
+/*
+    _______________________________________________________
+    
+    Grids
+    _______________________________________________________
+    
+*/
+/* line 28, ../sass/style.scss */
+.content {
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+/* line 34, ../sass/style.scss */
+.grid-6 {
+  width: 100%;
+  float: left;
+}
+
+/* line 40, ../sass/style.scss */
+.grid-3 {
+  width: 49%;
+  margin-right: 2%;
+  float: left;
+}
+
+/* line 46, ../sass/style.scss */
+.grid-2 {
+  width: 32%;
+  margin-right: 2%;
+  float: left;
+}
+
+/* line 52, ../sass/style.scss */
+.grid-1 {
+  width: 15%;
+  margin-right: 2%;
+  float: left;
+}
+
+/* line 58, ../sass/style.scss */
+.nrm {
+  margin-right: 0;
+  float: left;
+}
+
+/*
+    _______________________________________________________
+    
+    Colors
+    _______________________________________________________
+    
+*/
+/* 
+    _______________________________________________________
+    
+    fonts 
+    _______________________________________________________
+    
+*/
+/* line 81, ../sass/style.scss */
+a, img, div {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+}
+
+/*
+    _______________________________________________________
+    
+    Functions
+    _______________________________________________________
+    
+*/
+/* line 105, ../sass/style.scss */
+.clearfix {
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 108, ../sass/style.scss */
+.viewport, .start {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 112, ../sass/style.scss */
+.byWeilan {
+  position: absolute;
+  width: 100%;
+}
+
+/* line 116, ../sass/style.scss */
+.start {
+  text-align: center;
+  color: #9db5cb;
+  background-image: -webkit-gradient(radial, circle, 0, circle, 100, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.15)));
+  background-image: -webkit-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -moz-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -o-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+}
+/* line 121, ../sass/style.scss */
+.start .text {
+  width: 100%;
+  position: absolute;
+}
+/* line 125, ../sass/style.scss */
+.start .text .title {
+  font-size: 4.625em;
+  font-family: "STHeiti", "SimHei";
+}
+/* line 129, ../sass/style.scss */
+.start .text .subTitle {
+  font-size: 2.125em;
+  font-family: "LiSong Pro Light", "SimSun";
+}
+/* line 134, ../sass/style.scss */
+.start .start-c {
+  width: 100%;
+  position: absolute;
+}
+/* line 138, ../sass/style.scss */
+.start .start-c .start-btn {
+  display: block;
+  margin: 0 auto;
+  width: 14.84375%;
+  font-size: 3.125em;
+  background: #0075a9;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-family: "STHeiti", "SimHei";
+}
+
+/*
+    _______________________________________________________
+    
+    Responsive break-points 
+    _______________________________________________________
+    
+*/
+@media only screen and (max-height: 835px) {
+  /* line 167, ../sass/style.scss */
+  .start .text {
+    bottom: 197.48413px;
+  }
+  /* line 170, ../sass/style.scss */
+  .start .text .title {
+    margin-bottom: 28.49603px;
+  }
+  /* line 177, ../sass/style.scss */
+  .start .start-c {
+    bottom: 80.18651px;
+  }
+  /* line 180, ../sass/style.scss */
+  .start .start-c .start-btn {
+    width: 163px;
+    height: 65px;
+    line-height: 65px;
+  }
+  /* line 186, ../sass/style.scss */
+  .start .byWeilan {
+    bottom: 30px;
+  }
 }
