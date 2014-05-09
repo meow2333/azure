@@ -16,10 +16,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">
     <title>··蔚蓝··</title>
-    <script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed.js"></script>
+    <script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed.js" data-config='{combine:true}'></script>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>
+    <div id="loading"></div>
     <div class="viewport">
         <section class="start content">
             <div class="text">
@@ -31,7 +32,11 @@
         </section>
         <footer></footer>
     </div>
-    <div id="loading"></div>
+    <script type="text/javascript" src="src/highcharts.js"></script>
+    <script type="text/javascript" src="src/TimelineLite.min.js"></script>
+    <script type="text/javascript" src="src/TweenLite.min.js"></script>
+    <script type="text/javascript" src="src/CSSPlugin.min.js"></script>
+    <script type="text/javascript" src="src/EasePack.min.js"></script>
     <script type="text/javascript" src="src/core.js"></script>
     <script type="text/javascript">
         document.onreadystatechange = subSomething;

@@ -225,34 +225,37 @@ a, img, div {
     _______________________________________________________
     
 */
-@media only screen and (max-height: 1800px) {
+@media only screen and (max-height: 1920px) {
   /* line 167, ../sass/style.scss */
   .start .text {
-    bottom: 197.48413px;
+    bottom: 249.90476px;
   }
   /* line 170, ../sass/style.scss */
   .start .text .title {
-    margin-left: 5px;
+    opacity: 0;
+    margin-left: -500px;
     margin-right: 5px;
-    margin-bottom: 28.49603px;
+    margin-bottom: 32.7619px;
   }
-  /* line 175, ../sass/style.scss */
+  /* line 176, ../sass/style.scss */
   .start .text .subTitle {
+    opacity: 0;
     margin-left: 5px;
-    margin-right: 5px;
+    margin-right: -500px;
   }
-  /* line 180, ../sass/style.scss */
+  /* line 182, ../sass/style.scss */
   .start .start-c {
-    bottom: 80.18651px;
+    bottom: 115.04762px;
   }
-  /* line 183, ../sass/style.scss */
+  /* line 185, ../sass/style.scss */
   .start .start-c .start-btn {
+    opacity: 0;
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 189, ../sass/style.scss */
+  /* line 192, ../sass/style.scss */
   .start .byWeilan {
-    bottom: 30px;
+    bottom: 60px;
   }
 }

@@ -27,11 +27,11 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            all: ['build/*.js', 'src/*.js']
+            all: ['build/*.js', 'src/core.js']
         },
         watch: {
             js: {
-                files: ['src/*.js'],
+                files: ['src/core.js'],
                 tasks: ['jshint']
             },
             sass: {
