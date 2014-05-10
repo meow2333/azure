@@ -36,6 +36,11 @@ footer {
     float: left;
 }
 
+.grid-4 {
+    width: 64%;
+    margin-right: 2%;
+    float: left;
+}
 
 .grid-3 {
     width: 49%;
@@ -70,6 +75,11 @@ footer {
 
 $bg: #0075a9;
 $gray-blue: #9db5cb; 
+$green-blue: #41a8b7;
+$btn-blue: #6eccd8;
+$font-yellow: #fdedaf;
+$gray: #eee;
+$gray2: #4b4b4b;
 
 /* 
     _______________________________________________________
@@ -105,12 +115,8 @@ $xisong: "LiSong Pro Light", "SimSun";
 .clearfix {
     @include clearfix;
 }
-.viewport, .start {
+.viewport, .start, .desc {
     height: 100%;
-    width: 100%;
-}
-.byWeilan {
-    position: absolute;
     width: 100%;
 }
 .start {
@@ -144,6 +150,39 @@ $xisong: "LiSong Pro Light", "SimSun";
             @include border-radius(5px);
             color: #fff;
             font-family: $heiti;
+        }
+    }
+    .byWeilan {
+        position: absolute;
+        width: 100%;
+    }
+}
+.desc {
+    background: $green-blue;
+    overflow: hidden;
+
+    .l-bar, .r-bar, .main {
+        height: 100%;
+    }
+    .l-bar {
+    }
+    .r-bar {
+    }
+    .main {
+
+        .main-m {
+            width: 100%;
+            @include madeD(height, 744px, 1260px);
+            border: 20px solid $gray;
+            background: #f3f3f3;
+            box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            -webkit-box-sizing:border-box;
+
+            .chart {
+                @include madeD(height, 370px, 692px);
+                width: 100%;
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- <html lang="zh-CN" manifest="main.appcache" type="text/cache-manifest"> -->
-<html lang="zh-CN">
+<html lang="zh-CN" class="no-js">
 <head>
     <meta charset="UTF-8">
     <!--允许全屏-->
@@ -27,11 +27,23 @@
                 <p class="title">你好奇当前你周围的空气成分吗</p>
                 <p class="subTitle">让我们来检验一下你周围的空气成分吧，点击下面的按钮，来一起分析</p>
             </div>
-            <div class="start-c"><a class="start-btn" href="#page1">检验一下</a></div>
+            <div class="start-c"><a class="start-btn" href="#">检验一下</a></div>
             <div class="byWeilan">by&nbsp;蔚蓝</div>
+        </section>
+        <section class="desc content">
+            <div class="l-bar grid-1"></div>
+            <div class="main grid-4">
+                <div class="main-m">
+                    <div class="chart" id="chart"></div>
+                    <div class="info"></div>
+                </div>
+                <div class="byWeilan grid-6">by&nbsp;蔚蓝</div>
+            </div>
+            <div class="r-bar grid-1"></div>
         </section>
         <footer></footer>
     </div>
+    <script type="text/javascript" src="./js/av-0.3.1.min.js"></script>
     <script type="text/javascript" src="src/highcharts.js"></script>
     <script type="text/javascript" src="src/TimelineLite.min.js"></script>
     <script type="text/javascript" src="src/TweenLite.min.js"></script>

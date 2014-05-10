@@ -100,28 +100,35 @@ footer {
   float: left;
 }
 
-/* line 40, ../sass/style.scss */
+/* line 39, ../sass/style.scss */
+.grid-4 {
+  width: 64%;
+  margin-right: 2%;
+  float: left;
+}
+
+/* line 45, ../sass/style.scss */
 .grid-3 {
   width: 49%;
   margin-right: 2%;
   float: left;
 }
 
-/* line 46, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 .grid-2 {
   width: 32%;
   margin-right: 2%;
   float: left;
 }
 
-/* line 52, ../sass/style.scss */
+/* line 57, ../sass/style.scss */
 .grid-1 {
   width: 15%;
   margin-right: 2%;
   float: left;
 }
 
-/* line 58, ../sass/style.scss */
+/* line 63, ../sass/style.scss */
 .nrm {
   margin-right: 0;
   float: left;
@@ -141,7 +148,7 @@ footer {
     _______________________________________________________
     
 */
-/* line 81, ../sass/style.scss */
+/* line 91, ../sass/style.scss */
 a, img, div {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-decoration: none;
@@ -154,25 +161,19 @@ a, img, div {
     _______________________________________________________
     
 */
-/* line 105, ../sass/style.scss */
+/* line 115, ../sass/style.scss */
 .clearfix {
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 108, ../sass/style.scss */
-.viewport, .start {
+/* line 118, ../sass/style.scss */
+.viewport, .start, .desc {
   height: 100%;
   width: 100%;
 }
 
-/* line 112, ../sass/style.scss */
-.byWeilan {
-  position: absolute;
-  width: 100%;
-}
-
-/* line 116, ../sass/style.scss */
+/* line 122, ../sass/style.scss */
 .start {
   text-align: center;
   color: #9db5cb;
@@ -182,27 +183,27 @@ a, img, div {
   background-image: -o-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
   background-image: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
 }
-/* line 121, ../sass/style.scss */
+/* line 127, ../sass/style.scss */
 .start .text {
   width: 100%;
   position: absolute;
 }
-/* line 125, ../sass/style.scss */
+/* line 131, ../sass/style.scss */
 .start .text .title {
   font-size: 4.625em;
   font-family: "STHeiti", "SimHei";
 }
-/* line 129, ../sass/style.scss */
+/* line 135, ../sass/style.scss */
 .start .text .subTitle {
   font-size: 2.125em;
   font-family: "LiSong Pro Light", "SimSun";
 }
-/* line 134, ../sass/style.scss */
+/* line 140, ../sass/style.scss */
 .start .start-c {
   width: 100%;
   position: absolute;
 }
-/* line 138, ../sass/style.scss */
+/* line 144, ../sass/style.scss */
 .start .start-c .start-btn {
   display: block;
   margin: 0 auto;
@@ -217,6 +218,36 @@ a, img, div {
   color: #fff;
   font-family: "STHeiti", "SimHei";
 }
+/* line 155, ../sass/style.scss */
+.start .byWeilan {
+  position: absolute;
+  width: 100%;
+}
+
+/* line 160, ../sass/style.scss */
+.desc {
+  background: #41a8b7;
+  overflow: hidden;
+}
+/* line 164, ../sass/style.scss */
+.desc .l-bar, .desc .r-bar, .desc .main {
+  height: 100%;
+}
+/* line 173, ../sass/style.scss */
+.desc .main .main-m {
+  width: 100%;
+  height: 59.04762%;
+  border: 20px solid #eeeeee;
+  background: #f3f3f3;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+/* line 182, ../sass/style.scss */
+.desc .main .main-m .chart {
+  height: 53.46821%;
+  width: 100%;
+}
 
 /*
     _______________________________________________________
@@ -226,35 +257,35 @@ a, img, div {
     
 */
 @media only screen and (max-height: 1920px) {
-  /* line 167, ../sass/style.scss */
+  /* line 206, ../sass/style.scss */
   .start .text {
     bottom: 249.90476px;
   }
-  /* line 170, ../sass/style.scss */
+  /* line 209, ../sass/style.scss */
   .start .text .title {
     opacity: 0;
     margin-left: -500px;
     margin-right: 5px;
     margin-bottom: 32.7619px;
   }
-  /* line 176, ../sass/style.scss */
+  /* line 215, ../sass/style.scss */
   .start .text .subTitle {
     opacity: 0;
     margin-left: 5px;
     margin-right: -500px;
   }
-  /* line 182, ../sass/style.scss */
+  /* line 221, ../sass/style.scss */
   .start .start-c {
     bottom: 115.04762px;
   }
-  /* line 185, ../sass/style.scss */
+  /* line 224, ../sass/style.scss */
   .start .start-c .start-btn {
     opacity: 0;
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 192, ../sass/style.scss */
+  /* line 231, ../sass/style.scss */
   .start .byWeilan {
     bottom: 60px;
   }
