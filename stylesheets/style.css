@@ -168,12 +168,22 @@ a, img, div {
 }
 
 /* line 118, ../sass/style.scss */
-.viewport, .start, .desc {
+.viewport, .start, .desc, #loading {
   height: 100%;
   width: 100%;
 }
 
 /* line 122, ../sass/style.scss */
+#loading {
+  background: #000;
+  height: 99999999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+
+/* line 130, ../sass/style.scss */
 .start {
   text-align: center;
   color: #9db5cb;
@@ -183,27 +193,27 @@ a, img, div {
   background-image: -o-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
   background-image: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
 }
-/* line 127, ../sass/style.scss */
+/* line 135, ../sass/style.scss */
 .start .text {
   width: 100%;
   position: absolute;
 }
-/* line 131, ../sass/style.scss */
+/* line 139, ../sass/style.scss */
 .start .text .title {
   font-size: 4.625em;
   font-family: "STHeiti", "SimHei";
 }
-/* line 135, ../sass/style.scss */
+/* line 143, ../sass/style.scss */
 .start .text .subTitle {
   font-size: 2.125em;
   font-family: "LiSong Pro Light", "SimSun";
 }
-/* line 140, ../sass/style.scss */
+/* line 148, ../sass/style.scss */
 .start .start-c {
   width: 100%;
   position: absolute;
 }
-/* line 144, ../sass/style.scss */
+/* line 152, ../sass/style.scss */
 .start .start-c .start-btn {
   display: block;
   margin: 0 auto;
@@ -218,22 +228,22 @@ a, img, div {
   color: #fff;
   font-family: "STHeiti", "SimHei";
 }
-/* line 155, ../sass/style.scss */
+/* line 163, ../sass/style.scss */
 .start .byWeilan {
   position: absolute;
   width: 100%;
 }
 
-/* line 160, ../sass/style.scss */
+/* line 168, ../sass/style.scss */
 .desc {
   background: #41a8b7;
   overflow: hidden;
 }
-/* line 164, ../sass/style.scss */
+/* line 172, ../sass/style.scss */
 .desc .l-bar, .desc .r-bar, .desc .main {
   height: 100%;
 }
-/* line 173, ../sass/style.scss */
+/* line 181, ../sass/style.scss */
 .desc .main .main-m {
   width: 100%;
   height: 59.04762%;
@@ -243,7 +253,7 @@ a, img, div {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
-/* line 182, ../sass/style.scss */
+/* line 190, ../sass/style.scss */
 .desc .main .main-m .chart {
   height: 53.46821%;
   width: 100%;
@@ -257,35 +267,35 @@ a, img, div {
     
 */
 @media only screen and (max-height: 1920px) {
-  /* line 206, ../sass/style.scss */
+  /* line 214, ../sass/style.scss */
   .start .text {
     bottom: 249.90476px;
   }
-  /* line 209, ../sass/style.scss */
+  /* line 217, ../sass/style.scss */
   .start .text .title {
     opacity: 0;
     margin-left: -500px;
     margin-right: 5px;
     margin-bottom: 32.7619px;
   }
-  /* line 215, ../sass/style.scss */
+  /* line 223, ../sass/style.scss */
   .start .text .subTitle {
     opacity: 0;
     margin-left: 5px;
     margin-right: -500px;
   }
-  /* line 221, ../sass/style.scss */
+  /* line 229, ../sass/style.scss */
   .start .start-c {
     bottom: 115.04762px;
   }
-  /* line 224, ../sass/style.scss */
+  /* line 232, ../sass/style.scss */
   .start .start-c .start-btn {
     opacity: 0;
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 231, ../sass/style.scss */
+  /* line 239, ../sass/style.scss */
   .start .byWeilan {
     bottom: 60px;
   }

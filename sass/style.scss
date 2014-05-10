@@ -115,9 +115,17 @@ $xisong: "LiSong Pro Light", "SimSun";
 .clearfix {
     @include clearfix;
 }
-.viewport, .start, .desc {
+.viewport, .start, .desc, #loading {
     height: 100%;
     width: 100%;
+}
+#loading {
+    background: #000;
+    height: 9999px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
 }
 .start {
     text-align: center;
