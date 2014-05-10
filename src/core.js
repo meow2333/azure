@@ -24,7 +24,7 @@ KISSY.config({
     }
 });
 
-    KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/index', function(S, Dom, Node, Modernizr, OnepageScroll, IO, HashX) {
+    KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/index, promise', function(S, Dom, Node, Modernizr, OnepageScroll, IO, HashX, Promise) {
         var $ = Node.all;
         function AZ() {
             var me = this;
@@ -102,7 +102,7 @@ KISSY.config({
             var me = this;
 
             me.body.css('height', Dom.viewportHeight());
-            var scorll = new OnepageScroll({
+            me.scroll = new OnepageScroll({
                 "container": ".viewport",
                 "sectionContainer": "section",
                 "easing": "ease",
@@ -165,6 +165,7 @@ KISSY.config({
                     var hashX = new HashX();
 
                     hashX.hash('city', city);
+                    me.scroll.moveDown();
                     me.initChart(city);
                 }
 
@@ -190,32 +191,176 @@ KISSY.config({
 
     AZ.prototype.initChart = function(city) {
         var me = this;
+        var loada = false;
+        var loadh = false;
+        function initAV() {
+            AV.initialize("blgx18bu3llnxjmstq0q528k7ogjwgqnlv3tm9b1926af47x", "zwdgquddmljlde2crhfztjk0csrzplv0x5wlk2odpgqmoh0u");
 
-        AV.initialize("blgx18bu3llnxjmstq0q528k7ogjwgqnlv3tm9b1926af47x", "zwdgquddmljlde2crhfztjk0csrzplv0x5wlk2odpgqmoh0u");
+            var SendMessage = AV.Object.extend('main');
+            var sendMessage = new SendMessage();
+            
+            var query = new AV.Query(SendMessage);
+            query.containedIn('area', [city]);
+            query.select('time','area','aqi','no','no2','o3','pm2_5','pm10','primary_pollutant','quality','so2');
+            query.descending('time');
+            query.limit(12);
+            query.find().then(function(results) {
+                // spinner.stop();
+                if (!results) {
+                    //城市不对或者网络没数据
+                    console.log('城市不对或者网络没数据');
+                    return;
+                }
+                var t,time=[],aqi=[],no=[],no2=[],o3=[],pm2_5=[],pm10=[],primary_pollutant=[],quality=[],so2=[];
+                for (var i=results.length-1,l=0;i>=l;i--) {
+                    //时间处理 2014-04-25T13:00:00Z
+                    t = new Date(results[i].attributes.time).getHours();
+                    
+                    time.push(t);
+                    aqi.push(results[i].attributes.aqi);
+                    no.push(results[i].attributes.no);
+                    no2.push(results[i].attributes.no2);
+                    o3.push(results[i].attributes.o3);
+                    pm2_5.push(results[i].attributes.pm2_5);
+                    pm10.push(results[i].attributes.pm10);
+                    primary_pollutant.push(results[i].attributes.primary_pollutant);
+                    quality.push(results[i].attributes.quality);
+                    so2.push(results[i].attributes.so2);
+                }
+                var chart = new Highcharts.Chart({
+                    chart: {
+                        animation: {
+                            duration: 1500
+                        },
+                        backgroundColor: '#efece2',
+                        type: 'spline',
+                        renderTo: $('#chart').getDOMNode()
+                    },
+                    title: {
+                        text: '空气质量详情',
+                        x: -20,
+                        style: {
+                            color: '#999999',
+                            'font-family': 'Microsoft Yahei'
+                        }
+                    },
+                    subtitle: {
+                        text: 'Source: PM2.5in',
+                        x: -20
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        spline: {
+                            marker: {
+                                radius: 2,
+                                lineColor: '#666666',
+                                lineWidth: 1,
+                                enabled: false,
+                                states: {
+                                    hover: {
+                                        enabled: false
+                                    }
+                                }
+                            },
+                            stickyTracking:true
+                        }
+                    },
+                    xAxis: {
+                        categories: time
+                    },
+                    yAxis: {
+                        title: {
+                            text: '数值',
+                            style: {
+                                color: '#999999',
+                                'font-family': 'Microsoft Yahei'
+                            }
+                        },
+                        plotLines: [{
+                            value: 0,
+                            width: 1,
+                            color: '#808080'
+                        }],
+                        min: 0,
+                        minRange: 300
+                    },
+                    tooltip: {
+                        crosshairs: true,
+                        shared: true,
+                        useHTML: true,
+                        //<small>时间：{point.key}</small>
+                        headerFormat: '<table>',
+                        pointFormat: '<tr><td style="color: {series.color}">{series.name}: </td>' +
+                        '<td style="text-align: right"><b>{point.y}</b></td></tr>',
+                        footerFormat: '</table>'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0,
+                        itemHiddenStyle: {color: '#999999'},
+                        itemHoverStyle: {color: '#ffffff'},
+                        itemStyle: {
+                            'padding-bottom': '10px',
+                            'font-size': '14px',
+                            'font-family': 'tohoma',
+                            'font-weight': 'bold'
+                        }
+                    },
+                    series: [{
+                        name: 'AQI',
+                        id: 'aqi',
+                        data: aqi,
+                        color: '#7f81e7'
+                    }, {
+                        name: 'PM2.5',
+                        id: 'pm2_5',
+                        data: pm2_5,
+                        color: '#e9de62'
+                    }, {
+                        name: 'PM10',
+                        id: 'pm10',
+                        data: pm10,
+                        color: '#d8dc9d'
+                    }, {
+                        name: 'SO2',
+                        id: 'so2',
+                        data: so2,
+                        color: '#e7907f'
+                    }, {
+                        name: 'NO2',
+                        id: 'no2',
+                        data: no2,
+                        color: '#addbdb'
+                    }, {
+                        name: 'O3',
+                        id: 'o3',
+                        data: o3,
+                        color: '#7fe7b0'
+                    }]
+                }); 
+                // chart.renderTo($('#chart').getDOMNode());
+            });
 
-        var SendMessage = AV.Object.extend('main');
-        var sendMessage = new SendMessage();
-        
-        var query = new AV.Query(SendMessage);
-        query.containedIn('area', [city]);
-        query.select('time','area','aqi','no','no2','o3','pm2_5','pm10','primary_pollutant','quality','so2');
-        query.descending('time');
-        query.limit(12);
-        query.find().then(function(results) {
-            spinner.stop();
-            if (!results) {
-                //城市不对或者网络没数据
-                console.log('城市不对或者网络没数据');
+        }
+        S.getScript('./js/av-0.3.1.min.js', function() {
+            if (loadh === true) {
+                initAV();
+                return;
             }
-            var t,times=[];
-            for (var i=results.length-1,l=0;i>=l;i--) {
-                //时间处理 2014-04-25T13:00:00Z
-                t = new Date(results[i].attributes.time);
-                
-                times.push(t);
-            }
-            console.log(times);
+            loada = true;
         });
+        S.getScript('src/highcharts.js', function() {
+            if (loada === true) {
+                initAV();
+                return;
+            }
+            loadh = true;
+        });
+
     };
 
 
@@ -239,7 +384,6 @@ KISSY.config({
         //       top: '50%', // Top position relative to parent
         //       left: '50%' // Left position relative to parent
         //     };
-        //     // $('#loading').show();
         //     var target = $('body').getDOMNode();
         //     var spinner = new Spinner(opts).spin(target);
 
