@@ -175,7 +175,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 var hashX = new HashX();
 
                 hashX.hash('city', city);
-                // me.scroll.moveDown();
+                me.scroll.moveDown();
                 me.initChart(city);
             }
 
