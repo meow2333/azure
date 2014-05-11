@@ -97,6 +97,47 @@ $heiti: "STHeiti", "SimHei";
 $songti: "STSong", "SimSun";
 $xisong: "LiSong Pro Light", "SimSun";
 
+/* 
+    _______________________________________________________
+    
+    iconfonts
+    _______________________________________________________
+    
+*/
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('fonts/icomoon.eot?-kwrole');
+    src:url('fonts/icomoon.eot?#iefix-kwrole') format('embedded-opentype'),
+        url('fonts/icomoon.woff?-kwrole') format('woff'),
+        url('fonts/icomoon.ttf?-kwrole') format('truetype'),
+        url('fonts/icomoon.svg?-kwrole#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+    content: "\e600";
+}
+.icon-location:before {
+    content: "\e601";
+}
+
+
 /*
     _______________________________________________________
     
@@ -176,6 +217,41 @@ $xisong: "LiSong Pro Light", "SimSun";
     .l-bar {
     }
     .r-bar {
+        .location {
+            margin-top: 20px;
+            font-size: 5em;
+
+            .icon-location {
+                text-align: center;
+                color: #fff;
+            }
+            .city {
+                margin-top: 20px;
+                width: 100%;
+                text-align: center;
+                color: #fff;
+                font-family: $heiti;
+            }
+        }
+        .search {
+            margin-top: 40px;
+            width: 100%;
+            background: #fff;
+            box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            -webkit-box-sizing:border-box;
+            border: 1px dashed #efcb3d;
+            color: #efcb3d;
+            font-size: 12px;
+            line-height: 26px;
+            padding-left: 5px;
+
+            input {
+                background: transparent;
+                border: none;
+                color: #efcb3d;
+            }
+        }
     }
     .main {
 
@@ -223,6 +299,7 @@ $xisong: "LiSong Pro Light", "SimSun";
             color: #fff;
             font-family: $heiti;
             background: #6eccd8;
+            cursor: pointer;
         }
         .byWeilan {
             margin-top: 20px;

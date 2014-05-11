@@ -58,6 +58,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
 
         me.descDiv = $('.desc');
         me.descInfo = me.descDiv.one('.info');
+        me.descMoreBtn = me.descDiv.one('.more-btn');
     };
 
 /*
@@ -174,7 +175,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 var hashX = new HashX();
 
                 hashX.hash('city', city);
-                me.scroll.moveDown();
+                // me.scroll.moveDown();
                 me.initChart(city);
             }
 
@@ -186,6 +187,9 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             } else {
                 errorFunc();
             }
+        });
+        me.descMoreBtn.on('click', function() {
+            
         });
         me.startAnime();
     };
