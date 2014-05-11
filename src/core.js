@@ -57,6 +57,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.startSubTitle = me.startDiv.one('.subTitle');
 
         me.descDiv = $('.desc');
+        me.descInfo = me.descDiv.one('.info');
     };
 
 /*
@@ -111,8 +112,15 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             "pagination": true,
             "updateURL": false,
             "keyboard": true,
-            "beforeMove": function(index){},
-            "afterMove": function(index){},
+            "beforeMove": function(index){
+                //判断在第几页，分别触发当前页面的下一步按钮
+                if (index == 1 && !window.Highcharts) {
+                    me.startBtn.fire('click');
+                }
+            },
+            "afterMove": function(index){
+
+            },
             "loop": false
         });
         me.animations();
@@ -399,9 +407,28 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
     AZ.prototype.checkStandard = function() {
         var result = {},
             me = this,
-            data = me.data;
+            data = me.data,
+            infos;
 
-        if (data.pm2_5 >= 75) {
+        function haveInfo() {
+            for (var i in result) {
+                return true;
+            }
+            return false;
+        }
+        function renderInfo() {
+            if (haveInfo()) {
+                for (var i in result) {
+                    infos = infos + result.i + '&nbsp';
+                }
+            } else {
+                infos = '空气质量很好，没有任何超标数值';
+            }
+            
+            me.descInfo.html(infos);
+        }
+
+        if (data.pm2_5[11] >= 75) {
             result.pm2_5 = 'PM2.5含量过高';
         } else if (data.pm2_5 >= 50) {
             result.pm2_5 = 'PM2.5含量偏高';
@@ -411,7 +438,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             result.pm2_5 = 'PM2.5含量略高';
         } 
 
-        if (data.pm10 >= 150) {
+        if (data.pm10[11] >= 150) {
             result.pm10 = 'PM10含量过高';
         } else if (data.pm10 >= 100) {
             result.pm10 = 'PM10含量偏高';
@@ -421,17 +448,17 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             result.pm10 = 'PM10含量略高';
         }
 
-        if (data.o3 >= 160) {
+        if (data.o3[11] >= 160) {
             result.o3 = 'O3含量过高';
         } else if (data.o3 >= 100) {
             result.o3 = 'O3含量偏高';
         }
 
-        if (data.no2 >= 200) {
+        if (data.no2[11] >= 200) {
             result.o3 = 'NO2含量过高';
         }
 
-        if (data.so2 >= 125) {
+        if (data.so2[11] >= 125) {
             result.so2 = 'SO2含量过高';
         } else if (data.so2 >= 50) {
             result.so2 = 'SO2含量偏高';
@@ -439,7 +466,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             result.so2 = 'SO2含量略高';
         }
 
-        return result;
+        renderInfo();
     };
 
 

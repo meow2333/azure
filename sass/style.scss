@@ -163,6 +163,7 @@ $xisong: "LiSong Pro Light", "SimSun";
     .byWeilan {
         position: absolute;
         width: 100%;
+        font-family: $heiti;
     }
 }
 .desc {
@@ -186,11 +187,49 @@ $xisong: "LiSong Pro Light", "SimSun";
             box-sizing:border-box;
             -moz-box-sizing:border-box;
             -webkit-box-sizing:border-box;
+            margin-top: 124px;
 
             .chart {
                 @include madeD(height, 576px, 692px);
                 width: 100%;
             }
+            .info {
+                background: #f7f5f0;
+                width: 80%;
+                box-sizing:border-box;
+                -moz-box-sizing:border-box;
+                -webkit-box-sizing:border-box;
+                border: 1px dashed #efcb3d;
+                color: #efcb3d;
+                font-family: $heiti;
+                font-size: 16px;
+                /*height: 30px;*/
+                line-height: 30px;
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
+        .more-c {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .more-btn {
+            display: inline-block;
+            width: 150px;
+            font-size: 20px;
+            height: 44px;
+            line-height: 44px;
+            @include border-radius(5px);
+            color: #fff;
+            font-family: $heiti;
+            background: #6eccd8;
+        }
+        .byWeilan {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-family: $heiti;
         }
     }
 }
