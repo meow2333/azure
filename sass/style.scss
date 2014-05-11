@@ -188,7 +188,7 @@ $xisong: "LiSong Pro Light", "SimSun";
             -webkit-box-sizing:border-box;
 
             .chart {
-                @include madeD(height, 370px, 692px);
+                @include madeD(height, 576px, 692px);
                 width: 100%;
             }
         }

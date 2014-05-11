@@ -53,7 +53,7 @@ KISSY.add('pkg/onepageScroll',function (S, Node, Base) {
             });
 
             this.swipeEvents().on("swipeDown", function() {
-                .moveUp();
+                this.moveUp();
             }).on("swipeUp", function() {
                 this.moveDown();
             });
@@ -342,7 +342,7 @@ KISSY.add('pkg/onepageScroll',function (S, Node, Base) {
             }
         }
     });
-    return OnepageScroll;
+    return onepageScroll;
 }, {
     requires: [
         'node',

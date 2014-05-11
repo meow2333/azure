@@ -176,7 +176,7 @@ a, img, div {
 /* line 122, ../sass/style.scss */
 #loading {
   background: #000;
-  height: 99999999px;
+  height: 9999px;
   position: absolute;
   top: 0;
   left: 0;
@@ -255,7 +255,7 @@ a, img, div {
 }
 /* line 190, ../sass/style.scss */
 .desc .main .main-m .chart {
-  height: 53.46821%;
+  height: 83.23699%;
   width: 100%;
 }
 
