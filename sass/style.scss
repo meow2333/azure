@@ -130,6 +130,24 @@ $xisong: "LiSong Pro Light", "SimSun";
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-happy:before {
+    content: "\e602";
+}
+.icon-smiley:before {
+    content: "\e603";
+}
+.icon-sad:before {
+    content: "\e604";
+}
+.icon-confused:before {
+    content: "\e605";
+}
+.icon-neutral:before {
+    content: "\e606";
+}
+.icon-wondering:before {
+    content: "\e607";
+}
 .icon-search:before {
     content: "\e600";
 }
@@ -363,6 +381,74 @@ $xisong: "LiSong Pro Light", "SimSun";
             }
             .value-ul {
                 border-bottom: 1px solid #e5e5e5;
+                overflow: hidden;
+                height: 151px;
+
+                li {
+                    color: #4F4F4F;
+                    font-family: Silom;
+                    position:relative;
+                    padding-left:4px;
+                    height:30px;
+                    line-height:30px;
+                    white-space:nowrap;
+                    font-size: 30px;
+                    overflow:hidden;
+                    width:100%;
+                    margin-bottom: 20px;
+
+                    .cricle {
+                        width: 30px;
+                        height: 30px;
+                        display: inline-block;
+                        @include border-radius(15px);
+                    }
+                    .type {
+                        display: inline-block;
+                        margin-left: 10px;
+                    }
+                    .value {
+                        position:absolute;
+                        display:block;
+                        padding:0 4px;
+                        right:0;
+                        top:0;
+                        line-height:30px;
+                        z-index:1;
+                        text-align: right;
+                        background: #f4f4f4;
+                        width: auto;
+                        height: 35px;
+                    }
+                    .dashed_line{
+                        height:0;
+                        overflow:hidden;
+                        display:inline-block;
+                        width:100%;
+                        margin:0 4px;
+                        border-bottom:2px dashed #333;
+                        vertical-align:middle;
+                    }
+                }
+            }
+            .degree {
+                width: 100%;
+                text-align: right;
+                margin-top: 10px;
+
+                .face {
+                    color: #f7da93;
+                    @include fonts(40em);
+                }
+                .face-desc {
+                    @include fonts(35em);
+                    color: #f99218;
+                    background: #f7da93;
+                    margin-left: 10px;
+                    padding: 2px;
+                    font-family: $heiti;
+                    @include border-radius(5px);
+                }
             }
         }
         .tips {

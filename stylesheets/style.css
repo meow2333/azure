@@ -184,11 +184,41 @@ a, img, div {
 }
 
 /* line 133, ../sass/style.scss */
+.icon-happy:before {
+  content: "\e602";
+}
+
+/* line 136, ../sass/style.scss */
+.icon-smiley:before {
+  content: "\e603";
+}
+
+/* line 139, ../sass/style.scss */
+.icon-sad:before {
+  content: "\e604";
+}
+
+/* line 142, ../sass/style.scss */
+.icon-confused:before {
+  content: "\e605";
+}
+
+/* line 145, ../sass/style.scss */
+.icon-neutral:before {
+  content: "\e606";
+}
+
+/* line 148, ../sass/style.scss */
+.icon-wondering:before {
+  content: "\e607";
+}
+
+/* line 151, ../sass/style.scss */
 .icon-search:before {
   content: "\e600";
 }
 
-/* line 136, ../sass/style.scss */
+/* line 154, ../sass/style.scss */
 .icon-location:before {
   content: "\e601";
 }
@@ -200,19 +230,19 @@ a, img, div {
     _______________________________________________________
     
 */
-/* line 156, ../sass/style.scss */
+/* line 174, ../sass/style.scss */
 .clearfix {
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 159, ../sass/style.scss */
+/* line 177, ../sass/style.scss */
 .viewport, .start, .desc, .more, #loading {
   height: 100%;
   width: 100%;
 }
 
-/* line 163, ../sass/style.scss */
+/* line 181, ../sass/style.scss */
 #loading {
   background: #000;
   height: 9999px;
@@ -222,7 +252,7 @@ a, img, div {
   z-index: 10000;
 }
 
-/* line 171, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
 .shadow {
   width: 100%;
   height: 100%;
@@ -233,7 +263,7 @@ a, img, div {
   background-image: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
 }
 
-/* line 176, ../sass/style.scss */
+/* line 194, ../sass/style.scss */
 .start {
   text-align: center;
   color: #9db5cb;
@@ -243,27 +273,27 @@ a, img, div {
   background-image: -o-radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
   background-image: radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
 }
-/* line 181, ../sass/style.scss */
+/* line 199, ../sass/style.scss */
 .start .text {
   width: 100%;
   position: absolute;
 }
-/* line 185, ../sass/style.scss */
+/* line 203, ../sass/style.scss */
 .start .text .title {
   font-size: 4.625em;
   font-family: "STHeiti", "SimHei";
 }
-/* line 189, ../sass/style.scss */
+/* line 207, ../sass/style.scss */
 .start .text .subTitle {
   font-size: 2.125em;
   font-family: "LiSong Pro Light", "SimSun";
 }
-/* line 194, ../sass/style.scss */
+/* line 212, ../sass/style.scss */
 .start .start-c {
   width: 100%;
   position: absolute;
 }
-/* line 198, ../sass/style.scss */
+/* line 216, ../sass/style.scss */
 .start .start-c .start-btn {
   display: block;
   margin: 0 auto;
@@ -278,33 +308,33 @@ a, img, div {
   color: #fff;
   font-family: "STHeiti", "SimHei";
 }
-/* line 209, ../sass/style.scss */
+/* line 227, ../sass/style.scss */
 .start .byWeilan {
   position: absolute;
   width: 100%;
   font-family: "STHeiti", "SimHei";
 }
 
-/* line 215, ../sass/style.scss */
+/* line 233, ../sass/style.scss */
 .desc {
   background: #41a8b7;
   overflow: hidden;
 }
-/* line 219, ../sass/style.scss */
+/* line 237, ../sass/style.scss */
 .desc .l-bar, .desc .r-bar, .desc .main {
   height: 100%;
 }
-/* line 225, ../sass/style.scss */
+/* line 243, ../sass/style.scss */
 .desc .r-bar .location {
   margin-top: 20px;
   font-size: 5em;
 }
-/* line 229, ../sass/style.scss */
+/* line 247, ../sass/style.scss */
 .desc .r-bar .location .icon-location {
   text-align: center;
   color: #fff;
 }
-/* line 233, ../sass/style.scss */
+/* line 251, ../sass/style.scss */
 .desc .r-bar .location .city {
   margin-top: 20px;
   width: 100%;
@@ -312,7 +342,7 @@ a, img, div {
   color: #fff;
   font-family: "STHeiti", "SimHei";
 }
-/* line 241, ../sass/style.scss */
+/* line 259, ../sass/style.scss */
 .desc .r-bar .search {
   margin-top: 40px;
   width: 100%;
@@ -326,13 +356,13 @@ a, img, div {
   line-height: 26px;
   padding-left: 5px;
 }
-/* line 254, ../sass/style.scss */
+/* line 272, ../sass/style.scss */
 .desc .r-bar .search input {
   background: transparent;
   border: none;
   color: #efcb3d;
 }
-/* line 263, ../sass/style.scss */
+/* line 281, ../sass/style.scss */
 .desc .main .main-m {
   width: 100%;
   height: 59.04762%;
@@ -343,12 +373,12 @@ a, img, div {
   -webkit-box-sizing: border-box;
   margin-top: 124px;
 }
-/* line 273, ../sass/style.scss */
+/* line 291, ../sass/style.scss */
 .desc .main .main-m .chart {
   height: 83.23699%;
   width: 100%;
 }
-/* line 277, ../sass/style.scss */
+/* line 295, ../sass/style.scss */
 .desc .main .main-m .info {
   background: #f7f5f0;
   width: 80%;
@@ -364,12 +394,12 @@ a, img, div {
   margin: 0 auto;
   text-align: center;
 }
-/* line 293, ../sass/style.scss */
+/* line 311, ../sass/style.scss */
 .desc .main .more-c {
   text-align: center;
   margin-top: 20px;
 }
-/* line 297, ../sass/style.scss */
+/* line 315, ../sass/style.scss */
 .desc .main .more-btn {
   display: inline-block;
   width: 150px;
@@ -386,7 +416,7 @@ a, img, div {
   background: #6eccd8;
   cursor: pointer;
 }
-/* line 309, ../sass/style.scss */
+/* line 327, ../sass/style.scss */
 .desc .main .byWeilan {
   margin-top: 20px;
   width: 100%;
@@ -395,7 +425,7 @@ a, img, div {
   font-family: "STHeiti", "SimHei";
 }
 
-/* line 320, ../sass/style.scss */
+/* line 338, ../sass/style.scss */
 .more .analysis, .more .news {
   width: 50%;
   height: 100%;
@@ -407,23 +437,23 @@ a, img, div {
   position: relative;
   overflow: hidden;
 }
-/* line 331, ../sass/style.scss */
+/* line 349, ../sass/style.scss */
 .more .analysis {
   background: #f4f4f4;
 }
-/* line 334, ../sass/style.scss */
+/* line 352, ../sass/style.scss */
 .more .analysis .value, .more .analysis .tips {
   width: 100%;
 }
-/* line 337, ../sass/style.scss */
+/* line 355, ../sass/style.scss */
 .more .analysis .value {
   height: 50%;
 }
-/* line 340, ../sass/style.scss */
+/* line 358, ../sass/style.scss */
 .more .analysis .value .title-c {
   height: 16.8254%;
 }
-/* line 343, ../sass/style.scss */
+/* line 361, ../sass/style.scss */
 .more .analysis .value .title-c .title {
   color: #4F4F4F;
   font-size: 2.6875em;
@@ -431,31 +461,112 @@ a, img, div {
   float: left;
   vertical-align: bottom;
 }
-/* line 350, ../sass/style.scss */
+/* line 368, ../sass/style.scss */
 .more .analysis .value .title-c .location {
   float: right;
   text-align: center;
 }
-/* line 354, ../sass/style.scss */
+/* line 372, ../sass/style.scss */
 .more .analysis .value .title-c .location .icon-location {
   font-size: 1.5625em;
   color: #fff;
 }
-/* line 358, ../sass/style.scss */
+/* line 376, ../sass/style.scss */
 .more .analysis .value .title-c .location .city {
   color: #43adbe;
   font-size: 1.5625em;
 }
-/* line 364, ../sass/style.scss */
+/* line 382, ../sass/style.scss */
 .more .analysis .value .value-ul {
   border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  height: 151px;
 }
-/* line 368, ../sass/style.scss */
+/* line 387, ../sass/style.scss */
+.more .analysis .value .value-ul li {
+  color: #4F4F4F;
+  font-family: Silom;
+  position: relative;
+  padding-left: 4px;
+  height: 30px;
+  line-height: 30px;
+  white-space: nowrap;
+  font-size: 30px;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20px;
+}
+/* line 400, ../sass/style.scss */
+.more .analysis .value .value-ul li .cricle {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+}
+/* line 406, ../sass/style.scss */
+.more .analysis .value .value-ul li .type {
+  display: inline-block;
+  margin-left: 10px;
+}
+/* line 410, ../sass/style.scss */
+.more .analysis .value .value-ul li .value {
+  position: absolute;
+  display: block;
+  padding: 0 4px;
+  right: 0;
+  top: 0;
+  line-height: 30px;
+  z-index: 1;
+  text-align: right;
+  background: #f4f4f4;
+  width: auto;
+  height: 35px;
+}
+/* line 423, ../sass/style.scss */
+.more .analysis .value .value-ul li .dashed_line {
+  height: 0;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  margin: 0 4px;
+  border-bottom: 2px dashed #333;
+  vertical-align: middle;
+}
+/* line 434, ../sass/style.scss */
+.more .analysis .value .degree {
+  width: 100%;
+  text-align: right;
+  margin-top: 10px;
+}
+/* line 439, ../sass/style.scss */
+.more .analysis .value .degree .face {
+  color: #f7da93;
+  font-size: 2.5em;
+}
+/* line 443, ../sass/style.scss */
+.more .analysis .value .degree .face-desc {
+  font-size: 2.1875em;
+  color: #f99218;
+  background: #f7da93;
+  margin-left: 10px;
+  padding: 2px;
+  font-family: "STHeiti", "SimHei";
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 454, ../sass/style.scss */
 .more .analysis .tips {
   height: 50%;
   background: #ebeaea;
 }
-/* line 372, ../sass/style.scss */
+/* line 458, ../sass/style.scss */
 .more .analysis .tips .title {
   font-size: 2.3125em;
   font-family: Arial;
@@ -463,11 +574,11 @@ a, img, div {
   color: #4F4F4F;
   border-bottom: 2px dashed #4F4F4F;
 }
-/* line 381, ../sass/style.scss */
+/* line 467, ../sass/style.scss */
 .more .news {
   background: #f1f1f1;
 }
-/* line 384, ../sass/style.scss */
+/* line 470, ../sass/style.scss */
 .more .news .title {
   font-size: 2.6875em;
   color: #4F4F4F;
@@ -476,11 +587,11 @@ a, img, div {
   text-align: left;
   height: 8.09524%;
 }
-/* line 392, ../sass/style.scss */
+/* line 478, ../sass/style.scss */
 .more .news .news-ul {
   height: 68.73016%;
 }
-/* line 395, ../sass/style.scss */
+/* line 481, ../sass/style.scss */
 .more .news .news-ul li {
   width: 100%;
   height: 30%;
@@ -493,21 +604,21 @@ a, img, div {
   font-size: 1.25em;
   overflow: hidden;
 }
-/* line 407, ../sass/style.scss */
+/* line 493, ../sass/style.scss */
 .more .news .news-ul li .time {
   color: #c3c2c2;
   font-family: Arial;
 }
-/* line 411, ../sass/style.scss */
+/* line 497, ../sass/style.scss */
 .more .news .news-ul li .content {
   margin-top: 10px;
   color: #4F4F4F;
 }
-/* line 415, ../sass/style.scss */
+/* line 501, ../sass/style.scss */
 .more .news .news-ul li .content p {
   line-height: 1.5;
 }
-/* line 421, ../sass/style.scss */
+/* line 507, ../sass/style.scss */
 .more .news .more-btn {
   width: 54.76773%;
   height: 72px;
@@ -534,35 +645,35 @@ a, img, div {
     
 */
 @media only screen and (max-height: 1920px) {
-  /* line 453, ../sass/style.scss */
+  /* line 539, ../sass/style.scss */
   .start .text {
     bottom: 249.90476px;
   }
-  /* line 456, ../sass/style.scss */
+  /* line 542, ../sass/style.scss */
   .start .text .title {
     opacity: 0;
     margin-left: -500px;
     margin-right: 5px;
     margin-bottom: 32.7619px;
   }
-  /* line 462, ../sass/style.scss */
+  /* line 548, ../sass/style.scss */
   .start .text .subTitle {
     opacity: 0;
     margin-left: 5px;
     margin-right: -500px;
   }
-  /* line 468, ../sass/style.scss */
+  /* line 554, ../sass/style.scss */
   .start .start-c {
     bottom: 115.04762px;
   }
-  /* line 471, ../sass/style.scss */
+  /* line 557, ../sass/style.scss */
   .start .start-c .start-btn {
     opacity: 0;
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 478, ../sass/style.scss */
+  /* line 564, ../sass/style.scss */
   .start .byWeilan {
     bottom: 60px;
   }

@@ -65,6 +65,10 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.descMoreBtn = me.descDiv.one('.more-btn');
 
         me.newsUL = $('.more .news-ul');
+        me.valueUl = $('.more .value-ul');
+        me.moreDiv = $('.more');
+        me.face = me.moreDiv.one('.face');
+        me.faceDesc = me.moreDiv.one('.face-desc');
     };
 
 /*
@@ -413,13 +417,14 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
     O3     100   160
     NO2    200
     SO2    20    50      125
+    AQI    50    100     150   200    300
 */ 
 
     AZ.prototype.checkStandard = function() {
         var result = {},
             me = this,
             data = me.data,
-            infos;
+            infos = '';
 
         function haveInfo() {
             for (var i in result) {
@@ -428,40 +433,91 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             return false;
         }
         function renderInfo() {
+            // var tpl = '<li class="tip"><img src=""><div class="solution"><p class="titile">xxxxx</p><p class="desc">xxxxxxxx<a href="">?</a></p></div></li>';
+            var aqi = me.data.aqi[11];
+            var tpl = '{{#each rdata}}<li><span class="cricle" style="background-color:{{color}}"></span><span class="type">{{type}}</span><span class="dashed_line"></span><span class="value">{{value}}</span></li>{{/each}}';
+            var rdata = {
+                rdata: []
+            };
+            var o,html;
+            var map = {
+                pm2_5: '#e9de62',
+                pm10: '#d8dc9d',
+                o3: '#7fe7b0',
+                no2: '#addbdb',
+                so2: '#e7907f'
+            };
+            var nameMap = {
+                pm2_5: 'PM2.5',
+                pm10: 'PM10',
+                o3: 'O3',
+                no2: 'NO2',
+                so2: 'SO2'
+            };
             if (haveInfo()) {
                 for (var i in result) {
-                    infos = infos + result.i + '&nbsp';
+                    o = {
+                        color: map[i],
+                        type: nameMap[i],
+                        value: data[i][11]
+                    };
+                    rdata.rdata.push(o);
+                    infos = infos + result[i] + '。';
                 }
+
+                html = new Xtemplate(tpl).render(rdata);
+                me.valueUl.html(html);
             } else {
                 infos = '空气质量很好，没有任何超标数值';
+                me.valueUl.html('空气质量很好，没有任何超标数值');
             }
             
+            if (aqi >= 300) {
+                me.face.addClass('icon-confused');
+                me.faceDesc.html('严重');
+            } else if (aqi >= 200) {
+                me.face.addClass('icon-sad');
+                me.faceDesc.html('重度');
+            } else if (aqi >= 150) {
+                me.face.addClass('icon-wondering');
+                me.faceDesc.html('中度');
+            } else if (aqi >= 100) {
+                me.face.addClass('icon-neutral');
+                me.faceDesc.html('轻度');
+            } else if (aqi >= 50) {
+                me.face.addClass('icon-smiley');
+                me.faceDesc.html('良');
+            } else {
+                me.face.addClass('icon-happy');
+                me.faceDesc.html('优');
+            }
+
             me.descInfo.html(infos);
         }
 
         if (data.pm2_5[11] >= 75) {
             result.pm2_5 = 'PM2.5含量过高';
-        } else if (data.pm2_5 >= 50) {
+        } else if (data.pm2_5[11] >= 50) {
             result.pm2_5 = 'PM2.5含量偏高';
-        } else if (data.pm2_5 >= 37.5) {
+        } else if (data.pm2_5[11] >= 37.5) {
             result.pm2_5 = 'PM2.5含量偏高';
-        } else if (data.pm2_5 >= 25) {
+        } else if (data.pm2_5[11] >= 25) {
             result.pm2_5 = 'PM2.5含量略高';
         } 
 
         if (data.pm10[11] >= 150) {
             result.pm10 = 'PM10含量过高';
-        } else if (data.pm10 >= 100) {
+        } else if (data.pm10[11] >= 100) {
             result.pm10 = 'PM10含量偏高';
-        } else if (data.pm10 >= 75) {
+        } else if (data.pm10[11] >= 75) {
             result.pm10 = 'PM10含量偏高';
-        } else if (data.pm10 >= 50) {
+        } else if (data.pm10[11] >= 50) {
             result.pm10 = 'PM10含量略高';
         }
 
         if (data.o3[11] >= 160) {
             result.o3 = 'O3含量过高';
-        } else if (data.o3 >= 100) {
+        } else if (data.o3[11] >= 100) {
             result.o3 = 'O3含量偏高';
         }
 
@@ -471,9 +527,9 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
 
         if (data.so2[11] >= 125) {
             result.so2 = 'SO2含量过高';
-        } else if (data.so2 >= 50) {
+        } else if (data.so2[11] >= 50) {
             result.so2 = 'SO2含量偏高';
-        } else if (data.so2 >= 20) {
+        } else if (data.so2[11] >= 20) {
             result.so2 = 'SO2含量略高';
         }
 
