@@ -488,12 +488,16 @@ a {
   padding-left: 5px;
 }
 /* line 384, ../sass/style.scss */
+.desc .r-bar .search form {
+  display: inline;
+}
+/* line 387, ../sass/style.scss */
 .desc .r-bar .search input {
   background: transparent;
   border: none;
   color: #efcb3d;
 }
-/* line 393, ../sass/style.scss */
+/* line 396, ../sass/style.scss */
 .desc .main .main-m {
   width: 100%;
   height: 59.04762%;
@@ -504,12 +508,12 @@ a {
   -webkit-box-sizing: border-box;
   margin-top: 124px;
 }
-/* line 403, ../sass/style.scss */
+/* line 406, ../sass/style.scss */
 .desc .main .main-m .chart {
   height: 83.23699%;
   width: 100%;
 }
-/* line 407, ../sass/style.scss */
+/* line 410, ../sass/style.scss */
 .desc .main .main-m .info {
   background: #f7f5f0;
   width: 80%;
@@ -525,12 +529,12 @@ a {
   margin: 0 auto;
   text-align: center;
 }
-/* line 423, ../sass/style.scss */
+/* line 426, ../sass/style.scss */
 .desc .main .more-c {
   text-align: center;
   margin-top: 20px;
 }
-/* line 427, ../sass/style.scss */
+/* line 430, ../sass/style.scss */
 .desc .main .more-btn {
   display: inline-block;
   width: 150px;
@@ -547,7 +551,7 @@ a {
   background: #6eccd8;
   cursor: pointer;
 }
-/* line 439, ../sass/style.scss */
+/* line 442, ../sass/style.scss */
 .desc .main .byWeilan {
   margin-top: 20px;
   width: 100%;
@@ -556,7 +560,7 @@ a {
   font-family: "STHeiti", "SimHei";
 }
 
-/* line 450, ../sass/style.scss */
+/* line 453, ../sass/style.scss */
 .more .analysis, .more .news {
   width: 50%;
   height: 100%;
@@ -568,23 +572,23 @@ a {
   position: relative;
   overflow: hidden;
 }
-/* line 461, ../sass/style.scss */
+/* line 464, ../sass/style.scss */
 .more .analysis {
   background: #f4f4f4;
 }
-/* line 464, ../sass/style.scss */
+/* line 467, ../sass/style.scss */
 .more .analysis .value, .more .analysis .tips {
   width: 100%;
 }
-/* line 467, ../sass/style.scss */
+/* line 470, ../sass/style.scss */
 .more .analysis .value {
   height: 50%;
 }
-/* line 470, ../sass/style.scss */
+/* line 473, ../sass/style.scss */
 .more .analysis .value .title-c {
   height: 16.8254%;
 }
-/* line 473, ../sass/style.scss */
+/* line 476, ../sass/style.scss */
 .more .analysis .value .title-c .title {
   color: #4F4F4F;
   font-size: 2.6875em;
@@ -592,28 +596,28 @@ a {
   float: left;
   vertical-align: bottom;
 }
-/* line 480, ../sass/style.scss */
+/* line 483, ../sass/style.scss */
 .more .analysis .value .title-c .location {
   float: right;
   text-align: center;
 }
-/* line 484, ../sass/style.scss */
+/* line 487, ../sass/style.scss */
 .more .analysis .value .title-c .location .icon-location {
   font-size: 1.5625em;
   color: #fff;
 }
-/* line 488, ../sass/style.scss */
+/* line 491, ../sass/style.scss */
 .more .analysis .value .title-c .location .city {
   color: #43adbe;
   font-size: 1.5625em;
 }
-/* line 494, ../sass/style.scss */
+/* line 497, ../sass/style.scss */
 .more .analysis .value .value-ul {
   border-bottom: 1px solid #e5e5e5;
   overflow: hidden;
   height: 151px;
 }
-/* line 499, ../sass/style.scss */
+/* line 502, ../sass/style.scss */
 .more .analysis .value .value-ul li {
   color: #4F4F4F;
   font-family: Silom;
@@ -627,7 +631,7 @@ a {
   width: 100%;
   margin-bottom: 20px;
 }
-/* line 512, ../sass/style.scss */
+/* line 515, ../sass/style.scss */
 .more .analysis .value .value-ul li .cricle {
   width: 30px;
   height: 30px;
@@ -638,12 +642,12 @@ a {
   -o-border-radius: 15px;
   border-radius: 15px;
 }
-/* line 518, ../sass/style.scss */
+/* line 521, ../sass/style.scss */
 .more .analysis .value .value-ul li .type {
   display: inline-block;
   margin-left: 10px;
 }
-/* line 522, ../sass/style.scss */
+/* line 525, ../sass/style.scss */
 .more .analysis .value .value-ul li .value {
   position: absolute;
   display: block;
@@ -657,7 +661,7 @@ a {
   width: auto;
   height: 35px;
 }
-/* line 535, ../sass/style.scss */
+/* line 538, ../sass/style.scss */
 .more .analysis .value .value-ul li .dashed_line {
   height: 0;
   overflow: hidden;
@@ -667,18 +671,18 @@ a {
   border-bottom: 2px dashed #333;
   vertical-align: middle;
 }
-/* line 546, ../sass/style.scss */
+/* line 549, ../sass/style.scss */
 .more .analysis .value .degree {
   width: 100%;
   text-align: right;
   margin-top: 10px;
 }
-/* line 551, ../sass/style.scss */
+/* line 554, ../sass/style.scss */
 .more .analysis .value .degree .face {
   color: #f7da93;
   font-size: 2.5em;
 }
-/* line 555, ../sass/style.scss */
+/* line 558, ../sass/style.scss */
 .more .analysis .value .degree .face-desc {
   font-size: 2.1875em;
   color: #f99218;
@@ -692,24 +696,70 @@ a {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 566, ../sass/style.scss */
+/* line 569, ../sass/style.scss */
 .more .analysis .tips {
   height: 50%;
   background: #ebeaea;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
-/* line 570, ../sass/style.scss */
+/* line 577, ../sass/style.scss */
 .more .analysis .tips .title {
   font-size: 2.3125em;
+  line-height: 1.5em;
   font-family: Arial;
   font-weight: bold;
   color: #4F4F4F;
+  padding-top: 10px;
   border-bottom: 2px dashed #4F4F4F;
 }
-/* line 579, ../sass/style.scss */
+/* line 586, ../sass/style.scss */
+.more .analysis .tips .tips-u {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+/* line 591, ../sass/style.scss */
+.more .analysis .tips .tips-u .tip {
+  height: 100px;
+}
+/* line 594, ../sass/style.scss */
+.more .analysis .tips .tips-u .tip img {
+  max-width: 80px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+/* line 600, ../sass/style.scss */
+.more .analysis .tips .tips-u .tip .solution {
+  float: left;
+  text-align: left;
+  font-family: "STHeiti", "SimHei";
+  margin-left: 10px;
+  color: #4F4F4F;
+  width: 80%;
+}
+/* line 608, ../sass/style.scss */
+.more .analysis .tips .tips-u .tip .solution .titile {
+  font-size: 30px;
+}
+/* line 611, ../sass/style.scss */
+.more .analysis .tips .tips-u .tip .solution .desc {
+  background: none;
+  font-size: 20px;
+  line-height: 1.5em;
+}
+/* line 616, ../sass/style.scss */
+.more .analysis .tips .tips-u .tip .solution .desc a {
+  color: #2c83a2;
+}
+/* line 625, ../sass/style.scss */
 .more .news {
   background: #f1f1f1;
 }
-/* line 582, ../sass/style.scss */
+/* line 628, ../sass/style.scss */
 .more .news .title {
   font-size: 2.6875em;
   color: #4F4F4F;
@@ -718,11 +768,11 @@ a {
   text-align: left;
   height: 8.09524%;
 }
-/* line 590, ../sass/style.scss */
+/* line 636, ../sass/style.scss */
 .more .news .news-ul {
   height: 68.73016%;
 }
-/* line 593, ../sass/style.scss */
+/* line 639, ../sass/style.scss */
 .more .news .news-ul li {
   width: 100%;
   height: 30%;
@@ -735,21 +785,21 @@ a {
   font-size: 1.25em;
   overflow: hidden;
 }
-/* line 605, ../sass/style.scss */
+/* line 651, ../sass/style.scss */
 .more .news .news-ul li .time {
   color: #c3c2c2;
   font-family: Arial;
 }
-/* line 609, ../sass/style.scss */
+/* line 655, ../sass/style.scss */
 .more .news .news-ul li .content {
   margin-top: 10px;
   color: #4F4F4F;
 }
-/* line 613, ../sass/style.scss */
+/* line 659, ../sass/style.scss */
 .more .news .news-ul li .content p {
   line-height: 1.5;
 }
-/* line 619, ../sass/style.scss */
+/* line 665, ../sass/style.scss */
 .more .news .more-btn {
   width: 54.76773%;
   height: 72px;
@@ -776,35 +826,35 @@ a {
     
 */
 @media only screen and (max-height: 1920px) {
-  /* line 651, ../sass/style.scss */
+  /* line 697, ../sass/style.scss */
   .start .text {
     bottom: 249.90476px;
   }
-  /* line 654, ../sass/style.scss */
+  /* line 700, ../sass/style.scss */
   .start .text .title {
     opacity: 0;
     margin-left: -500px;
     margin-right: 5px;
     margin-bottom: 32.7619px;
   }
-  /* line 660, ../sass/style.scss */
+  /* line 706, ../sass/style.scss */
   .start .text .subTitle {
     opacity: 0;
     margin-left: 5px;
     margin-right: -500px;
   }
-  /* line 666, ../sass/style.scss */
+  /* line 712, ../sass/style.scss */
   .start .start-c {
     bottom: 115.04762px;
   }
-  /* line 669, ../sass/style.scss */
+  /* line 715, ../sass/style.scss */
   .start .start-c .start-btn {
     opacity: 0;
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 676, ../sass/style.scss */
+  /* line 722, ../sass/style.scss */
   .start .byWeilan {
     bottom: 60px;
   }

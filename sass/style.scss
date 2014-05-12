@@ -381,6 +381,9 @@ $xisong: "LiSong Pro Light", "SimSun";
             line-height: 26px;
             padding-left: 5px;
 
+            form {
+                display: inline;
+            }
             input {
                 background: transparent;
                 border: none;
@@ -566,13 +569,56 @@ $xisong: "LiSong Pro Light", "SimSun";
         .tips {
             height: 50%;
             background: #ebeaea;
+            padding: 15px 10px;
+            box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            -webkit-box-sizing:border-box;
 
             .title {
                 @include fonts(37em);
+                line-height: 1.5em;
                 font-family: Arial;
                 font-weight: bold;
                 color: #4F4F4F;
+                padding-top: 10px;
                 border-bottom: 2px dashed #4F4F4F;
+            }
+            .tips-u {
+                width: 100%;
+                height: auto;
+                margin-top: 20px;
+
+                .tip {
+                    height: 100px;
+
+                    img {
+                        max-width: 80px;
+                        float: left;
+                        margin-left: 10px;
+                        margin-top: 10px;
+                    }
+                    .solution {
+                        float: left;
+                        text-align: left;
+                        font-family: $heiti;
+                        margin-left: 10px;
+                        color: #4F4F4F;
+                        width: 80%;
+
+                        .titile {
+                            font-size: 30px;
+                        }
+                        .desc {
+                            background: none;
+                            font-size: 20px;
+                            line-height: 1.5em;
+
+                            a {
+                                color: #2c83a2;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

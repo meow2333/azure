@@ -74,6 +74,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.descDiv = $('.desc');
         me.descInfo = me.descDiv.one('.info');
         me.descMoreBtn = me.descDiv.one('.more-btn');
+        me.input = $('#search');
 
         me.newsUL = $('.more .news-ul');
         me.valueUl = $('.more .value-ul');
@@ -81,6 +82,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.face = me.moreDiv.one('.face');
         me.faceDesc = me.moreDiv.one('.face-desc');
         me.moreBtn = me.moreDiv.one('.more-btn');
+        me.tipsUl = $('.tips .tips-u');
     };
 
 /*
@@ -337,6 +339,13 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.descMoreBtn.on(me.click, function() {
             me.scroll.moveDown(true);
         });
+        me.input.on('submit', function() {
+            var city = me.input.one('input').val();
+            var hashX = new HashX();
+
+            hashX.hash('city', city);
+            me.initChart(city);
+        });
         me.startAnime();
     };
 
@@ -376,6 +385,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 console.log('城市不对或者网络没数据');
                 return;
             }
+            me.showCity();
             var data = me.data;
             var t;
             data.time=[];
@@ -569,13 +579,16 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             return false;
         }
         function renderInfo() {
-            // var tpl = '<li class="tip"><img src=""><div class="solution"><p class="titile">xxxxx</p><p class="desc">xxxxxxxx<a href="">?</a></p></div></li>';
+            var tipsTpl = '{{#each tips}}<li class="tip clearfix"><img src="{{img}}"><div class="solution"><p class="titile">{{titile}}</p><p class="desc">{{{desc}}}</p></div></li>{{/each}}';
             var aqi = me.data.aqi[11];
             var tpl = '{{#each rdata}}<li><span class="cricle" style="background-color:{{color}}"></span><span class="type">{{type}}</span><span class="dashed_line"></span><span class="value">{{value}}</span></li>{{/each}}';
             var rdata = {
                 rdata: []
             };
-            var o,html;
+            var tips = {
+                tips: []
+            };
+            var o,to,html;
             var map = {
                 pm2_5: '#e9de62',
                 pm10: '#d8dc9d',
@@ -590,6 +603,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 no2: 'NO2',
                 so2: 'SO2'
             };
+
             if (haveInfo()) {
                 for (var i in result) {
                     o = {
@@ -597,6 +611,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                         type: nameMap[i],
                         value: data[i][11]
                     };
+
                     rdata.rdata.push(o);
                     infos = infos + result[i] + '。';
                 }
@@ -628,6 +643,30 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 me.faceDesc.html('优');
             }
 
+            if (aqi >= 50 && aqi < 100) {
+                //显示戴口罩
+                tips.tips.push({
+                    img: '../azure_png/face.png',
+                    titile: '佩戴口罩',
+                    desc: '外出请佩戴口罩（<a href="http://meow2333.github.io" target="_blank">？如何挑选口罩</a>）'
+                });
+                
+            } else if (aqi >= 100) {
+                //+室内
+                tips.tips.push({
+                    img: '../azure_png/house.png',
+                    titile: '室内活动',
+                    desc: '请尽量在室内活动，减少外出，同时关好门窗'
+                });
+            } else {
+                //室外
+                tips.tips.push({
+                    img: '../azure_png/house.png',
+                    titile: '室外运动',
+                    desc: '空气不错，可以尽情的室外活动'
+                });
+            }
+            me.tipsUl.html(new Xtemplate(tipsTpl).render(tips));
             me.descInfo.html(infos);
         }
 
