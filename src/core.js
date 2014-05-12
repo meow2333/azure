@@ -60,6 +60,14 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.startTitle = me.startDiv.one('.title');
         me.startSubTitle = me.startDiv.one('.subTitle');
 
+        me.gas1 = $('.gas1');
+        me.gas2 = $('.gas2');
+        me.pipe1 = $('.pipe1');
+        me.pipe2 = $('.pipe2');
+        me.bubble1 = $('.bubble1');
+        me.bubble2 = $('.bubble2');
+        me.bubble3 = $('.bubble3');
+
         me.descDiv = $('.desc');
         me.descInfo = me.descDiv.one('.info');
         me.descMoreBtn = me.descDiv.one('.more-btn');
@@ -102,6 +110,118 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             });
             tl.play();
         };
+        me.transition = function() {
+            var tl = new TimelineLite();
+
+            function gas1() {
+                TweenLite.to(me.gas1.getDOMNode(), 0.3, {
+                    'top': '10px',
+                    opacity: 0.5,
+                    ease: Expo.easeInOut,
+                    onComplete: function() {
+                        TweenLite.to(me.gas1.getDOMNode(), 0.3, {
+                            'top': '0px',
+                            opacity: 1,
+                            ease: Expo.easeInOut,
+                            onComplete: function() {
+                                gas1();
+                            }
+                        });
+                    }
+                });
+            }
+            function gas2() {
+                TweenLite.to(me.gas2.getDOMNode(), 0.5, {
+                    'top': '20px',
+                    opacity: 0.7,
+                    ease: Expo.easeInOut,
+                    onComplete: function() {
+                        TweenLite.to(me.gas2.getDOMNode(), 0.5, {
+                            'top': '83px',
+                            opacity: 1,
+                            ease: Expo.easeInOut,
+                            onComplete: function() {
+                                gas2();
+                            }
+                        });
+                    }
+                });
+            }
+            function pipe1() {
+                TweenLite.to(me.pipe1.getDOMNode(), 0.4, {
+                    'top': '130px',
+                    ease: Expo.easeInOut,
+                    onComplete: function() {
+                        TweenLite.to(me.pipe1.getDOMNode(), 0.3, {
+                            'top': '139px',
+                            ease: Expo.easeInOut,
+                            onComplete: function() {
+                                pipe1();
+                            }
+                        });
+                    }
+                });
+            }
+            function pipe2() {
+                TweenLite.to(me.pipe2.getDOMNode(), 0.3, {
+                    'top': '360px',
+                    ease: Expo.easeInOut,
+                    onComplete: function() {
+                        TweenLite.to(me.pipe2.getDOMNode(), 0.4, {
+                            'top': '353px',
+                            ease: Expo.easeInOut,
+                            onComplete: function() {
+                                pipe2();
+                            }
+                        });
+                    }
+                });
+            }
+            function bubble1() {
+                TweenLite.to(me.bubble1.getDOMNode(), 1, {
+                    'top': '200px',
+                    'left': '550px',
+                    ease: Expo.easeInOut,
+                    onComplete: function() {
+                        me.bubble1.css('top', '262px');
+                        me.bubble1.css('left', '509px');
+                        bubble1();
+                    }
+                });
+            }
+            function bubble2() {
+                TweenLite.to(me.bubble2.getDOMNode(), 0.8, {
+                    'top': '200px',
+                    'left': '500px',
+                    ease: Expo.easeOut,
+                    onComplete: function() {
+                        me.bubble2.css('top', '261px');
+                        me.bubble2.css('left', '540px');
+                        bubble2();
+                    }
+                });
+            }
+            function bubble3() {
+                TweenLite.to(me.bubble3.getDOMNode(), 1.2, {
+                    'top': '200px',
+                    'left': '500px',
+                    ease: Expo.easeInOut,
+                    onComplete: function() {
+                        me.bubble3.css('top', '220px');
+                        me.bubble3.css('left', '542px');
+                        bubble3();
+                    }
+                });
+            }
+
+            gas1();
+            gas2();
+            pipe1();
+            pipe2();
+            bubble1();
+            bubble2();
+            bubble3();
+        };
     };
 
 /*
@@ -135,6 +255,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             "loop": false
         });
         me.animations();
+        me.transition();
         me.startBtn.on(me.click, function() {
             var ak = '9cwuN4BgCeu9MCMfGuGsKaGF';
 

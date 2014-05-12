@@ -237,7 +237,7 @@ a, img, div {
 }
 
 /* line 177, ../sass/style.scss */
-.viewport, .start, .desc, .more, #loading {
+.viewport, .start, .transition, .desc, .more, #loading {
   height: 100%;
   width: 100%;
 }
@@ -316,25 +316,151 @@ a, img, div {
 }
 
 /* line 233, ../sass/style.scss */
+.transition {
+  background: #0075a9;
+  position: relative;
+}
+/* line 237, ../sass/style.scss */
+.transition .stage {
+  width: 1250px;
+  height: 618px;
+  margin: 0 auto;
+  position: relative;
+}
+/* line 243, ../sass/style.scss */
+.transition .stage .bg, .transition .stage .gas1, .transition .stage .gas2, .transition .stage .pipe1, .transition .stage .pipe2, .transition .stage .bubble1, .transition .stage .bubble2, .transition .stage .bubble3 {
+  position: absolute;
+}
+/* line 246, ../sass/style.scss */
+.transition .stage .bg {
+  width: 1072px;
+  height: 404px;
+  top: 175px;
+  left: 72px;
+  background: url(../azure_png/stage.png) 0 0 no-repeat;
+}
+/* line 253, ../sass/style.scss */
+.transition .stage .gas1 {
+  width: 142px;
+  height: 132px;
+  top: 0px;
+  left: 10px;
+  background: url(../azure_png/animeSprite.png) 0 0 no-repeat;
+}
+/* line 260, ../sass/style.scss */
+.transition .stage .gas2 {
+  width: 73px;
+  height: 49px;
+  top: 83px;
+  left: 146px;
+  background: url(../azure_png/animeSprite.png) 0 -133px no-repeat;
+}
+/* line 267, ../sass/style.scss */
+.transition .stage .pipe1 {
+  width: 190px;
+  height: 192px;
+  top: 139px;
+  left: 49px;
+  background: url(../azure_png/animeSprite.png) 0 -183px no-repeat;
+}
+/* line 274, ../sass/style.scss */
+.transition .stage .pipe2 {
+  width: 85px;
+  height: 163px;
+  top: 353px;
+  left: 74px;
+  background: url(../azure_png/animeSprite.png) 0 -449px no-repeat;
+}
+/* line 281, ../sass/style.scss */
+.transition .stage .bubble1 {
+  width: 25px;
+  height: 25px;
+  top: 262px;
+  left: 509px;
+  background: url(../azure_png/animeSprite.png) 0 -375px no-repeat;
+}
+/* line 288, ../sass/style.scss */
+.transition .stage .bubble2 {
+  width: 16px;
+  height: 16px;
+  top: 261px;
+  left: 540px;
+  background: url(../azure_png/animeSprite.png) 0 -400px no-repeat;
+}
+/* line 295, ../sass/style.scss */
+.transition .stage .bubble3 {
+  width: 33px;
+  height: 33px;
+  top: 220px;
+  left: 542px;
+  background: url(../azure_png/animeSprite.png) 0 -416px no-repeat;
+}
+/* line 303, ../sass/style.scss */
+.transition .footer {
+  position: absolute;
+  width: 100%;
+  bottom: 30px;
+}
+/* line 308, ../sass/style.scss */
+.transition .footer .print {
+  width: 220px;
+  height: 75px;
+  line-height: 75px;
+  margin: 0 auto;
+  display: block;
+  background: #43adbe;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 317, ../sass/style.scss */
+.transition .footer .print i {
+  width: 46px;
+  height: 50px;
+  display: block;
+  float: left;
+  margin-left: 15px;
+  margin-top: 12px;
+  background: url(../azure_png/i.png) 0 0 no-repeat;
+}
+/* line 326, ../sass/style.scss */
+.transition .footer .print span {
+  float: left;
+  display: block;
+  font-size: 30px;
+  margin-left: 15px;
+  font-family: "STHeiti", "SimHei";
+}
+/* line 334, ../sass/style.scss */
+.transition .footer .byWeilan {
+  margin: 25px auto 0 auto;
+  font-family: "STHeiti", "SimHei";
+  color: #9db5cb;
+  text-align: center;
+}
+
+/* line 342, ../sass/style.scss */
 .desc {
   background: #41a8b7;
   overflow: hidden;
 }
-/* line 237, ../sass/style.scss */
+/* line 346, ../sass/style.scss */
 .desc .l-bar, .desc .r-bar, .desc .main {
   height: 100%;
 }
-/* line 243, ../sass/style.scss */
+/* line 352, ../sass/style.scss */
 .desc .r-bar .location {
   margin-top: 20px;
   font-size: 5em;
 }
-/* line 247, ../sass/style.scss */
+/* line 356, ../sass/style.scss */
 .desc .r-bar .location .icon-location {
   text-align: center;
   color: #fff;
 }
-/* line 251, ../sass/style.scss */
+/* line 360, ../sass/style.scss */
 .desc .r-bar .location .city {
   margin-top: 20px;
   width: 100%;
@@ -342,7 +468,7 @@ a, img, div {
   color: #fff;
   font-family: "STHeiti", "SimHei";
 }
-/* line 259, ../sass/style.scss */
+/* line 368, ../sass/style.scss */
 .desc .r-bar .search {
   margin-top: 40px;
   width: 100%;
@@ -356,13 +482,13 @@ a, img, div {
   line-height: 26px;
   padding-left: 5px;
 }
-/* line 272, ../sass/style.scss */
+/* line 381, ../sass/style.scss */
 .desc .r-bar .search input {
   background: transparent;
   border: none;
   color: #efcb3d;
 }
-/* line 281, ../sass/style.scss */
+/* line 390, ../sass/style.scss */
 .desc .main .main-m {
   width: 100%;
   height: 59.04762%;
@@ -373,12 +499,12 @@ a, img, div {
   -webkit-box-sizing: border-box;
   margin-top: 124px;
 }
-/* line 291, ../sass/style.scss */
+/* line 400, ../sass/style.scss */
 .desc .main .main-m .chart {
   height: 83.23699%;
   width: 100%;
 }
-/* line 295, ../sass/style.scss */
+/* line 404, ../sass/style.scss */
 .desc .main .main-m .info {
   background: #f7f5f0;
   width: 80%;
@@ -394,12 +520,12 @@ a, img, div {
   margin: 0 auto;
   text-align: center;
 }
-/* line 311, ../sass/style.scss */
+/* line 420, ../sass/style.scss */
 .desc .main .more-c {
   text-align: center;
   margin-top: 20px;
 }
-/* line 315, ../sass/style.scss */
+/* line 424, ../sass/style.scss */
 .desc .main .more-btn {
   display: inline-block;
   width: 150px;
@@ -416,7 +542,7 @@ a, img, div {
   background: #6eccd8;
   cursor: pointer;
 }
-/* line 327, ../sass/style.scss */
+/* line 436, ../sass/style.scss */
 .desc .main .byWeilan {
   margin-top: 20px;
   width: 100%;
@@ -425,7 +551,7 @@ a, img, div {
   font-family: "STHeiti", "SimHei";
 }
 
-/* line 338, ../sass/style.scss */
+/* line 447, ../sass/style.scss */
 .more .analysis, .more .news {
   width: 50%;
   height: 100%;
@@ -437,23 +563,23 @@ a, img, div {
   position: relative;
   overflow: hidden;
 }
-/* line 349, ../sass/style.scss */
+/* line 458, ../sass/style.scss */
 .more .analysis {
   background: #f4f4f4;
 }
-/* line 352, ../sass/style.scss */
+/* line 461, ../sass/style.scss */
 .more .analysis .value, .more .analysis .tips {
   width: 100%;
 }
-/* line 355, ../sass/style.scss */
+/* line 464, ../sass/style.scss */
 .more .analysis .value {
   height: 50%;
 }
-/* line 358, ../sass/style.scss */
+/* line 467, ../sass/style.scss */
 .more .analysis .value .title-c {
   height: 16.8254%;
 }
-/* line 361, ../sass/style.scss */
+/* line 470, ../sass/style.scss */
 .more .analysis .value .title-c .title {
   color: #4F4F4F;
   font-size: 2.6875em;
@@ -461,28 +587,28 @@ a, img, div {
   float: left;
   vertical-align: bottom;
 }
-/* line 368, ../sass/style.scss */
+/* line 477, ../sass/style.scss */
 .more .analysis .value .title-c .location {
   float: right;
   text-align: center;
 }
-/* line 372, ../sass/style.scss */
+/* line 481, ../sass/style.scss */
 .more .analysis .value .title-c .location .icon-location {
   font-size: 1.5625em;
   color: #fff;
 }
-/* line 376, ../sass/style.scss */
+/* line 485, ../sass/style.scss */
 .more .analysis .value .title-c .location .city {
   color: #43adbe;
   font-size: 1.5625em;
 }
-/* line 382, ../sass/style.scss */
+/* line 491, ../sass/style.scss */
 .more .analysis .value .value-ul {
   border-bottom: 1px solid #e5e5e5;
   overflow: hidden;
   height: 151px;
 }
-/* line 387, ../sass/style.scss */
+/* line 496, ../sass/style.scss */
 .more .analysis .value .value-ul li {
   color: #4F4F4F;
   font-family: Silom;
@@ -496,7 +622,7 @@ a, img, div {
   width: 100%;
   margin-bottom: 20px;
 }
-/* line 400, ../sass/style.scss */
+/* line 509, ../sass/style.scss */
 .more .analysis .value .value-ul li .cricle {
   width: 30px;
   height: 30px;
@@ -507,12 +633,12 @@ a, img, div {
   -o-border-radius: 15px;
   border-radius: 15px;
 }
-/* line 406, ../sass/style.scss */
+/* line 515, ../sass/style.scss */
 .more .analysis .value .value-ul li .type {
   display: inline-block;
   margin-left: 10px;
 }
-/* line 410, ../sass/style.scss */
+/* line 519, ../sass/style.scss */
 .more .analysis .value .value-ul li .value {
   position: absolute;
   display: block;
@@ -526,7 +652,7 @@ a, img, div {
   width: auto;
   height: 35px;
 }
-/* line 423, ../sass/style.scss */
+/* line 532, ../sass/style.scss */
 .more .analysis .value .value-ul li .dashed_line {
   height: 0;
   overflow: hidden;
@@ -536,18 +662,18 @@ a, img, div {
   border-bottom: 2px dashed #333;
   vertical-align: middle;
 }
-/* line 434, ../sass/style.scss */
+/* line 543, ../sass/style.scss */
 .more .analysis .value .degree {
   width: 100%;
   text-align: right;
   margin-top: 10px;
 }
-/* line 439, ../sass/style.scss */
+/* line 548, ../sass/style.scss */
 .more .analysis .value .degree .face {
   color: #f7da93;
   font-size: 2.5em;
 }
-/* line 443, ../sass/style.scss */
+/* line 552, ../sass/style.scss */
 .more .analysis .value .degree .face-desc {
   font-size: 2.1875em;
   color: #f99218;
@@ -561,12 +687,12 @@ a, img, div {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 454, ../sass/style.scss */
+/* line 563, ../sass/style.scss */
 .more .analysis .tips {
   height: 50%;
   background: #ebeaea;
 }
-/* line 458, ../sass/style.scss */
+/* line 567, ../sass/style.scss */
 .more .analysis .tips .title {
   font-size: 2.3125em;
   font-family: Arial;
@@ -574,11 +700,11 @@ a, img, div {
   color: #4F4F4F;
   border-bottom: 2px dashed #4F4F4F;
 }
-/* line 467, ../sass/style.scss */
+/* line 576, ../sass/style.scss */
 .more .news {
   background: #f1f1f1;
 }
-/* line 470, ../sass/style.scss */
+/* line 579, ../sass/style.scss */
 .more .news .title {
   font-size: 2.6875em;
   color: #4F4F4F;
@@ -587,11 +713,11 @@ a, img, div {
   text-align: left;
   height: 8.09524%;
 }
-/* line 478, ../sass/style.scss */
+/* line 587, ../sass/style.scss */
 .more .news .news-ul {
   height: 68.73016%;
 }
-/* line 481, ../sass/style.scss */
+/* line 590, ../sass/style.scss */
 .more .news .news-ul li {
   width: 100%;
   height: 30%;
@@ -604,21 +730,21 @@ a, img, div {
   font-size: 1.25em;
   overflow: hidden;
 }
-/* line 493, ../sass/style.scss */
+/* line 602, ../sass/style.scss */
 .more .news .news-ul li .time {
   color: #c3c2c2;
   font-family: Arial;
 }
-/* line 497, ../sass/style.scss */
+/* line 606, ../sass/style.scss */
 .more .news .news-ul li .content {
   margin-top: 10px;
   color: #4F4F4F;
 }
-/* line 501, ../sass/style.scss */
+/* line 610, ../sass/style.scss */
 .more .news .news-ul li .content p {
   line-height: 1.5;
 }
-/* line 507, ../sass/style.scss */
+/* line 616, ../sass/style.scss */
 .more .news .more-btn {
   width: 54.76773%;
   height: 72px;
@@ -645,35 +771,35 @@ a, img, div {
     
 */
 @media only screen and (max-height: 1920px) {
-  /* line 539, ../sass/style.scss */
+  /* line 648, ../sass/style.scss */
   .start .text {
     bottom: 249.90476px;
   }
-  /* line 542, ../sass/style.scss */
+  /* line 651, ../sass/style.scss */
   .start .text .title {
     opacity: 0;
     margin-left: -500px;
     margin-right: 5px;
     margin-bottom: 32.7619px;
   }
-  /* line 548, ../sass/style.scss */
+  /* line 657, ../sass/style.scss */
   .start .text .subTitle {
     opacity: 0;
     margin-left: 5px;
     margin-right: -500px;
   }
-  /* line 554, ../sass/style.scss */
+  /* line 663, ../sass/style.scss */
   .start .start-c {
     bottom: 115.04762px;
   }
-  /* line 557, ../sass/style.scss */
+  /* line 666, ../sass/style.scss */
   .start .start-c .start-btn {
     opacity: 0;
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 564, ../sass/style.scss */
+  /* line 673, ../sass/style.scss */
   .start .byWeilan {
     bottom: 60px;
   }

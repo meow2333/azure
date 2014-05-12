@@ -174,7 +174,7 @@ $xisong: "LiSong Pro Light", "SimSun";
 .clearfix {
     @include clearfix;
 }
-.viewport, .start, .desc, .more, #loading {
+.viewport, .start, .transition, .desc, .more, #loading {
     height: 100%;
     width: 100%;
 }
@@ -228,6 +228,115 @@ $xisong: "LiSong Pro Light", "SimSun";
         position: absolute;
         width: 100%;
         font-family: $heiti;
+    }
+}
+.transition {
+    background: #0075a9;
+    position: relative;
+
+    .stage {
+        width: 1250px;
+        height: 618px;
+        margin: 0 auto;
+        position: relative;
+
+        .bg, .gas1, .gas2, .pipe1, .pipe2, .bubble1, .bubble2, .bubble3 {
+            position: absolute;
+        }
+        .bg {
+            width: 1072px;
+            height: 404px;
+            top: 175px;
+            left: 72px;
+            background: url(../azure_png/stage.png) 0 0 no-repeat;
+        }
+        .gas1 {
+            width: 142px;
+            height: 132px;
+            top: 0px;
+            left: 10px;
+            background: url(../azure_png/animeSprite.png) 0 0 no-repeat;
+        }
+        .gas2 {
+            width: 73px;
+            height: 49px;
+            top: 83px;
+            left: 146px;
+            background: url(../azure_png/animeSprite.png) 0 -133px no-repeat;
+        }
+        .pipe1 {
+            width: 190px;
+            height: 192px;
+            top: 139px;
+            left: 49px;
+            background: url(../azure_png/animeSprite.png) 0 -183px no-repeat;
+        }
+        .pipe2 {
+            width: 85px;
+            height: 163px;
+            top: 353px;
+            left: 74px;
+            background: url(../azure_png/animeSprite.png) 0 -449px no-repeat;
+        }
+        .bubble1 {
+            width: 25px;
+            height: 25px;
+            top: 262px;
+            left: 509px;
+            background: url(../azure_png/animeSprite.png) 0 -375px no-repeat;
+        }
+        .bubble2 {
+            width: 16px;
+            height: 16px;
+            top: 261px;
+            left: 540px;
+            background: url(../azure_png/animeSprite.png) 0 -400px no-repeat;
+        }
+        .bubble3 {
+            width: 33px;
+            height: 33px;
+            top: 220px;
+            left: 542px;
+            background: url(../azure_png/animeSprite.png) 0 -416px no-repeat;
+        }
+    }
+    .footer {
+        position: absolute;
+        width: 100%;
+        bottom: 30px;
+
+        .print {
+            width: 220px;
+            height: 75px;
+            line-height: 75px;
+            margin: 0 auto;
+            display: block;
+            background: #43adbe;
+            @include border-radius(5px);
+        
+            i {
+                width: 46px;
+                height: 50px;
+                display: block;
+                float: left;
+                margin-left: 15px;
+                margin-top: 12px;
+                background: url(../azure_png/i.png) 0 0 no-repeat;
+            }
+            span {
+                float: left;
+                display: block;
+                font-size: 30px;
+                margin-left: 15px;
+                font-family: $heiti;
+            }
+        }
+        .byWeilan {
+            margin: 25px auto 0 auto;
+            font-family: $heiti;
+            color: #9db5cb;
+            text-align: center;
+        }
     }
 }
 .desc {
