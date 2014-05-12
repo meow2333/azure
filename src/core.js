@@ -654,6 +654,11 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             } else if (aqi >= 100) {
                 //+室内
                 tips.tips.push({
+                    img: '../azure_png/face.png',
+                    titile: '佩戴口罩',
+                    desc: '外出请佩戴口罩（<a href="http://meow2333.github.io" target="_blank">？如何挑选口罩</a>）'
+                });
+                tips.tips.push({
                     img: '../azure_png/house.png',
                     titile: '室内活动',
                     desc: '请尽量在室内活动，减少外出，同时关好门窗'
