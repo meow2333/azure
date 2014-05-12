@@ -387,6 +387,49 @@ $xisong: "LiSong Pro Light", "SimSun";
             font-family: $heiti;
             width: 100%;
             text-align: left;
+            @include madeD(height, 102px, 1260px);
+        }
+        .news-ul {
+            @include madeD(height, 866px, 1260px);
+
+            li {
+                width: 100%;
+                height: 30%;
+                margin-top: 2%;
+                box-sizing:border-box;
+                -moz-box-sizing:border-box;
+                -webkit-box-sizing:border-box;
+                border: 2px dashed #ebeaea;
+                padding: 10px 15px;
+                @include fonts(20em);
+                overflow: hidden;
+
+                .time {
+                    color: #c3c2c2;
+                    font-family: Arial;
+                }
+                .content {
+                    margin-top: 10px;
+                    color: #4F4F4F;
+
+                    p {
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+        .more-btn {
+            @include madeD(width, 448px, 818px);
+            height: 72px;
+            background: #43adbe;
+            color: #f4f4f4;
+            font-family: $heiti;
+            display: block;
+            @include border-radius(5px);
+            line-height: 72px;
+            @include fonts(40em);
+            text-align: center;
+            margin: 40px auto 0 auto;
         }
     }
 }

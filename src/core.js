@@ -63,6 +63,8 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.descDiv = $('.desc');
         me.descInfo = me.descDiv.one('.info');
         me.descMoreBtn = me.descDiv.one('.more-btn');
+
+        me.newsUL = $('.more .news-ul');
     };
 
 /*
@@ -382,6 +384,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 }]
             }); 
             me.checkStandard();
+            me.showNews();
         }
         S.getScript('./js/av-0.3.1.min.js', function() {
             if (loadh === true) {
@@ -492,6 +495,53 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         this.showCityDiv.html(city);
 
         return city;
+    };
+
+/*
+    _______________________________________________________
+    
+    从后台调新闻
+    _______________________________________________________
+        
+*/
+
+    AZ.prototype.showNews = function() {
+        var me = this;
+
+        function initAV () {
+            AV.initialize("blgx18bu3llnxjmstq0q528k7ogjwgqnlv3tm9b1926af47x", "zwdgquddmljlde2crhfztjk0csrzplv0x5wlk2odpgqmoh0u");
+
+            var SendMessage = AV.Object.extend('article');
+            var sendMessage = new SendMessage();
+            
+            var query = new AV.Query(SendMessage);
+            query.select('content','updatedAt');
+            query.descending('updatedAt');
+            query.limit(3);
+            query.find().then(function(results) {
+                renderNews(results);
+            });
+        }
+        function renderNews(results) {
+            var data = {
+                    data: []
+                },
+                o,
+                html;
+            var tpl = '{{#each data}}<li><p class="time">{{time}}</p><div class="content">'+'{{{content}}}'+'</div></li>{{/each}}';
+
+            for (var i=0,l=results.length;i<l;i++) {
+                o = {
+                    time: results[i].updatedAt,
+                    content: results[i].attributes.content
+                };
+                data.data.push(o);
+            }
+
+            html = new Xtemplate(tpl).render(data);
+            me.newsUL.html(html);
+        }
+        initAV();
     };
         //只有菊花转了
         // Controller.getChartData = function(city) {

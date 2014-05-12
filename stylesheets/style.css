@@ -474,6 +474,56 @@ a, img, div {
   font-family: "STHeiti", "SimHei";
   width: 100%;
   text-align: left;
+  height: 8.09524%;
+}
+/* line 392, ../sass/style.scss */
+.more .news .news-ul {
+  height: 68.73016%;
+}
+/* line 395, ../sass/style.scss */
+.more .news .news-ul li {
+  width: 100%;
+  height: 30%;
+  margin-top: 2%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 2px dashed #ebeaea;
+  padding: 10px 15px;
+  font-size: 1.25em;
+  overflow: hidden;
+}
+/* line 407, ../sass/style.scss */
+.more .news .news-ul li .time {
+  color: #c3c2c2;
+  font-family: Arial;
+}
+/* line 411, ../sass/style.scss */
+.more .news .news-ul li .content {
+  margin-top: 10px;
+  color: #4F4F4F;
+}
+/* line 415, ../sass/style.scss */
+.more .news .news-ul li .content p {
+  line-height: 1.5;
+}
+/* line 421, ../sass/style.scss */
+.more .news .more-btn {
+  width: 54.76773%;
+  height: 72px;
+  background: #43adbe;
+  color: #f4f4f4;
+  font-family: "STHeiti", "SimHei";
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  line-height: 72px;
+  font-size: 2.5em;
+  text-align: center;
+  margin: 40px auto 0 auto;
 }
 
 /*
@@ -484,35 +534,35 @@ a, img, div {
     
 */
 @media only screen and (max-height: 1920px) {
-  /* line 410, ../sass/style.scss */
+  /* line 453, ../sass/style.scss */
   .start .text {
     bottom: 249.90476px;
   }
-  /* line 413, ../sass/style.scss */
+  /* line 456, ../sass/style.scss */
   .start .text .title {
     opacity: 0;
     margin-left: -500px;
     margin-right: 5px;
     margin-bottom: 32.7619px;
   }
-  /* line 419, ../sass/style.scss */
+  /* line 462, ../sass/style.scss */
   .start .text .subTitle {
     opacity: 0;
     margin-left: 5px;
     margin-right: -500px;
   }
-  /* line 425, ../sass/style.scss */
+  /* line 468, ../sass/style.scss */
   .start .start-c {
     bottom: 115.04762px;
   }
-  /* line 428, ../sass/style.scss */
+  /* line 471, ../sass/style.scss */
   .start .start-c .start-btn {
     opacity: 0;
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 435, ../sass/style.scss */
+  /* line 478, ../sass/style.scss */
   .start .byWeilan {
     bottom: 60px;
   }
