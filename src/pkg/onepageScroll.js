@@ -53,9 +53,9 @@ KISSY.add('pkg/onepageScroll',function (S, Node, Base) {
             });
 
             this.swipeEvents().on("swipeDown", function() {
-                this.moveUp();
+                self.moveUp();
             }).on("swipeUp", function() {
-                this.moveDown();
+                self.moveDown();
             });
 
             if (pagination) {
@@ -204,7 +204,7 @@ KISSY.add('pkg/onepageScroll',function (S, Node, Base) {
             });
         },
 
-        moveDown: function() {
+        moveDown: function(direct) {
             var sectionContainer = this.get("sectionContainer"),
                 loop = this.get("loop"),
                 beforeMove = this.get("beforeMove"),
@@ -226,7 +226,7 @@ KISSY.add('pkg/onepageScroll',function (S, Node, Base) {
                 pos = (index * 100) * -1;
             }
 
-            if (S.isFunction(beforeMove)) {
+            if (S.isFunction(beforeMove) && !direct) {
                 beforeMove(current.attr("data-index"));
             }
             current.removeClass("active");

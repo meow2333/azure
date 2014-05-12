@@ -156,7 +156,7 @@ $xisong: "LiSong Pro Light", "SimSun";
 .clearfix {
     @include clearfix;
 }
-.viewport, .start, .desc, #loading {
+.viewport, .start, .desc, .more, #loading {
     height: 100%;
     width: 100%;
 }
@@ -312,6 +312,81 @@ $xisong: "LiSong Pro Light", "SimSun";
             text-align: center;
             color: #fff;
             font-family: $heiti;
+        }
+    }
+}
+.more {
+
+    .analysis, .news {
+        width: 50%;
+        height: 100%;
+        box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        -webkit-box-sizing:border-box;
+        padding: 90px 60px;
+        float: left;
+        position: relative;
+        overflow: hidden;
+    }
+    .analysis {
+        background: #f4f4f4;
+
+        .value, .tips {
+            width: 100%;
+        }
+        .value {
+            height: 50%;
+
+            .title-c {
+                @include madeD(height, 106px, 630px);
+
+                .title {
+                    color: #4F4F4F;
+                    @include fonts(43em);
+                    font-family: $heiti;
+                    float: left;
+                    vertical-align: bottom;
+                }
+                .location {
+                    float: right;
+                    text-align: center;
+
+                    .icon-location {
+                        @include fonts(25em);
+                        color: #fff;
+                    }
+                    .city {
+                        color: #43adbe;
+                        @include fonts(25em);
+                    }
+                }
+            }
+            .value-ul {
+                border-bottom: 1px solid #e5e5e5;
+            }
+        }
+        .tips {
+            height: 50%;
+            background: #ebeaea;
+
+            .title {
+                @include fonts(37em);
+                font-family: Arial;
+                font-weight: bold;
+                color: #4F4F4F;
+                border-bottom: 2px dashed #4F4F4F;
+            }
+        }
+    }
+    .news {
+        background: #f1f1f1;
+
+        .title {
+            @include fonts(43em);
+            color: #4F4F4F;
+            font-family: $heiti;
+            width: 100%;
+            text-align: left;
         }
     }
 }

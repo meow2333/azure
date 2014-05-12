@@ -1,15 +1,11 @@
 KISSY.config({
     combine:true,
-    // kissy 库内置模块的时间戳
-    // kissy 的基准路径
     tag: '11112',
     base:'http://g.tbcdn.cn/kissy/k/1.4.2/',
     packages:{
         pkg: {
-            // x 包的基准路径
             base:'./src/',
-            tag: '113',
-            // 开启 x 包 debug 模式
+            tag: '2014',
             combine: false,
             debug:true
         }
@@ -24,13 +20,20 @@ KISSY.config({
     }
 });
 
-KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/index, promise', function(S, Dom, Node, Modernizr, OnepageScroll, IO, HashX, Promise) {
+KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/index, promise, xtemplate', function(S, Dom, Node, Modernizr, OnepageScroll, IO, HashX, Promise, Xtemplate) {
     var $ = Node.all;
     function AZ() {
         var me = this;
 
         me.init = function() {
             me.data = {};
+            me.click = (function() {
+                if (S.UA.mobile) {
+                    return 'tap';
+                } else {
+                    return 'click';
+                }
+            })();
             me.objsCache();
             me.funcs();
         };
@@ -48,6 +51,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.win = $(window);
         me.doc = $(document);
         me.body = $('body');
+        me.showCityDiv = $('.city');
 
         me.loaderDiv = $('#loading');
 
@@ -116,7 +120,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             "beforeMove": function(index){
                 //判断在第几页，分别触发当前页面的下一步按钮
                 if (index == 1 && !window.Highcharts) {
-                    me.startBtn.fire('click');
+                    me.startBtn.fire(me.click);
                 }
             },
             "afterMove": function(index){
@@ -125,7 +129,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             "loop": false
         });
         me.animations();
-        me.startBtn.on('click', function() {
+        me.startBtn.on(me.click, function() {
             var ak = '9cwuN4BgCeu9MCMfGuGsKaGF';
 
             function getPosition(position) {
@@ -175,7 +179,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 var hashX = new HashX();
 
                 hashX.hash('city', city);
-                me.scroll.moveDown();
+                me.scroll.moveDown(true);
                 me.initChart(city);
             }
 
@@ -188,8 +192,8 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 errorFunc();
             }
         });
-        me.descMoreBtn.on('click', function() {
-            
+        me.descMoreBtn.on(me.click, function() {
+
         });
         me.startAnime();
     };
@@ -473,7 +477,22 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         renderInfo();
     };
 
+/*
+    _______________________________________________________
+    
+    根据hash取得当前的地理定位
+    _______________________________________________________
+        
+*/
 
+    AZ.prototype.showCity = function() {
+        var hashX = new HashX();
+        var city = hashX.hash('city');
+
+        this.showCityDiv.html(city);
+
+        return city;
+    };
         //只有菊花转了
         // Controller.getChartData = function(city) {
         //     var opts = {
@@ -500,6 +519,13 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             
         // };
 
+/*
+    _______________________________________________________
+    
+    入口
+    _______________________________________________________
+        
+*/
 
     KISSY.ready(function() {
         var az = new AZ();

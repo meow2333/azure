@@ -207,7 +207,7 @@ a, img, div {
 }
 
 /* line 159, ../sass/style.scss */
-.viewport, .start, .desc, #loading {
+.viewport, .start, .desc, .more, #loading {
   height: 100%;
   width: 100%;
 }
@@ -395,6 +395,87 @@ a, img, div {
   font-family: "STHeiti", "SimHei";
 }
 
+/* line 320, ../sass/style.scss */
+.more .analysis, .more .news {
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 90px 60px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+/* line 331, ../sass/style.scss */
+.more .analysis {
+  background: #f4f4f4;
+}
+/* line 334, ../sass/style.scss */
+.more .analysis .value, .more .analysis .tips {
+  width: 100%;
+}
+/* line 337, ../sass/style.scss */
+.more .analysis .value {
+  height: 50%;
+}
+/* line 340, ../sass/style.scss */
+.more .analysis .value .title-c {
+  height: 16.8254%;
+}
+/* line 343, ../sass/style.scss */
+.more .analysis .value .title-c .title {
+  color: #4F4F4F;
+  font-size: 2.6875em;
+  font-family: "STHeiti", "SimHei";
+  float: left;
+  vertical-align: bottom;
+}
+/* line 350, ../sass/style.scss */
+.more .analysis .value .title-c .location {
+  float: right;
+  text-align: center;
+}
+/* line 354, ../sass/style.scss */
+.more .analysis .value .title-c .location .icon-location {
+  font-size: 1.5625em;
+  color: #fff;
+}
+/* line 358, ../sass/style.scss */
+.more .analysis .value .title-c .location .city {
+  color: #43adbe;
+  font-size: 1.5625em;
+}
+/* line 364, ../sass/style.scss */
+.more .analysis .value .value-ul {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* line 368, ../sass/style.scss */
+.more .analysis .tips {
+  height: 50%;
+  background: #ebeaea;
+}
+/* line 372, ../sass/style.scss */
+.more .analysis .tips .title {
+  font-size: 2.3125em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #4F4F4F;
+  border-bottom: 2px dashed #4F4F4F;
+}
+/* line 381, ../sass/style.scss */
+.more .news {
+  background: #f1f1f1;
+}
+/* line 384, ../sass/style.scss */
+.more .news .title {
+  font-size: 2.6875em;
+  color: #4F4F4F;
+  font-family: "STHeiti", "SimHei";
+  width: 100%;
+  text-align: left;
+}
+
 /*
     _______________________________________________________
     
@@ -403,35 +484,35 @@ a, img, div {
     
 */
 @media only screen and (max-height: 1920px) {
-  /* line 335, ../sass/style.scss */
+  /* line 410, ../sass/style.scss */
   .start .text {
     bottom: 249.90476px;
   }
-  /* line 338, ../sass/style.scss */
+  /* line 413, ../sass/style.scss */
   .start .text .title {
     opacity: 0;
     margin-left: -500px;
     margin-right: 5px;
     margin-bottom: 32.7619px;
   }
-  /* line 344, ../sass/style.scss */
+  /* line 419, ../sass/style.scss */
   .start .text .subTitle {
     opacity: 0;
     margin-left: 5px;
     margin-right: -500px;
   }
-  /* line 350, ../sass/style.scss */
+  /* line 425, ../sass/style.scss */
   .start .start-c {
     bottom: 115.04762px;
   }
-  /* line 353, ../sass/style.scss */
+  /* line 428, ../sass/style.scss */
   .start .start-c .start-btn {
     opacity: 0;
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 360, ../sass/style.scss */
+  /* line 435, ../sass/style.scss */
   .start .byWeilan {
     bottom: 60px;
   }
