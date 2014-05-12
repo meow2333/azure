@@ -92,6 +92,9 @@ a, img, div {
     -webkit-tap-highlight-color:rgba(0,0,0,0);
     text-decoration: none;
 }
+a {
+    cursor: pointer;
+}
 
 $heiti: "STHeiti", "SimHei";
 $songti: "STSong", "SimSun";

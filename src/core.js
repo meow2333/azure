@@ -67,6 +67,9 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.bubble1 = $('.bubble1');
         me.bubble2 = $('.bubble2');
         me.bubble3 = $('.bubble3');
+        me.print = $('.transition .print');
+
+        me.chartDiv = $('#chart');
 
         me.descDiv = $('.desc');
         me.descInfo = me.descDiv.one('.info');
@@ -77,6 +80,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.moreDiv = $('.more');
         me.face = me.moreDiv.one('.face');
         me.faceDesc = me.moreDiv.one('.face-desc');
+        me.moreBtn = me.moreDiv.one('.more-btn');
     };
 
 /*
@@ -222,6 +226,12 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             bubble2();
             bubble3();
         };
+        me.printAnime = function() {
+            $('.desc .main .main-m').css('margin-top', '-60%');
+            TweenLite.to($('.desc .main .main-m').getDOMNode(), 3, {
+                'margin-top': '124px'
+            });
+        };
     };
 
 /*
@@ -258,6 +268,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.transition();
         me.startBtn.on(me.click, function() {
             var ak = '9cwuN4BgCeu9MCMfGuGsKaGF';
+            me.scroll.moveDown(true);
 
             function getPosition(position) {
                 var la = position.coords.latitude;
@@ -306,7 +317,6 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 var hashX = new HashX();
 
                 hashX.hash('city', city);
-                me.scroll.moveDown(true);
                 me.initChart(city);
             }
 
@@ -319,8 +329,13 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 errorFunc();
             }
         });
+        
+        me.print.on(me.click, function() {
+            me.scroll.moveDown(true);
+            me.printAnime();
+        });
         me.descMoreBtn.on(me.click, function() {
-
+            me.scroll.moveDown(true);
         });
         me.startAnime();
     };
@@ -692,8 +707,8 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             var sendMessage = new SendMessage();
             
             var query = new AV.Query(SendMessage);
-            query.select('content','updatedAt');
-            query.descending('updatedAt');
+            query.select('content','updatedAt','objectId');
+            query.descending('createdAt');
             query.limit(3);
             query.find().then(function(results) {
                 renderNews(results);
@@ -705,11 +720,12 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 },
                 o,
                 html;
-            var tpl = '{{#each data}}<li><p class="time">{{time}}</p><div class="content">'+'{{{content}}}'+'</div></li>{{/each}}';
+            var tpl = '{{#each data}}<li><a href="http://meow2333.github.io/article/{{objectId}}" target="_blank"><p class="time">{{time}}</p><div class="content">'+'{{{content}}}'+'</div></a></li>{{/each}}';
 
             for (var i=0,l=results.length;i<l;i++) {
                 o = {
-                    time: results[i].updatedAt,
+                    objectId: results[i].id,
+                    time: results[i].createdAt,
                     content: results[i].attributes.content
                 };
                 data.data.push(o);
