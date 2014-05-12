@@ -650,7 +650,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                     titile: '佩戴口罩',
                     desc: '外出请佩戴口罩（<a href="http://meow2333.github.io" target="_blank">？如何挑选口罩</a>）'
                 });
-                
+
             } else if (aqi >= 100) {
                 //+室内
                 tips.tips.push({
@@ -758,13 +758,18 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                     data: []
                 },
                 o,
-                html;
+                html,
+                y,m,d;
             var tpl = '{{#each data}}<li><a href="http://meow2333.github.io/article/{{objectId}}" target="_blank"><p class="time">{{time}}</p><div class="content">'+'{{{content}}}'+'</div></a></li>{{/each}}';
 
             for (var i=0,l=results.length;i<l;i++) {
+                y = results[i].createdAt.getFullYear();
+                m = + results[i].createdAt.getMonth() + 1;
+                d = results[i].createdAt.getDate();
+
                 o = {
                     objectId: results[i].id,
-                    time: results[i].createdAt,
+                    time: y + '.' + m + '.' + d,
                     content: results[i].attributes.content
                 };
                 data.data.push(o);
