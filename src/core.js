@@ -252,8 +252,8 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 bottom: 0
             });
             function yun() {
-                TweenLite.to($('.rank .yun').getDOMNode(), 60, {
-                    left: '-1024px',
+                TweenLite.to($('.rank .yun').getDOMNode(), 50, {
+                    left: '-611px',
                     onComplete: function() {
                         $('.rank .yun').css('left', '0');
                         yun();
