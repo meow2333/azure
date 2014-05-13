@@ -917,48 +917,49 @@ a {
   font-size: 70px;
   line-height: 100px;
   background: #e5e4e4;
+  color: #333;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
   border-radius: 50px;
 }
-/* line 759, ../sass/style.scss */
+/* line 760, ../sass/style.scss */
 .download .left .authors .author p {
   width: 100%;
   text-align: center;
   margin-top: 10px;
 }
-/* line 767, ../sass/style.scss */
+/* line 768, ../sass/style.scss */
 .download .right {
   background: #f1f1f1;
   position: relative;
   overflow: hidden;
   padding: 0;
 }
-/* line 773, ../sass/style.scss */
+/* line 774, ../sass/style.scss */
 .download .right .load {
   width: 265px;
   position: absolute;
   top: 180px;
   left: 20px;
 }
-/* line 779, ../sass/style.scss */
+/* line 780, ../sass/style.scss */
 .download .right .load .title {
   width: 100%;
   text-align: center;
   font-size: 22px;
   margin-left: 30px;
 }
-/* line 785, ../sass/style.scss */
+/* line 786, ../sass/style.scss */
 .download .right .load .title .icon-download {
   font-size: 32px;
 }
-/* line 789, ../sass/style.scss */
+/* line 790, ../sass/style.scss */
 .download .right .load .apple {
   display: none;
 }
-/* line 792, ../sass/style.scss */
+/* line 793, ../sass/style.scss */
 .download .right .load .android {
   margin-top: 20px;
   width: 265px;
@@ -966,21 +967,21 @@ a {
   display: block;
   background: url(../azure_png/download.png) 0 0 no-repeat;
 }
-/* line 800, ../sass/style.scss */
+/* line 801, ../sass/style.scss */
 .download .right .dphone {
   position: absolute;
   max-width: 40%;
   top: 20px;
   right: 20px;
 }
-/* line 806, ../sass/style.scss */
+/* line 807, ../sass/style.scss */
 .download .right .bottom {
   width: 100%;
   text-align: center;
   position: absolute;
   bottom: 70px;
 }
-/* line 812, ../sass/style.scss */
+/* line 813, ../sass/style.scss */
 .download .right .bottom .web-app {
   display: block;
   margin: 0 auto;
@@ -997,7 +998,7 @@ a {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 824, ../sass/style.scss */
+/* line 825, ../sass/style.scss */
 .download .right .bottom .more {
   text-align: center;
   margin-top: 10px;
@@ -1011,35 +1012,35 @@ a {
     
 */
 @media only screen and (max-height: 1920px) {
-  /* line 848, ../sass/style.scss */
+  /* line 849, ../sass/style.scss */
   .start .text {
     bottom: 249.90476px;
   }
-  /* line 851, ../sass/style.scss */
+  /* line 852, ../sass/style.scss */
   .start .text .title {
     opacity: 0;
     margin-left: -500px;
     margin-right: 5px;
     margin-bottom: 32.7619px;
   }
-  /* line 857, ../sass/style.scss */
+  /* line 858, ../sass/style.scss */
   .start .text .subTitle {
     opacity: 0;
     margin-left: 5px;
     margin-right: -500px;
   }
-  /* line 863, ../sass/style.scss */
+  /* line 864, ../sass/style.scss */
   .start .start-c {
     bottom: 115.04762px;
   }
-  /* line 866, ../sass/style.scss */
+  /* line 867, ../sass/style.scss */
   .start .start-c .start-btn {
     opacity: 0;
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 873, ../sass/style.scss */
+  /* line 874, ../sass/style.scss */
   .start .byWeilan {
     bottom: 60px;
   }
