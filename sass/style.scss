@@ -201,9 +201,14 @@ $xisong: "LiSong Pro Light", "SimSun";
 .clearfix {
     @include clearfix;
 }
-.viewport, .start, .transition, .desc, .more, .download, #loading {
+
+.viewport, .start, .transition, .desc, .knowledge, .more, .download, #loading {
     height: 100%;
     width: 100%;
+
+    .hidden {
+        display: none;
+    }
 }
 #loading {
     background: #000;
@@ -470,6 +475,175 @@ $xisong: "LiSong Pro Light", "SimSun";
             color: #fff;
             font-family: $heiti;
         }
+    }
+}
+.knowledge {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    background: #f4f4f4;
+
+    .header {
+        @include madeD(height, 564px, 1260px);
+        text-align: center;
+        line-height: 33em;
+
+        #know-pm10 {
+            background: #e5ad27;
+            border-color: #ebc873;
+        }
+        #know-pm2_5 {
+            background: #bcbc53;
+            border-color: #dddd4a;
+        }
+        #know-so2 {
+            background: #ee6e36;
+            border-color: #f29870;
+        }
+        #know-no2 {
+            background: #38bdac;
+            border-color: #8ad6cc;
+        }
+        #know-o3 {
+            background: #b45ca4;
+            border-color: #e0aad6;
+        }
+        #know-aqi {
+            background: #cbcbcb;
+            border-color: #e4e4e4;
+        }
+        .type {
+            background: #e5ad27;
+            border-color: #ebc873;
+            display: inline-block;
+            text-align: center;
+            width: 120px;
+            border: 10px;
+            border-style: solid;
+            margin-right: 20px;
+            @include border-radius(70px);
+            color: #f4f4f4;
+            font-family: 'Silom';
+            line-height: 120px;
+            height: 120px;
+            font-size: 30px;
+        }
+    }
+    .content-c {
+        @include madeD(height, 565px, 1260px);
+
+        #content-pm10 {
+            .title {
+                background: #ebc873;
+
+                .circle {
+                    background: #e5ad27;
+                }
+            }
+            .define, .jeop, .pre {
+                color: #e5ad27;
+            }
+        }
+        #content-pm2_5 {
+            .title {
+                background: #dddd4a;
+
+                .circle {
+                    background: #bcbc53;
+                }
+            }
+            .define, .jeop, .pre {
+                color: #bcbc53;
+            }
+        }
+        #content-so2 {
+            .title {
+                background: #f29870;
+
+                .circle {
+                    background: #ee6e36;
+                }
+            }
+            .define, .jeop, .pre {
+                color: #ee6e36;
+            }
+        }
+        #content-no2 {
+            .title {
+                background: #8ad6cc;
+
+                .circle {
+                    background: #38bdac;
+                }
+            }
+            .define, .jeop, .pre {
+                color: #38bdac;
+            }
+        }
+        #content-o3 {
+            .title {
+                background: #e0aad6;
+
+                .circle {
+                    background: #b45ca4;
+                }
+            }
+            .define, .jeop, .pre {
+                color: #b45ca4;
+            }
+        }
+        #content-aqi {
+            .title {
+                background: #e4e4e4;
+
+                .circle {
+                    background: #cbcbcb;
+                }
+            }
+            .define, .jeop, .pre {
+                color: #cbcbcb;
+            }
+        }
+        .content {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: $heiti;
+            font-size: 20px;
+            text-align: left;
+
+            .title {
+                box-sizing:border-box;
+                -moz-box-sizing:border-box;
+                -webkit-box-sizing:border-box;
+                height: 50px;
+                line-height: 50px;
+                width: 100%;
+                padding-left: 100px;
+                color: #4F4F4F;
+                font-size: 26px;
+
+                .circle {
+                    width: 30px;
+                    height: 30px;
+                    display: inline-block;
+                    @include border-radius(15px);
+                    margin-right: 10px;
+                }
+            }
+            p {
+                padding: 0 100px;
+            }
+            .define, .jeop, .pre {
+                margin-top: 15px;
+            }
+            .define-desc, .jeop-desc, .pre-desc {
+                margin-top: 10px;
+            }
+        }
+    }
+    .bottom {
+        @include madeD(height, 132px, 1260px);
     }
 }
 .more {
