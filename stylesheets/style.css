@@ -754,7 +754,7 @@ a {
   height: 18px;
   margin-top: 3px;
   margin-left: 3px;
-  width: 250px;
+  width: 230px;
   padding: 0 20px;
   font-size: 16px;
   line-height: 18px;
@@ -788,7 +788,7 @@ a {
 }
 /* line 630, ../sass/style.scss */
 .rank .content .blue ul .first .line, .rank .content .blue ul .second .line, .rank .content .blue ul .third .line, .rank .content .gray ul .first .line, .rank .content .gray ul .second .line, .rank .content .gray ul .third .line {
-  width: 335px;
+  width: 310px;
 }
 /* line 635, ../sass/style.scss */
 .rank .content .blue ul .first .num, .rank .content .gray ul .first .num {
@@ -805,11 +805,11 @@ a {
 /* line 652, ../sass/style.scss */
 .rank .content .blue .title {
   color: #6ec1ce;
-  padding-left: 120px;
+  padding-left: 100px;
 }
 /* line 656, ../sass/style.scss */
 .rank .content .blue li {
-  padding-left: 120px;
+  padding-left: 100px;
 }
 /* line 659, ../sass/style.scss */
 .rank .content .blue li .line {

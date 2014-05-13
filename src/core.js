@@ -398,7 +398,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             
             var query = new AV.Query(SendMessage);
             query.containedIn('area', [city]);
-            query.select('time','area','aqi','no','no2','o3','pm2_5','pm10','primary_pollutant','quality','so2');
+            query.select('time','rank','area','aqi','no','no2','o3','pm2_5','pm10','primary_pollutant','quality','so2');
             query.descending('time');
             query.limit(12);
             KProgress.start();
@@ -429,6 +429,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             data.primary_pollutant=[];
             data.quality=[];
             data.so2=[];
+            data.rank=[];
             for (var i=results.length-1,l=0;i>=l;i--) {
                 //时间处理 2014-04-25T13:00:00Z
                 t = new Date(results[i].attributes.time).getHours();
@@ -445,6 +446,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 data.primary_pollutant.push(results[i].attributes.primary_pollutant);
                 data.quality.push(results[i].attributes.quality);
                 data.so2.push(results[i].attributes.so2);
+                data.rank.push(results[i].attributes.rank);
             }
             me.chart = new Highcharts.Chart({
                 chart: {
@@ -837,6 +839,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
     AZ.prototype.showRank = function() {
         var me = this;
         $('#rank-aqi').html(me.data.aqi[11]);
+        $('#rank-circle').html(me.data.rank[me.data.rank.length-1])
 
         function initAV () {
             AV.initialize("blgx18bu3llnxjmstq0q528k7ogjwgqnlv3tm9b1926af47x", "zwdgquddmljlde2crhfztjk0csrzplv0x5wlk2odpgqmoh0u");
