@@ -353,6 +353,27 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             hashX.hash('city', city);
             me.initChart(city);
         });
+        //kownledge部分
+        (function(){
+            var map = ['pm10', 'pm2_5', 'so2', 'no2', 'o3', 'aqi'];
+            function clear() {
+                for (var i=0,l=map.length;i<l;i++) {
+                    $('#content-' + map[i]).hide();
+                }
+            }
+            function bind(index) {
+                $('#know-' + map[index]).on(me.click, function() {
+                    clear();
+                    $('#content-' + map[index]).show();
+                });
+            }
+
+            for (var i=0;i<map.length;i++) {
+                bind(i);
+            }
+
+        })();
+
         me.startAnime();
     };
 

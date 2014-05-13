@@ -644,6 +644,21 @@ $xisong: "LiSong Pro Light", "SimSun";
     }
     .bottom {
         @include madeD(height, 132px, 1260px);
+        width: 100%;
+
+        .return {
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            width: 250px;
+            background: #43adbe;
+            line-height: 50px;
+            height: 50px;
+            color: #f4f4f4;
+            font-family: $heiti;
+            font-size: 20px;
+            @include border-radius(5px);
+        }
     }
 }
 .more {
