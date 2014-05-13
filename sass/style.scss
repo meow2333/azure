@@ -372,7 +372,7 @@ $xisong: "LiSong Pro Light", "SimSun";
     }
 }
 .desc {
-    background: $green-blue;
+    background: url(../azure_png/bg-repeat.png) 0 0 repeat;
     overflow: hidden;
 
     .l-bar, .r-bar, .main {
@@ -381,21 +381,13 @@ $xisong: "LiSong Pro Light", "SimSun";
     .l-bar {
     }
     .r-bar {
-        .location {
-            margin-top: 20px;
-            font-size: 5em;
-
-            .icon-location {
-                text-align: center;
-                color: #fff;
-            }
-            .city {
-                margin-top: 20px;
-                width: 100%;
-                text-align: center;
-                color: #fff;
-                font-family: $heiti;
-            }
+        .chart-btn {
+            display: block;
+            margin: 100px auto 0 auto;
+            width: 150px;
+            height: 65px;
+            background-size: 150px 65px;
+            background-image: url(../azure_png/rankBtn.png);
         }
         .search {
             margin-top: 40px;
@@ -421,7 +413,24 @@ $xisong: "LiSong Pro Light", "SimSun";
         }
     }
     .main {
+        position: relative;
 
+        .location {
+            margin-top: 20px;
+            font-size: 2em;
+
+            .icon-location {
+                text-align: center;
+                color: #fff;
+            }
+            .city {
+                margin-top: 20px;
+                width: 100%;
+                text-align: center;
+                color: #fff;
+                font-family: $heiti;
+            }
+        }
         .main-m {
             width: 100%;
             @include madeD(height, 744px, 1260px);
@@ -430,7 +439,7 @@ $xisong: "LiSong Pro Light", "SimSun";
             box-sizing:border-box;
             -moz-box-sizing:border-box;
             -webkit-box-sizing:border-box;
-            margin-top: 124px;
+            margin-top: 30px;
 
             .chart {
                 @include madeD(height, 576px, 692px);
@@ -452,9 +461,13 @@ $xisong: "LiSong Pro Light", "SimSun";
                 text-align: center;
             }
         }
+        .more-c, .byWeilan {
+            position: absolute;
+        }
         .more-c {
             text-align: center;
-            margin-top: 20px;
+            /*margin-top: 20px;*/
+            bottom: 60px;
         }
         .more-btn {
             display: inline-block;
@@ -469,7 +482,8 @@ $xisong: "LiSong Pro Light", "SimSun";
             cursor: pointer;
         }
         .byWeilan {
-            margin-top: 20px;
+            /*margin-top: 20px;*/
+            bottom: 40px;
             width: 100%;
             text-align: center;
             color: #fff;
@@ -495,7 +509,31 @@ $xisong: "LiSong Pro Light", "SimSun";
             height: 100%;
         }
         .bg-stage {
+            position: relative;
             @include background-image(linear-gradient(#7ab6cb, #ffffff));
+        
+            .lou, .mon, .yun {
+                position: absolute;
+                min-width: 2048px;
+            }
+            .lou {
+                height: 180px;
+                background-image: url(../azure_png/lou.png);
+                background-size: auto 180px;
+                bottom: 0;
+            }
+            .mon {
+                height: 80px;
+                background: url(../azure_png/mon.png);
+                background-size: auto 80px;
+                bottom: 0;
+            }
+            .yun {
+                top: 30px;
+                height: 200px;
+                background: url(../azure_png/yun.png);
+                background-size: auto 200px;
+            }
         }
         .front {
             z-index: 99999;

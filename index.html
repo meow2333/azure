@@ -18,7 +18,6 @@
     <title>··蔚蓝··</title>
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     <script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed.js" data-config='{combine:true}'></script>
-    <!--<script type="text/javascript" src="src/Spin.min.js"></script>-->
 </head>
 <body>
     <div id="loading"></div>
@@ -53,6 +52,10 @@
             <div class="shadow content">
                 <div class="l-bar grid-1"></div>
                 <div class="main grid-4">
+                    <div class="location">
+                        <div class="icon-location"></div>
+                        <p class="city">北京</p>
+                    </div>
                     <div class="main-m">
                         <div class="chart" id="chart"></div>
                         <div class="info"></div>
@@ -63,10 +66,7 @@
                     <div class="byWeilan grid-6">by&nbsp;蔚蓝</div>
                 </div>
                 <div class="r-bar grid-1">
-                    <div class="location">
-                        <div class="icon-location"></div>
-                        <p class="city">北京</p>
-                    </div>
+                    <a class="chart-btn"></a>
                     <div class="search">
                         <span class="icon-search"></span>
                         <form id="search"><input type="text" placeholder="看看别人的空气"></input></form>
@@ -77,14 +77,18 @@
         </section>
         <section class="rank">
             <div class="header">
-                <div class="bg-stage"></div>
+                <div class="bg-stage">
+                    <div class="lou"></div>
+                    <div class="mon"></div>
+                    <div class="yun"></div>
+                </div>
                 <div class="front">
                     <p class="aqi">今日你的城市AQI为<em id="rank-aqi">200</em></p>
                     <p>全国排名为</p>
                     <div class="rank-circle" id="rank-circle">63</div>
                     <div class="btns">
-                        <a href="">返回空气报告</a>
-                        <a href="">了解更多</a>
+                        <a class="return-chart">返回空气报告</a>
+                        <a class="next-page">了解更多</a>
                     </div>
                 </div>
             </div>
@@ -123,7 +127,7 @@
             <div class="news">
                 <p class="title">最新空气相关新闻</p>
                 <ul class="news-ul"></ul>
-                <a class="more-btn" href="http://meow2333.github.io/" target="_blank">查看空气相关知识</a>
+                <a class="more-btn">查看空气相关知识</a>
             </div>
         </section>
         <section class="knowledge">
@@ -247,7 +251,7 @@
                 </div>
                 <img src="./azure_png/dphone.png" class="dphone">
                 <div class="bottom">
-                    <a class="web-app">点击进入网页版APP</a>
+                    <a class="web-app" href="#">点击进入网页版APP</a>
                     <p class="more">了解更有趣的空气讯息</p>
                 </div>
             </div>

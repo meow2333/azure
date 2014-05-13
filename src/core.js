@@ -83,6 +83,11 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.faceDesc = me.moreDiv.one('.face-desc');
         me.moreBtn = me.moreDiv.one('.more-btn');
         me.tipsUl = $('.tips .tips-u');
+
+        // btn
+        me.rankReturnBtn = $('.rank .return-chart');
+        me.rankNextPage = $('.rank .next-page');
+        me.knowReturnBtn = $('.knowledge .return');
     };
 
 /*
@@ -99,7 +104,12 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.startAnime = function() {
             var tl = new TimelineLite();
 
-            me.loaderDiv.hide();
+            tl.to(me.loaderDiv.getDOMNode(), 0.5, {
+                opacity: 0,
+                onComplete: function() {
+                    me.loaderDiv.hide();
+                }
+            });
             tl.to(me.startTitle.getDOMNode(), 0.6, {
                 'margin-left':'5px',
                 opacity: 1,
@@ -231,8 +241,26 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.printAnime = function() {
             $('.desc .main .main-m').css('margin-top', '-60%');
             TweenLite.to($('.desc .main .main-m').getDOMNode(), 3, {
-                'margin-top': '124px'
+                'margin-top': '30px'
             });
+        };
+        me.ranKAnime = function() {
+
+            $('.rank .lou').css('bottom', '-50px');
+            TweenLite.to($('.rank .lou').getDOMNode(), 3, {
+                ease: Expo.easeInOut,
+                bottom: 0
+            });
+            function yun() {
+                TweenLite.to($('.rank .yun').getDOMNode(), 60, {
+                    left: '-1024px',
+                    onComplete: function() {
+                        $('.rank .yun').css('left', '0');
+                        yun();
+                    }
+                });
+            }
+            yun();
         };
     };
 
@@ -262,7 +290,9 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 }
             },
             "afterMove": function(index){
-
+                if (index == 4) {
+                    me.ranKAnime();
+                }
             },
             "loop": false
         });
@@ -353,6 +383,23 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             hashX.hash('city', city);
             me.initChart(city);
         });
+        me.rankReturnBtn.on(me.click, function() {
+            me.scroll.moveUp();
+        });
+        me.rankNextPage.on(me.click, function() {
+            me.scroll.moveDown(true);
+        });
+        me.knowReturnBtn.on(me.click, function() {
+            me.scroll.moveUp();
+            me.scroll.moveUp();
+            me.scroll.moveUp();
+        });
+        me.moreBtn.on(me.click, function() {
+            me.scroll.moveDown(true);
+        });
+        $('.desc .chart-btn').on(me.click, function() {
+            me.scroll.moveDown(true);
+        });
         //kownledge部分
         (function(){
             var map = ['pm10', 'pm2_5', 'so2', 'no2', 'o3', 'aqi'];
@@ -363,8 +410,19 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             }
             function bind(index) {
                 $('#know-' + map[index]).on(me.click, function() {
-                    clear();
-                    $('#content-' + map[index]).show();
+                    // clear();
+                    TweenLite.to($('.content-c').getDOMNode(), 0.5, {
+                        opacity: 0,
+                        onComplete: function() {
+                            clear();
+                            $('.content-c').css('opacity', 1);
+                            $('#content-' + map[index]).show();
+                            $('#content-' + map[index]).css('opacity', '0');
+                            TweenLite.to($('#content-' + map[index]).getDOMNode(), 0.5, {
+                                opacity: 1
+                            });
+                        }
+                    });
                 });
             }
 
@@ -410,10 +468,9 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
 
         }
         function renderChart(results) {
-            // spinner.stop();
-            if (!results) {
+            if (results.length === 0) {
                 //城市不对或者网络没数据
-                console.log('城市不对或者网络没数据');
+                alert('sorry, 没有这个城市，试试其他的吧');
                 return;
             }
             me.showCity();
@@ -572,20 +629,24 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             me.showRank();
             me.showNews();
         }
-        S.getScript('./js/av-0.3.1.min.js', function() {
-            if (loadh === true) {
-                initAV();
-                return;
-            }
-            loada = true;
-        });
-        S.getScript('src/highcharts.js', function() {
-            if (loada === true) {
-                initAV();
-                return;
-            }
-            loadh = true;
-        });
+        if (!window.Highcharts) {
+            S.getScript('./js/av-0.3.1.min.js', function() {
+                if (loadh === true) {
+                    initAV();
+                    return;
+                }
+                loada = true;
+            });
+            S.getScript('src/highcharts.js', function() {
+                if (loada === true) {
+                    initAV();
+                    return;
+                }
+                loadh = true;
+            });
+        } else {
+            initAV();
+        }
 
     };
 
@@ -839,7 +900,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
     AZ.prototype.showRank = function() {
         var me = this;
         $('#rank-aqi').html(me.data.aqi[11]);
-        $('#rank-circle').html(me.data.rank[me.data.rank.length-1])
+        $('#rank-circle').html(me.data.rank[me.data.rank.length-1]);
 
         function initAV () {
             AV.initialize("blgx18bu3llnxjmstq0q528k7ogjwgqnlv3tm9b1926af47x", "zwdgquddmljlde2crhfztjk0csrzplv0x5wlk2odpgqmoh0u");
@@ -907,31 +968,6 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
 
         initAV();
     };
-        //只有菊花转了
-        // Controller.getChartData = function(city) {
-        //     var opts = {
-        //       lines: 9, // The number of lines to draw
-        //       length: 0, // The length of each line
-        //       width: 30, // The line thickness
-        //       radius: 30, // The radius of the inner circle
-        //       corners: 1, // Corner roundness (0..1)
-        //       rotate: 0, // The rotation offset
-        //       direction: 1, // 1: clockwise, -1: counterclockwise
-        //       color: '#000', // #rgb or #rrggbb or array of colors
-        //       speed: 1.2, // Rounds per second
-        //       trail: 80, // Afterglow percentage
-        //       shadow: false, // Whether to render a shadow
-        //       hwaccel: false, // Whether to use hardware acceleration
-        //       className: 'spinner', // The CSS class to assign to the spinner
-        //       zIndex: 2e9, // The z-index (defaults to 2000000000)
-        //       top: '50%', // Top position relative to parent
-        //       left: '50%' // Left position relative to parent
-        //     };
-        //     var target = $('body').getDOMNode();
-        //     var spinner = new Spinner(opts).spin(target);
-
-            
-        // };
 
 /*
     _______________________________________________________
