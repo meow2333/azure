@@ -569,7 +569,7 @@ $xisong: "LiSong Pro Light", "SimSun";
         .tips {
             height: 50%;
             background: #ebeaea;
-            padding: 15px 10px;
+            padding: 15px;
             box-sizing:border-box;
             -moz-box-sizing:border-box;
             -webkit-box-sizing:border-box;
@@ -581,21 +581,22 @@ $xisong: "LiSong Pro Light", "SimSun";
                 font-weight: bold;
                 color: #4F4F4F;
                 padding-top: 10px;
+                padding-left: 10px;
                 border-bottom: 2px dashed #4F4F4F;
             }
             .tips-u {
                 width: 100%;
-                height: auto;
-                margin-top: 20px;
+                height: 80%;
+                margin-top: 10px;
 
                 .tip {
-                    height: 100px;
+                    height: 50%;
 
                     img {
-                        max-width: 80px;
+                        max-height: 90%;
                         float: left;
                         margin-left: 10px;
-                        margin-top: 10px;
+                        /*margin-top: 10px;*/
                     }
                     .solution {
                         float: left;
@@ -603,15 +604,18 @@ $xisong: "LiSong Pro Light", "SimSun";
                         font-family: $heiti;
                         margin-left: 10px;
                         color: #4F4F4F;
-                        width: 80%;
+                        width: 70%;
 
                         .titile {
-                            font-size: 30px;
+                            @include fonts(40em);
+                            font-weight: bold;
+                            /*font-size: 30px;*/
                         }
                         .desc {
                             background: none;
-                            font-size: 20px;
-                            line-height: 1.5em;
+                            @include fonts(30em);
+                            /*font-size: 20px;*/
+                            line-height: 1.5;
 
                             a {
                                 color: #2c83a2;
@@ -655,10 +659,7 @@ $xisong: "LiSong Pro Light", "SimSun";
                 .content {
                     margin-top: 10px;
                     color: #4F4F4F;
-
-                    p {
-                        line-height: 1.5;
-                    }
+                    line-height: 1.5;
                 }
             }
         }

@@ -1,11 +1,11 @@
 KISSY.config({
     combine:true,
-    tag: '11112',
+    tag: 'hahah',
     base:'http://g.tbcdn.cn/kissy/k/1.4.2/',
     packages:{
         pkg: {
             base:'./src/',
-            tag: '2014',
+            tag: '2011',
             combine: false,
             debug:true
         }
@@ -20,7 +20,7 @@ KISSY.config({
     }
 });
 
-KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/index, promise, xtemplate', function(S, Dom, Node, Modernizr, OnepageScroll, IO, HashX, Promise, Xtemplate) {
+KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/index, promise, xtemplate, gallery/multiellipsis/1.0/index, gallery/kprogress/1.0/index', function(S, Dom, Node, Modernizr, OnepageScroll, IO, HashX, Promise, Xtemplate, mu, KProgress) {
     var $ = Node.all;
     function AZ() {
         var me = this;
@@ -277,6 +277,8 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 var ln = position.coords.longitude;
                 var urlForGeo = "http://api.map.baidu.com/geocoder/v2/";
 
+                KProgress.start();
+                KProgress.move();
                 new IO({
                     dataType:'jsonp',
                     url: urlForGeo, 
@@ -286,6 +288,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                         'location': la + ',' + ln
                     },
                     success: function (data) {
+                        KProgress.done();
                         if (data.status === 0) {
                             var ucity = data.result.addressComponent.province;
                             var city;
@@ -301,6 +304,8 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             function errorFunc(err) {
                 var urlForIp = 'http://api.map.baidu.com/location/ip';
 
+                KProgress.start();
+                KProgress.move();
                 new IO({
                     url: urlForIp,
                     dataType: 'jsonp',
@@ -308,6 +313,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                         ak: ak
                     },
                     success: function(data) {
+                        KProgress.done();
                         // address: "CN|北京|北京|None|UNICOM|0|None"
                         var city = data.address.split('|')[1];
 
@@ -339,7 +345,8 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.descMoreBtn.on(me.click, function() {
             me.scroll.moveDown(true);
         });
-        me.input.on('submit', function() {
+        me.input.on('submit', function(e) {
+            e.preventDefault();
             var city = me.input.one('input').val();
             var hashX = new HashX();
 
@@ -373,7 +380,10 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             query.select('time','area','aqi','no','no2','o3','pm2_5','pm10','primary_pollutant','quality','so2');
             query.descending('time');
             query.limit(12);
+            KProgress.start();
+            KProgress.move();
             query.find().then(function(results) {
+                KProgress.done();
                 renderChart(results);
             });
 
@@ -754,7 +764,10 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             query.select('content','updatedAt','objectId');
             query.descending('createdAt');
             query.limit(3);
+            KProgress.start();
+            KProgress.move();
             query.find().then(function(results) {
+                KProgress.done();
                 renderNews(results);
             });
         }
@@ -782,6 +795,9 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
 
             html = new Xtemplate(tpl).render(data);
             me.newsUL.html(html);
+            mu('.news-ul li', {
+                child: '.content'
+            });
         }
         initAV();
     };

@@ -700,7 +700,7 @@ a {
 .more .analysis .tips {
   height: 50%;
   background: #ebeaea;
-  padding: 15px 10px;
+  padding: 15px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -713,53 +713,57 @@ a {
   font-weight: bold;
   color: #4F4F4F;
   padding-top: 10px;
+  padding-left: 10px;
   border-bottom: 2px dashed #4F4F4F;
 }
-/* line 586, ../sass/style.scss */
+/* line 587, ../sass/style.scss */
 .more .analysis .tips .tips-u {
   width: 100%;
-  height: auto;
-  margin-top: 20px;
-}
-/* line 591, ../sass/style.scss */
-.more .analysis .tips .tips-u .tip {
-  height: 100px;
-}
-/* line 594, ../sass/style.scss */
-.more .analysis .tips .tips-u .tip img {
-  max-width: 80px;
-  float: left;
-  margin-left: 10px;
+  height: 80%;
   margin-top: 10px;
 }
-/* line 600, ../sass/style.scss */
+/* line 592, ../sass/style.scss */
+.more .analysis .tips .tips-u .tip {
+  height: 50%;
+}
+/* line 595, ../sass/style.scss */
+.more .analysis .tips .tips-u .tip img {
+  max-height: 90%;
+  float: left;
+  margin-left: 10px;
+  /*margin-top: 10px;*/
+}
+/* line 601, ../sass/style.scss */
 .more .analysis .tips .tips-u .tip .solution {
   float: left;
   text-align: left;
   font-family: "STHeiti", "SimHei";
   margin-left: 10px;
   color: #4F4F4F;
-  width: 80%;
+  width: 70%;
 }
-/* line 608, ../sass/style.scss */
+/* line 609, ../sass/style.scss */
 .more .analysis .tips .tips-u .tip .solution .titile {
-  font-size: 30px;
+  font-size: 2.5em;
+  font-weight: bold;
+  /*font-size: 30px;*/
 }
-/* line 611, ../sass/style.scss */
+/* line 614, ../sass/style.scss */
 .more .analysis .tips .tips-u .tip .solution .desc {
   background: none;
-  font-size: 20px;
-  line-height: 1.5em;
+  font-size: 1.875em;
+  /*font-size: 20px;*/
+  line-height: 1.5;
 }
-/* line 616, ../sass/style.scss */
+/* line 620, ../sass/style.scss */
 .more .analysis .tips .tips-u .tip .solution .desc a {
   color: #2c83a2;
 }
-/* line 625, ../sass/style.scss */
+/* line 629, ../sass/style.scss */
 .more .news {
   background: #f1f1f1;
 }
-/* line 628, ../sass/style.scss */
+/* line 632, ../sass/style.scss */
 .more .news .title {
   font-size: 2.6875em;
   color: #4F4F4F;
@@ -768,11 +772,11 @@ a {
   text-align: left;
   height: 8.09524%;
 }
-/* line 636, ../sass/style.scss */
+/* line 640, ../sass/style.scss */
 .more .news .news-ul {
   height: 68.73016%;
 }
-/* line 639, ../sass/style.scss */
+/* line 643, ../sass/style.scss */
 .more .news .news-ul li {
   width: 100%;
   height: 30%;
@@ -785,21 +789,18 @@ a {
   font-size: 1.25em;
   overflow: hidden;
 }
-/* line 651, ../sass/style.scss */
+/* line 655, ../sass/style.scss */
 .more .news .news-ul li .time {
   color: #c3c2c2;
   font-family: Arial;
 }
-/* line 655, ../sass/style.scss */
+/* line 659, ../sass/style.scss */
 .more .news .news-ul li .content {
   margin-top: 10px;
   color: #4F4F4F;
-}
-/* line 659, ../sass/style.scss */
-.more .news .news-ul li .content p {
   line-height: 1.5;
 }
-/* line 665, ../sass/style.scss */
+/* line 666, ../sass/style.scss */
 .more .news .more-btn {
   width: 54.76773%;
   height: 72px;
@@ -826,35 +827,35 @@ a {
     
 */
 @media only screen and (max-height: 1920px) {
-  /* line 697, ../sass/style.scss */
+  /* line 698, ../sass/style.scss */
   .start .text {
     bottom: 249.90476px;
   }
-  /* line 700, ../sass/style.scss */
+  /* line 701, ../sass/style.scss */
   .start .text .title {
     opacity: 0;
     margin-left: -500px;
     margin-right: 5px;
     margin-bottom: 32.7619px;
   }
-  /* line 706, ../sass/style.scss */
+  /* line 707, ../sass/style.scss */
   .start .text .subTitle {
     opacity: 0;
     margin-left: 5px;
     margin-right: -500px;
   }
-  /* line 712, ../sass/style.scss */
+  /* line 713, ../sass/style.scss */
   .start .start-c {
     bottom: 115.04762px;
   }
-  /* line 715, ../sass/style.scss */
+  /* line 716, ../sass/style.scss */
   .start .start-c .start-btn {
     opacity: 0;
     width: 163px;
     height: 65px;
     line-height: 65px;
   }
-  /* line 722, ../sass/style.scss */
+  /* line 723, ../sass/style.scss */
   .start .byWeilan {
     bottom: 60px;
   }
