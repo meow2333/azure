@@ -432,7 +432,9 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             for (var i=results.length-1,l=0;i>=l;i--) {
                 //时间处理 2014-04-25T13:00:00Z
                 t = new Date(results[i].attributes.time).getHours();
-                
+                if (i == (results.length-1)) {
+                    data.timeStamp = results[i].attributes.time;
+                }
                 data.time.push(t);
                 data.aqi.push(results[i].attributes.aqi);
                 // no.push(results[i].attributes.no);
@@ -565,6 +567,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 }]
             }); 
             me.checkStandard();
+            me.showRank();
             me.showNews();
         }
         S.getScript('./js/av-0.3.1.min.js', function() {
@@ -820,6 +823,85 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 child: '.content'
             });
         }
+        initAV();
+    };
+
+/*
+    _______________________________________________________
+    
+    从后台调排名
+    _______________________________________________________
+        
+*/
+    
+    AZ.prototype.showRank = function() {
+        var me = this;
+        $('#rank-aqi').html(me.data.aqi[11]);
+
+        function initAV () {
+            AV.initialize("blgx18bu3llnxjmstq0q528k7ogjwgqnlv3tm9b1926af47x", "zwdgquddmljlde2crhfztjk0csrzplv0x5wlk2odpgqmoh0u");
+
+            var SendMessage = AV.Object.extend('main');
+            var sendMessage = new SendMessage();
+            
+            var query = new AV.Query(SendMessage);
+            var time = me.data.timeStamp;
+            var tpl = '{{#each data}}<li><span class="num"></span><span class="line"><span class="city">{{city}}</span><span class="value">{{value}}</span></span></li>{{/each}}';
+            var data = {
+                data: []
+            };
+            var o;
+            var addFormat = function(ul) {
+                var lis = ul.children();
+
+                $(lis[0]).addClass('first');
+                $(lis[1]).addClass('second');
+                $(lis[2]).addClass('third');
+
+                $(lis[3]).one('.num').html('4.');
+                $(lis[4]).one('.num').html('5.');
+                $(lis[5]).one('.num').html('6.');
+            };
+
+            query.containedIn('time', [time]);
+            query.select('area', 'aqi');
+            query.ascending('aqi');
+            query.limit(6);
+            KProgress.start();
+            KProgress.move();
+            query.find().then(function(blues) {
+                query.descending('aqi');
+
+                for (var i=0;i<blues.length;i++) {
+                    o = {
+                        city: blues[i].attributes.area,
+                        value: blues[i].attributes.aqi
+                    };
+                    data.data.push(o);
+                }
+
+                $('.blue-ul').html(new Xtemplate(tpl).render(data));
+
+                query.find().then(function(grays) {
+                    data.data = [];
+
+                    for (var i=0;i<grays.length;i++) {
+                        o = {
+                            city: grays[i].attributes.area,
+                            value: grays[i].attributes.aqi
+                        };
+                        data.data.push(o);
+                    }
+
+                    $('.gray-ul').html(new Xtemplate(tpl).render(data));
+                    KProgress.done();
+                    //添加前三样式
+                    addFormat($('.blue-ul'));
+                    addFormat($('.gray-ul'));
+                });
+            });
+        }
+
         initAV();
     };
         //只有菊花转了

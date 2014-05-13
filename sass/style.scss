@@ -202,7 +202,7 @@ $xisong: "LiSong Pro Light", "SimSun";
     @include clearfix;
 }
 
-.viewport, .start, .transition, .desc, .knowledge, .more, .download, #loading {
+.viewport, .start, .transition, .desc, .rank, .knowledge, .more, .download, #loading {
     height: 100%;
     width: 100%;
 
@@ -474,6 +474,249 @@ $xisong: "LiSong Pro Light", "SimSun";
             text-align: center;
             color: #fff;
             font-family: $heiti;
+        }
+    }
+}
+.rank {
+    background: #f4f4f4;
+
+    .header {
+        @include madeD(height, 606px, 1260px);
+        width: 100%;
+        font-family: $heiti;
+        position: relative;
+        overflow: hidden;
+
+        .front, .bg-stage {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .bg-stage {
+            @include background-image(linear-gradient(#7ab6cb, #ffffff));
+        }
+        .front {
+            z-index: 99999;
+        }
+        p {
+            width: 100%;
+            margin: 0 auto;
+            font-size: 20px;
+            color: #05597a;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .aqi {
+            font-size: 28px;
+            font-weight: bold;
+
+            em {
+                color: #f06042;
+            }
+        }
+        .rank-circle {
+            background: #f4f4f4;
+            display: block;
+            text-align: center;
+            width: 100px;
+            border: 10px;
+            border-style: solid;
+            margin: 10px auto 0 auto;
+            @include border-radius(70px);
+            color: #f06042;
+            font-family: 'Silom';
+            font-weight: bold;
+            line-height: 100px;
+            height: 100px;
+            font-size: 30px;
+            border-color: #05597a;
+        }
+        .btns {
+            width: 100%;
+            position: relative;
+            text-align: center;
+            margin-top: 15px;
+
+            a {
+                display: inline-block;
+                text-align: center;
+                width: 180px;
+                background: #f06042;
+                line-height: 50px;
+                height: 50px;
+                color: #f4f4f4;
+                font-family: $heiti;
+                font-size: 20px;
+                @include border-radius(5px);
+                margin-right: 20px;
+            }
+        }
+    }
+    .content {
+        width: 100%;
+        height: 100%;
+        box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        -webkit-box-sizing:border-box;
+        padding-top: 20px;
+
+        .blue, .gray {
+            text-align: left;
+            width: 50%;
+            float: left;
+            box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            -webkit-box-sizing:border-box;
+
+            .title {
+                font-family: $heiti;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            ul {
+                width: 100%;
+                color: #fff;
+
+                li {
+                    height: 35px;
+                    line-height: 35px;
+                    width: 100%;
+                    margin-top: 7px;
+                    box-sizing:border-box;
+                    -moz-box-sizing:border-box;
+                    -webkit-box-sizing:border-box;
+
+                    .num {
+                        font-size: 28px;
+                        font-weight: bold;
+                        font-style: italic;
+                    }
+                    .line {
+                        position: relative;
+                        border-width: 5px;
+                        border-style: solid;
+                        height: 18px;
+                        margin-top: 3px;
+                        margin-left: 3px;
+                        width: 250px;
+                        padding: 0 20px;
+                        font-size: 16px;
+                        line-height: 18px;
+                        display: inline-block;
+                        @include border-radius(25px);
+
+                        .city {
+                            float: left;
+                        }
+                        .value {
+                            float: right;
+                        }
+                    }
+                }
+                .first, .second, .third {
+                    background: #dbdada;
+                    
+                    .num {
+                        display: inline-block;
+                        width: 30px;
+                        height: 26px;
+                        margin-top: 2px;
+                        background-repeat:no-repeat;
+                        background-image: url(../azure_png/rank.png);
+                    }
+                    .line {
+                        width: 335px;
+                    }
+                }
+                .first {
+                    .num {
+                        background-position: 0 0;
+                    }
+                }
+                .second {
+                    .num {
+                        background-position: 0 -26px;
+                    }
+                }
+                .third {
+                    .num {
+                        background-position: 0 -53px;
+                    }
+                }
+            }
+        }
+        .blue {
+            .title {
+                color: #6ec1ce;
+                padding-left: 120px;
+            }
+            li {
+                padding-left: 120px;
+
+                .line {
+                    background: #c2e0e5;
+                    border-color: #d8e7e9;
+                }
+                .num {
+                    color: #6ec1ce;
+                }
+            }
+            .first {
+                .line {
+                    background: #6ec1ce;
+                    border-color: #93cfd8;
+                }
+            }
+            .second {
+                .line {
+                    background: #82c8d3;
+                    border-color: #a6d6de;
+                }
+            }
+            .third {
+                .line {
+                    background: #a2ced5;
+                    border-color: #c5e0e4;
+                }
+            }
+        }
+        .gray {
+            .title {
+                color: #6c6d6d;
+                padding-left: 30px;
+            }
+            li {
+                padding-left: 30px;
+
+                .line {
+                    background: #a3b9bc;
+                    border-color: #b9c9cb;
+                }
+                .num {
+                    color: #6c6d6d;
+                }
+            }
+            .first {
+                .line {
+                    background: #6c6d6d;
+                    border-color: #888787;
+                }
+            }
+            .second {
+                .line {
+                    background: #888888;
+                    border-color: #a1a2a2;
+                }
+            }
+            .third {
+                .line {
+                    background: #86a0a4;
+                    border-color: #99b1b5;
+                }
+            }
         }
     }
 }
