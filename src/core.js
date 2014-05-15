@@ -1,6 +1,6 @@
 KISSY.config({
     combine:true,
-    tag: 'hahah',
+    tag: '123',
     base:'http://g.tbcdn.cn/kissy/k/1.4.2/',
     packages:{
         pkg: {
@@ -299,73 +299,8 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.animations();
         me.transition();
         me.startBtn.on(me.click, function() {
-            var ak = '9cwuN4BgCeu9MCMfGuGsKaGF';
             me.scroll.moveDown(true);
 
-            function getPosition(position) {
-                var la = position.coords.latitude;
-                var ln = position.coords.longitude;
-                var urlForGeo = "http://api.map.baidu.com/geocoder/v2/";
-
-                KProgress.start();
-                KProgress.move();
-                new IO({
-                    dataType:'jsonp',
-                    url: urlForGeo, 
-                    data:{
-                        'output': 'json',
-                        'ak': ak,
-                        'location': la + ',' + ln
-                    },
-                    success: function (data) {
-                        KProgress.done();
-                        if (data.status === 0) {
-                            var ucity = data.result.addressComponent.province;
-                            var city;
-
-                            city = ucity.split('市')[0].split('省')[0];
-                            setHash(city);
-                        } else {
-                            errorFunc();
-                        }
-                    }
-                });
-            }
-            function errorFunc(err) {
-                var urlForIp = 'http://api.map.baidu.com/location/ip';
-
-                KProgress.start();
-                KProgress.move();
-                new IO({
-                    url: urlForIp,
-                    dataType: 'jsonp',
-                    data: {
-                        ak: ak
-                    },
-                    success: function(data) {
-                        KProgress.done();
-                        // address: "CN|北京|北京|None|UNICOM|0|None"
-                        var city = data.address.split('|')[1];
-
-                        setHash(city);
-                    }
-                });
-            }
-            function setHash(city) {
-                var hashX = new HashX();
-
-                hashX.hash('city', city);
-                me.initChart(city);
-            }
-
-            if(Modernizr.geolocation) {
-                navigator.geolocation.getCurrentPosition(getPosition, errorFunc, {
-                    enableHighAcuracy: false,
-                    timeout: 1800
-                });
-            } else {
-                errorFunc();
-            }
         });
         
         me.print.on(me.click, function() {
@@ -433,6 +368,74 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         })();
 
         me.startAnime();
+        //加载
+        (function() {
+            var ak = '9cwuN4BgCeu9MCMfGuGsKaGF';
+            function getPosition(position) {
+                var la = position.coords.latitude;
+                var ln = position.coords.longitude;
+                var urlForGeo = "http://api.map.baidu.com/geocoder/v2/";
+
+                KProgress.start();
+                KProgress.move();
+                new IO({
+                    dataType:'jsonp',
+                    url: urlForGeo, 
+                    data:{
+                        'output': 'json',
+                        'ak': ak,
+                        'location': la + ',' + ln
+                    },
+                    success: function (data) {
+                        KProgress.done();
+                        if (data.status === 0) {
+                            var ucity = data.result.addressComponent.province;
+                            var city;
+
+                            city = ucity.split('市')[0].split('省')[0];
+                            setHash(city);
+                        } else {
+                            errorFunc();
+                        }
+                    }
+                });
+            }
+            function errorFunc(err) {
+                var urlForIp = 'http://api.map.baidu.com/location/ip';
+
+                KProgress.start();
+                KProgress.move();
+                new IO({
+                    url: urlForIp,
+                    dataType: 'jsonp',
+                    data: {
+                        ak: ak
+                    },
+                    success: function(data) {
+                        KProgress.done();
+                        // address: "CN|北京|北京|None|UNICOM|0|None"
+                        var city = data.address.split('|')[1];
+
+                        setHash(city);
+                    }
+                });
+            }
+            function setHash(city) {
+                var hashX = new HashX();
+
+                hashX.hash('city', city);
+                me.initChart(city);
+            }
+
+            if(Modernizr.geolocation) {
+                navigator.geolocation.getCurrentPosition(getPosition, errorFunc, {
+                    enableHighAcuracy: false,
+                    timeout: 1800
+                });
+            } else {
+                errorFunc();
+            }
+        })();
     };
 
 /*
