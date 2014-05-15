@@ -983,15 +983,15 @@ a {
 /* line 813, ../sass/style.scss */
 .knowledge .header .type:hover {
   opacity: 0.5;
-  -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg);
-  -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg);
-  -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg);
-  -o-transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg);
-  transform: rotateX(0deg) rotateY(0deg) rotateZ(360deg);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(10deg);
+  -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(10deg);
+  -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(10deg);
+  -o-transform: rotateX(0deg) rotateY(0deg) rotateZ(10deg);
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(10deg);
+  -webkit-transition: -webkit-transform, opacity 0.5s ease;
+  -moz-transition: -moz-transform, opacity 0.5s ease;
+  -o-transition: -o-transform, opacity 0.5s ease;
+  transition: transform, opacity 0.5s ease;
 }
 /* line 819, ../sass/style.scss */
 .knowledge .content-c {
