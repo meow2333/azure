@@ -298,9 +298,9 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         });
         me.animations();
         me.transition();
-        me.startBtn.on(me.click, function() {
+        me.startBtn.on(me.click, function(e) {
+            e.preventDefault();
             me.scroll.moveDown(true);
-
         });
         
         me.print.on(me.click, function() {
