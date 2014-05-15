@@ -808,6 +808,12 @@ $xisong: "LiSong Pro Light", "SimSun";
             line-height: 120px;
             height: 120px;
             font-size: 30px;
+            opacity: 1;
+        }
+        .type:hover {
+            opacity: 0.5;
+            @include transform(rotateX(0deg) rotateY(0deg) rotateZ(360deg));
+            @include transition(all 0.5s ease);
         }
     }
     .content-c {
