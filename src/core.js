@@ -493,7 +493,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             for (var i=results.length-1,l=0;i>=l;i--) {
                 //时间处理 2014-04-25T13:00:00Z
                 t = new Date(results[i].attributes.time).getHours();
-                if (i == (results.length-1)) {
+                if (i === 0) {
                     data.timeStamp = results[i].attributes.time;
                 }
                 data.time.push(t);
@@ -629,8 +629,13 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 }]
             }); 
             me.checkStandard();
-            me.showRank();
-            me.showNews();
+
+            if (!me.isReadyNR) {
+                me.showRank();
+                me.showNews();
+            }
+            $('#rank-aqi').html(me.data.aqi[11]);
+            $('#rank-circle').html(me.data.rank[me.data.rank.length-1]);
         }
         if (!window.Highcharts) {
             S.getScript('./js/av-0.3.1.min.js', function() {
@@ -845,7 +850,6 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         var me = this;
 
         function initAV () {
-            AV.initialize("blgx18bu3llnxjmstq0q528k7ogjwgqnlv3tm9b1926af47x", "zwdgquddmljlde2crhfztjk0csrzplv0x5wlk2odpgqmoh0u");
 
             var SendMessage = AV.Object.extend('article');
             var sendMessage = new SendMessage();
@@ -902,17 +906,15 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
     
     AZ.prototype.showRank = function() {
         var me = this;
-        $('#rank-aqi').html(me.data.aqi[11]);
-        $('#rank-circle').html(me.data.rank[me.data.rank.length-1]);
 
         function initAV () {
-            AV.initialize("blgx18bu3llnxjmstq0q528k7ogjwgqnlv3tm9b1926af47x", "zwdgquddmljlde2crhfztjk0csrzplv0x5wlk2odpgqmoh0u");
 
             var SendMessage = AV.Object.extend('main');
             var sendMessage = new SendMessage();
             
             var query = new AV.Query(SendMessage);
             var time = me.data.timeStamp;
+            console.log(me.data.timeStamp);
             var tpl = '{{#each data}}<li><span class="num"></span><span class="line"><span class="city">{{city}}</span><span class="value">{{value}}</span></span></li>{{/each}}';
             var data = {
                 data: []
@@ -965,6 +967,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                     //添加前三样式
                     addFormat($('.blue-ul'));
                     addFormat($('.gray-ul'));
+                    me.isReadyNR = true;
                 });
             });
         }
