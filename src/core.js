@@ -799,6 +799,35 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             $('.overlay .iknow').on(me.click, function() {
                 me.overlay.hide();
             });
+            //加走马灯
+            if (tips.tips.length >= 3) {
+                (function() {
+                    var p = $('.value-ul');
+                    var lis = $('.value-ul').children();
+                    var i = 0;
+
+                    function play(index) {
+                        TweenLite.to(lis[index], 0.8, {
+                            'margin-top': '-30px',
+                            onComplete: function() {
+                                setTimeout(function() {
+                                    $(lis[index]).remove();
+                                    $(lis[index]).css('margin-top', '0');
+                                    p.append($(lis[index]));
+                                    if (index === tips.tips.length) {
+                                        index = 0;
+                                    } else {
+                                        index = index + 1;
+                                    }
+                                    
+                                    play(index);
+                                }, 800);
+                            }
+                        });
+                    }
+                    play(0);
+                })();
+            }
         }
 
         if (data.pm2_5[11] >= 75) {
