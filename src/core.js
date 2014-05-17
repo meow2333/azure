@@ -241,7 +241,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.printAnime = function() {
             $('.desc .main .main-m').css('margin-top', '-60%');
             TweenLite.to($('.desc .main .main-m').getDOMNode(), 3, {
-                'margin-top': '30px'
+                'margin-top': '130px'
             });
         };
         me.ranKAnime = function() {
@@ -914,7 +914,6 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             
             var query = new AV.Query(SendMessage);
             var time = me.data.timeStamp;
-            console.log(me.data.timeStamp);
             var tpl = '{{#each data}}<li><span class="num"></span><span class="line"><span class="city">{{city}}</span><span class="value">{{value}}</span></span></li>{{/each}}';
             var data = {
                 data: []
