@@ -216,7 +216,7 @@ $xisong: "LiSong Pro Light", "SimSun";
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10000;
+    z-index: 9999999999;
 }
 .shadow {
     width: 100%;
@@ -426,7 +426,7 @@ $xisong: "LiSong Pro Light", "SimSun";
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 9999999999;
+            z-index: 999999;
 
             .icon-location {
                 text-align: center;
@@ -1202,6 +1202,75 @@ $xisong: "LiSong Pro Light", "SimSun";
             @include fonts(40em);
             text-align: center;
             margin: 40px auto 0 auto;
+        }
+    }
+    .overlay {
+        display: none;
+        width: 90%;
+        height: 90%;
+        padding: 20px 40px;
+        position: absolute;
+        z-index: 2;
+        top: 5%;
+        left: 5%;
+        background: #fff;
+        box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        -webkit-box-sizing:border-box;
+        @include border-radius(10px);
+
+        table {
+            width: 100%;
+            height: 100%;
+            color: #c3c3c3;
+            text-align: center;
+            border: none;
+            @include fonts(25em);
+
+            tbody {
+                width: 100%;
+            }
+            tr {
+                width: 100%;
+
+                td {
+                    width: 100%;
+                    text-align: center;
+                    vertical-align: top;
+                }
+            }
+            .t-header {
+                color: #e6e6e6;
+                @include fonts(40em);
+            }
+            .iknow {
+                @include fonts(30em);
+                height: 50px;
+                width: 200px;
+                background: #43adbe;
+                color: #f4f4f4;
+                font-family: $heiti;
+                display: block;
+                @include border-radius(5px);
+                line-height: 50px;
+                text-align: center;
+                margin: 0 auto;
+            }
+            em {
+                color: #43adbe;
+            }
+            .tdl {
+                width: 20%;
+                @include fonts(30em);
+            }
+            .tdr {
+                width: 80%;
+                text-align: left;
+            }
+            .suggest {
+                margin-right: 5px;
+            }
+
         }
     }
 }

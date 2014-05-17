@@ -88,6 +88,9 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.rankReturnBtn = $('.rank .return-chart');
         me.rankNextPage = $('.rank .next-page');
         me.knowReturnBtn = $('.knowledge .return');
+
+        me.suggestBtn = $('.more .kouzhao');
+        me.overlay = $('.more .overlay');
     };
 
 /*
@@ -472,7 +475,6 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         }
         function renderChart(results) {
             if (results.length === 0) {
-                //城市不对或者网络没数据
                 alert('sorry, 没有这个城市，试试其他的吧');
                 return;
             }
@@ -753,7 +755,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 tips.tips.push({
                     img: './azure_png/face.png',
                     titile: '佩戴口罩',
-                    desc: '外出请佩戴口罩（<a href="http://meow2333.github.io" target="_blank">？如何挑选口罩</a>）'
+                    desc: '外出请佩戴口罩（<a class="kouzhao">？如何挑选口罩</a>）'
                 });
 
             } else if (aqi >= 100) {
@@ -761,7 +763,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 tips.tips.push({
                     img: './azure_png/face.png',
                     titile: '佩戴口罩',
-                    desc: '外出请佩戴口罩（<a href="http://meow2333.github.io" target="_blank">？如何挑选口罩</a>）'
+                    desc: '外出请佩戴口罩（<a class="kouzhao">？如何挑选口罩</a>）'
                 });
                 tips.tips.push({
                     img: './azure_png/house.png',
@@ -778,6 +780,12 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             }
             me.tipsUl.html(new Xtemplate(tipsTpl).render(tips));
             me.descInfo.html(infos);
+            $('.more .kouzhao').on(me.click, function() {
+                me.overlay.show();
+            });
+            $('.overlay .iknow').on(me.click, function() {
+                me.overlay.hide();
+            });
         }
 
         if (data.pm2_5[11] >= 75) {
