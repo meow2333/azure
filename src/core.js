@@ -233,13 +233,24 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 });
             }
 
-            gas1();
-            gas2();
-            pipe1();
-            pipe2();
-            bubble1();
-            bubble2();
-            bubble3();
+            $('.transition .anime').show();
+            $('.transition .anime').css('top', '0');
+            setTimeout(function() {
+                TweenLite.to($('.transition .anime').getDOMNode(), 0.8, {
+                    top: '-100%',
+                    onComplete: function() {
+                        $('.transition .anime').hide();
+                        gas1();
+                        gas2();
+                        pipe1();
+                        pipe2();
+                        bubble1();
+                        bubble2();
+                        bubble3();
+                    }
+                });
+            }, 1500);
+            
         };
         me.printAnime = function() {
             $('.desc .main .main-m').css('margin-top', '-60%');
@@ -296,11 +307,13 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 if (index == 4) {
                     me.ranKAnime();
                 }
+                if (index == 1) {
+                    me.transition();
+                }
             },
             "loop": false
         });
         me.animations();
-        me.transition();
         me.startBtn.on(me.click, function(e) {
             e.preventDefault();
             me.scroll.moveDown(true);
