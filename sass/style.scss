@@ -421,7 +421,7 @@ $xisong: "LiSong Pro Light", "SimSun";
                 display: inline;
             }
             input {
-                background: transparent;
+                background: #fff;
                 border: none;
                 color: #efcb3d;
             }
@@ -458,6 +458,7 @@ $xisong: "LiSong Pro Light", "SimSun";
         .main-m {
             width: 100%;
             @include madeD(height, 744px, 1260px);
+            @include box-shadow(#000000 0px 0px 5px);
             border: 20px solid $gray;
             background: #f3f3f3;
             box-sizing:border-box;
@@ -1233,6 +1234,7 @@ $xisong: "LiSong Pro Light", "SimSun";
         -moz-box-sizing:border-box;
         -webkit-box-sizing:border-box;
         @include border-radius(10px);
+        @include box-shadow(#000000 0px 0px 5px);
 
         table {
             width: 100%;

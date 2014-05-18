@@ -151,7 +151,7 @@ KISSY.add('pkg/onepageScroll',function (S, Node, Base) {
                         startY = touches[0].pageY;
                         $this.on("touchmove", touchmove);
                     }
-                    event.preventDefault();
+                    // event.preventDefault();
                 }
 
                 function touchmove(event) {

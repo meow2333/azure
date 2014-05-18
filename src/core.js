@@ -369,6 +369,10 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                             $('.content-c').css('opacity', 1);
                             $('#content-' + map[index]).show();
                             $('#content-' + map[index]).css('opacity', '0');
+                            $('#content-' + map[index] + ' .title').css('margin-left', '-100%');
+                            TweenLite.to($('#content-' + map[index] + ' .title').getDOMNode(), 0.5, {
+                                'margin-left': '0'
+                            });
                             TweenLite.to($('#content-' + map[index]).getDOMNode(), 0.5, {
                                 opacity: 1
                             });
