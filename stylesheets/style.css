@@ -583,9 +583,7 @@ a {
 .desc .main .main-m {
   width: 100%;
   height: 59.04762%;
-  -webkit-box-shadow: black 0px 0px 5px;
-  -moz-box-shadow: black 0px 0px 5px;
-  box-shadow: black 0px 0px 5px;
+  /*@include box-shadow(#000000 0px 0px 5px);*/
   border: 20px solid #eeeeee;
   background: #f3f3f3;
   box-sizing: border-box;
