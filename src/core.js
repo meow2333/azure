@@ -130,6 +130,8 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             tl.play();
         };
         me.transition = function() {
+            $('.transition .anime').show();
+            $('.transition .anime').css('top', '0');
             var tl = new TimelineLite();
 
             function gas1() {
@@ -232,9 +234,6 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                     }
                 });
             }
-
-            $('.transition .anime').show();
-            $('.transition .anime').css('top', '0');
             setTimeout(function() {
                 TweenLite.to($('.transition .anime').getDOMNode(), 0.8, {
                     top: '-100%',
@@ -287,6 +286,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
 */
     AZ.prototype.funcs = function() {
         var me = this;
+        var now;
 
         me.body.css('height', Dom.viewportHeight());
         me.scroll = new OnepageScroll({
@@ -298,16 +298,23 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             "updateURL": false,
             "keyboard": true,
             "beforeMove": function(index){
-                //判断在第几页，分别触发当前页面的下一步按钮
-                if (index == 1 && !window.Highcharts) {
-                    me.startBtn.fire(me.click);
+                console.log('before' + index);
+                if (index == 2 || index == 3 || index == 4) {
+                    now = true;
+                } else {
+                    now = false;
+                }
+                if (index == 2) {
+                    $('.transition .anime').show();
+                    $('.transition .anime').css('top', '0');
                 }
             },
             "afterMove": function(index){
-                if (index == 4) {
+                console.log('after' + index);
+                if (index == 4 && now) {
                     me.ranKAnime();
                 }
-                if (index == 1) {
+                if ((index == 2) || (index == 3 && now)) {
                     me.transition();
                 }
             },
@@ -316,7 +323,12 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.animations();
         me.startBtn.on(me.click, function(e) {
             e.preventDefault();
+            $('.transition .anime').show();
+            $('.transition .anime').css('top', '0');
             me.scroll.moveDown(true);
+        });
+        $('.download .web-app').on(me.click, function() {
+            me.scroll.moveDown();
         });
         
         me.print.on(me.click, function() {
@@ -748,7 +760,6 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             }
 
             var lis = $('.value-ul').children();
-            console.log(lis);
             for (var j=0;j<lis.length;j++) {
                 TweenLite.killTweensOf(lis[j]);
             }
@@ -759,7 +770,6 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                     var i = 0;
 
                     function play(index) {
-                        console.log(index);
                         TweenLite.to(lis[index], 0.8, {
                             'margin-top': '-30px',
                             onComplete: function() {
