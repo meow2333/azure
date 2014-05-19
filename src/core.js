@@ -235,7 +235,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 });
             }
             setTimeout(function() {
-                TweenLite.to($('.transition .anime').getDOMNode(), 0.8, {
+                TweenLite.to($('.transition .anime').getDOMNode(), 0.3, {
                     opacity: '0',
                     onComplete: function() {
                         $('.transition .anime').hide();
