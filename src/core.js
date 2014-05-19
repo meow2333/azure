@@ -310,7 +310,6 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 }
             },
             "afterMove": function(index){
-                console.log('after' + index);
                 if (index == 4 && now) {
                     me.ranKAnime();
                 }
@@ -363,6 +362,9 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         $('.desc .chart-btn').on(me.click, function() {
             me.scroll.moveDown(true);
         });
+        if (S.UA.mobile) {
+            $('.desc .search').hide();
+        }
         //kownledge部分
         (function(){
             var map = ['pm10', 'pm2_5', 'so2', 'no2', 'o3', 'aqi'];
