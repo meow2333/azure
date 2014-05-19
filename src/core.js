@@ -131,7 +131,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         };
         me.transition = function() {
             $('.transition .anime').show();
-            $('.transition .anime').css('top', '0');
+            $('.transition .anime').css('opacity', '1');
             var tl = new TimelineLite();
 
             function gas1() {
@@ -236,7 +236,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             }
             setTimeout(function() {
                 TweenLite.to($('.transition .anime').getDOMNode(), 0.8, {
-                    top: '-100%',
+                    opacity: '0',
                     onComplete: function() {
                         $('.transition .anime').hide();
                         gas1();
@@ -306,7 +306,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 }
                 if (index == 2) {
                     $('.transition .anime').show();
-                    $('.transition .anime').css('top', '0');
+                    $('.transition .anime').css('opacity', '1');
                 }
             },
             "afterMove": function(index){
@@ -323,7 +323,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         me.startBtn.on(me.click, function(e) {
             e.preventDefault();
             $('.transition .anime').show();
-            $('.transition .anime').css('top', '0');
+            $('.transition .anime').css('opacity', '1');
             me.scroll.moveDown(true);
         });
         $('.download .web-app').on(me.click, function() {

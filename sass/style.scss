@@ -260,6 +260,10 @@ $xisong: "LiSong Pro Light", "SimSun";
             color: #fff;
             font-family: $heiti;
         }
+        .start-btn:hover {
+            background: #01608a;
+            @include transition(background 0.5s ease);
+        }
     }
     .byWeilan {
         position: absolute;
@@ -367,6 +371,10 @@ $xisong: "LiSong Pro Light", "SimSun";
                 margin-left: 15px;
                 font-family: $heiti;
             }
+        }
+        .print:hover {
+            @include transition(background 0.5s ease);
+            background: #2c8e9e;
         }
         .byWeilan {
             margin: 25px auto 0 auto;
@@ -994,6 +1002,10 @@ $xisong: "LiSong Pro Light", "SimSun";
             font-size: 20px;
             @include border-radius(5px);
         }
+        .return:hover {
+            @include transition(background 0.5s ease);
+            background: #2c8e9e;
+        }
     }
 }
 .more {
@@ -1224,6 +1236,10 @@ $xisong: "LiSong Pro Light", "SimSun";
             text-align: center;
             margin: 40px auto 0 auto;
         }
+        .more-btn:hover {
+            @include transition(background 0.5s ease);
+            background: #2c8e9e;
+        }
     }
     .overlay {
         display: none;
@@ -1277,6 +1293,10 @@ $xisong: "LiSong Pro Light", "SimSun";
                 line-height: 50px;
                 text-align: center;
                 margin: 0 auto;
+            }
+            .iknow:hover {
+                @include transition(background 0.5s ease);
+                background: #2c8e9e;
             }
             em {
                 color: #43adbe;
@@ -1415,6 +1435,10 @@ $xisong: "LiSong Pro Light", "SimSun";
                 font-family: $heiti;
                 font-size: 28px;
                 @include border-radius(5px);
+            }
+            .web-app:hover {
+                @include transition(background 0.5s ease);
+                background: #2c8e9e;
             }
             .more {
                 text-align: center;
