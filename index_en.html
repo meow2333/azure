@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!-- <html lang="zh-CN" class="no-js" manifest="main.appcache" type="text/cache-manifest"> -->
+<html lang="zh-CN" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <!--允许全屏-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <!--禁止电话号码和邮箱识别-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <!--TODO:添加一个ios用的icon-->
+    <!-- <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/icon_72.png" /> -->
+    <!-- <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/icon_114.png" /> -->
+    <!--启动画面-->
+    <!-- <link rel="apple-touch-startup-image" href="/img/startup.png" /> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>··Azure··</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <script type="text/javascript" src="http://g.tbcdn.cn/kissy/k/1.4.2/seed.js" data-config='{combine:true}'></script>
+</head>
+<body>
+    <div id="loading"></div>
+    <div class="viewport">
+        <section class="download clearfix active">
+            <div class="left">
+                <p class="title"><em>Azure</em></p>
+                <p class="desc">Azure: air quality monitoring application</p>
+                <p class="desc">Mobile app and web app</p>
+                <p class="desc">We provide air quality data(AQI) accurately and duly</p>
+                <p class="desc">We can forecast AQI in 24 hours</p>
+                <p class="desc" style="margin-top: 10px;">The original intent of Azure</p>
+                <p class="desc">Rasing awareness of environment protection</p>
+                <p class="desc">Rasing awareness of self-protection</p>
+                <p class="desc" style="margin-top: 10px;">We hope the sky always blue in our country&nbsp:)</p>
+                <div class="authors">
+                    <div class="author">
+                        <div class="avatar icon-github"></div>
+                        <p class="name"><em  class="icon-file-xml"></em>ZHAI LIN</p>
+                    </div>
+                    <div class="author">
+                        <div class="avatar icon-github"></div>
+                        <p class="name"><em class="icon-file-xml"></em>CHEN XIAO</p>
+                    </div>
+                    <div class="author">
+                        <div class="avatar icon-github"></div>
+                        <p class="name"><em class="icon-wand"></em>LIU SHUYAN</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="load">
+                    <span class="title"><em class="icon-download">&nbsp</em><em>Azure</em>Download</span>
+                    <a class="apple"></a>
+                    <a class="android" href="http://www.wandoujia.com/apps/com.shinlol.weilan" target="_blank"></a>
+                </div>
+                <img src="./azure_png/dphone.png" class="dphone">
+                <div class="bottom">
+                    <a class="web-app">Web App Entrance</a>
+                    <p class="more">More</p>
+                </div>
+            </div>
+        </section>
+        <section class="start content">
+            <div class="text">
+                <p class="title">Do you want to know the composition of the air around you？</p>
+                <p class="subTitle">Click the button below, to analyze!</p>
+            </div>
+            <div class="start-c"><a class="start-btn" href="#">START</a></div>
+            <div class="byWeilan">by&nbsp;Azure</div>
+        </section>
+        <section class="transition">
+            <div class="shadow">
+                <div class="stage">
+                    <div class="bg"></div>
+                    <div class="gas1"></div>
+                    <div class="gas2"></div>
+                    <div class="pipe1"></div>
+                    <div class="pipe2"></div>
+                    <div class="bubble1"></div>
+                    <div class="bubble2"></div>
+                    <div class="bubble3"></div>
+                </div>
+                <div class="footer">
+                    <a class="print clearfix"><i></i><span>PRINT</span></a>
+                    <div class="byWeilan">by&nbsp;Azure</div>
+                </div>
+                <div class="anime">
+                    <img class="bottle" src="./azure_png/bottle.gif">
+                </div>
+            </div>
+        </section>
+        <section class="desc content clearfix">
+            
+                <div class="l-bar grid-1"></div>
+                <div class="main grid-4">
+                    <div class="location">
+                        <div class="icon-location"></div>
+                        <p class="city">北京</p>
+                    </div>
+                    <div class="main-m">
+                        <div class="chart" id="chart"></div>
+                        <div class="info"></div>
+                    </div>
+                    <div class="more-c grid-6">
+                        <a class="more-btn">More</a>
+                    </div>
+                    <div class="byWeilan grid-6">by&nbsp;Azure</div>
+                    <div class="l-shadow"></div>
+                    <div class="r-shadow"></div>
+                </div>
+                <div class="r-bar grid-1">
+                    <a class="chart-btn"></a>
+                    <div class="search">
+                        <span class="icon-search"></span>
+                        <form id="search"><input type="text" value="" placeholder="Other cities"></input></form>
+                        
+                    </div>
+                </div>
+            
+        </section>
+        <section class="rank">
+            <div class="header">
+                <div class="bg-stage">
+                    <div class="lou"></div>
+                    <div class="mon"></div>
+                    <div class="yun"></div>
+                </div>
+                <div class="front">
+                    <p class="aqi">AQI:<em id="rank-aqi">200</em></p>
+                    <p>National Ranking</p>
+                    <div class="rank-circle" id="rank-circle">63</div>
+                    <div class="btns">
+                        <a class="return-chart">Report</a>
+                        <a class="next-page">More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="content clearfix">
+                <div class="blue">
+                    <div class="title">Blue Ranking</div>
+                    <ul class="blue-ul"></ul>
+                </div>
+                <div class="gray">
+                    <div class="title">Gray Ranking</div>
+                    <ul class="gray-ul"></ul>
+                </div>
+            </div>
+        </section>
+        <section class="more clearfix">
+            <div class="analysis">
+                <div class="value">
+                    <div class="title-c clearfix">
+                        <p class="title">污染指数</p>
+                        <div class="location">
+                            <div class="icon-location"></div>
+                            <p class="city">北京</p>
+                        </div>
+                    </div>
+                    <ul class="value-ul"></ul>
+                    <div class="degree">
+                        <span class="face"></span>
+                        <span class="face-desc">严重</span>
+                    </div>
+                </div>
+                <div class="tips">
+                    <div class="title">Tips</div>
+                    <ul class="tips-u"></ul>
+                </div>
+            </div>
+            <div class="news">
+                <p class="title">News of air</p>
+                <ul class="news-ul"></ul>
+                <a class="more-btn">Knownledge of air</a>
+            </div>
+            <div class="overlay">
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <span class="t-header">Tips of dust mask</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdl">Filter</td>
+                        <td class="tdr">
+                            <p>N代表防护非油性颗粒，R代表防护油性颗粒，P代表适合防护游戏或非油性颗粒物。95/99/100则代表防护过滤水平，使用0.3微米颗粒进行测试，阻隔效率在95%/99%/99.7%以上。<em>对于PM2.5颗粒，或者防护通过空气散播的部分疾病，使用N95级别口罩可以达到。</em></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdl">Wear</td>
+                        <td class="tdr">
+                            <p>Most worn as a headband and ear - mounted,<em> for certified respirator, wear a way that does not affect the filter effect, requiring users to choose according to habit.</em></p>
+                            <img src="./azure_png/suggest.png">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdl">Breathing valve</td>
+                        <td class="tdr">
+                            <p><em>Wearing face masks can affect breathing. </em>So the elderly, pregnant women and other groups consult your doctor before choosing the right mask, and the wear of time. Breathing valve opens from the humidity and heat, reduce the expiratory resistance, your wearing more comfortable.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdl">Recommendation</td>
+                        <td class="tdr">
+                            <a class="suggest" href="http://click.simba.taobao.com/cc_im?spm=0.0.0.0.GJrZWx&p=%D7%A8%D2%B5%20%BF%DA%D5%D6&s=1427660916&k=409&e=kKxiNJetZZFGsyhoHQm9zTscj7rubaFBJj0xetigELvBY17hL%2BuUYkURIIQPm%2FF%2FZ7EGDKyNnrpPKTRI3k%2B%2F%2FaCBT3flc6CF%2B1kujyAsB5nsMS8FcXckaPCJ3HTg70X%2FpvpfKAbL9bPptxDSrw4PmTDbi0DWy5ji6K8hxLfol9TE3lEvGW4oWqYVBLi0NmHsgFYcwNhzCk8rpchemr4xKPRyjm20u61UMyt%2FDK63BmhhcUj3%2Fg%2BcKZADj%2F2Fkez1g%2BxE8ncOsS4X7GSMjXlw1rKkm8SA61UZfG2p0jxPiuS8%2BiXXYlsem8oHUNV8cyYKCmJUCS62S9MpKlN%2Fehzvggx9bt9fOFYIK6XIXpq%2BMSicrWUsN2YadWOd9ZX1bX%2Fu%2BakYUErV%2BH1vxMuSzsdULA%3D%3D" target="_blank">
+                                <img src="http://g.search1.alicdn.com/img/i1/T1egojFgteXXXXXXXX_!!0-item_pic.jpg_120x120.jpg">
+                            </a>
+                            <a class="suggest" href="http://click.simba.taobao.com/cc_im?spm=0.0.0.0.GJrZWx&p=%D7%A8%D2%B5%20%BF%DA%D5%D6&s=1427660916&k=377&e=NQTExXnMyelGsyhoHQm9zTscj7rubaFBJj0xetigELvBY17hL%2BuUYkURIIQPm%2FF%2FZ7EGDKyNnroNj%2BkyECsTKoeASj%2F6w3Id52H3EoSVTE%2FsMS8FcXckaPCJ3HTg70X%2FpvpfKAbL9bPptxDSrw4PmTDbi0DWy5ji6K8hxLfol9TE3lEvGW4oWqYVBLi0NmHsgFYcwNhzCk8rpchemr4xKJytZSw3Zhp1kvWkvVO3NkPYEf%2BnOl5WO6IeFSUKIzO9gK%2BwEzVXRLqO6n7SJLhuY6hDDtJjnIflnaViP%2BPFTjPm7PbSqnUuZH3LEG%2B7N2p7sQeNNQt%2FFz5UwUPmsSrGrh1akjf7BtzrYXFI9%2F4PnCkq6dx62TXC5g%3D%3D" target="_blank">
+                                <img src="http://g.search2.alicdn.com/img/i2/17951032986731999/T117_oFgBaXXXXXXXX_!!0-item_pic.jpg_120x120.jpg">
+                            </a>
+                            <a class="suggest" href="http://click.simba.taobao.com/cc_im?spm=0.0.0.0.GJrZWx&p=%D7%A8%D2%B5%20%BF%DA%D5%D6&s=1427660916&k=377&e=g5LfOx82X5ZGsyhoHQm9zTscj7rubaFBJj0xetigELvBY17hL%2BuUYkURIIQPm%2FF%2FZ7EGDKyNnrryFGkgIp8MAB1bYGRD%2FHJG56YfdqrTUgbsMS8FcXckaPCJ3HTg70X%2FpvpfKAbL9bPptxDSrw4PmTDbi0DWy5ji6K8hxLfol9TE3lEvGW4oWqYVBLi0NmHsxxFEkIV8X5dhcUj3%2Fg%2BcKSBgiWBo2pr%2FB2jBOyx6z3pSyl8xEqP6TkamYFi2Ns2sH5%2B17Lvjn2SYfSIEBG1gGJgG6ztAii7lAp2SpBrmQI8OA5yT%2BUGCaZT41expEDXNcQJNziU8eOBE03ydPHPsPOEuxluFZFZ73aRtvTgwIgsFTOXGnR1w6w%3D%3D" target="_blank">
+                                <img src="http://g.search2.alicdn.com/img/i2/T1ZPpjFJlaXXXXXXXX_!!0-item_pic.jpg_120x120.jpg">
+                            </a>
+                            <a class="suggest" href="http://click.simba.taobao.com/cc_im?spm=0.0.0.0.GJrZWx&p=%D7%A8%D2%B5%20%BF%DA%D5%D6&s=1427660916&k=377&e=h0A4yHBZ6T9GsyhoHQm9zTscj7rubaFBJj0xetigELvBY17hL%2BuUYkURIIQPm%2FF%2FZ7EGDKyNnro5CNnMLmnQBIEn70vEJM89KQFEzWyCas%2FsMS8FcXckaPCJ3HTg70X%2FpvpfKAbL9bPptxDSrw4PmTDbi0DWy5ji6K8hxLfol9TE3lEvGW4oWqYVBLi0NmHsgFYcwNhzCk8rpchemr4xKJytZSw3Zhp1kvWkvVO3NkPYEf%2BnOl5WO6IeFSUKIzO9UehO8%2BrZb%2FnzZdleZvpL1JBZk4ntYParNLHczltFn12OqjQITInR4mPgQJXrCK9BbIgkoKI%2BV69UwUPmsSrGrh1akjf7BtzrYXFI9%2F4PnCkq6dx62TXC5g%3D%3D" target="_blank">
+                                <img src="http://g.search1.alicdn.com/img/i1/T17nkzFBxaXXXXXXXX_!!0-item_pic.jpg_120x120.jpg">
+                            </a>
+                            <a class="suggest" href="http://click.simba.taobao.com/cc_im?spm=0.0.0.0.GJrZWx&p=%D7%A8%D2%B5%20%BF%DA%D5%D6&s=1427660916&k=377&e=tRm83JVRKh9GsyhoHQm9zTscj7rubaFBJj0xetigELvBY17hL%2BuUYkURIIQPm%2FF%2FZ7EGDKyNnro5CNnMLmnQBIEn70vEJM89XkqhVP3Q07HsMS8FcXckaPCJ3HTg70X%2FpvpfKAbL9bPptxDSrw4PmTDbi0DWy5ji6K8hxLfol9TE3lEvGW4oWqYVBLi0NmHsgFYcwNhzCk8rpchemr4xKJytZSw3Zhp1kvWkvVO3NkPYEf%2BnOl5WO6IeFSUKIzO9y3XX5JmjRmi8awOXKj7BzZBZk4ntYPardwFkqOEmTU4cfge8GSXNTm0SKRU6mCXuoS4mEyMqYEpUwUPmsSrGrh1akjf7BtzrYXFI9%2F4PnCkq6dx62TXC5g%3D%3D" target="_blank">
+                                <img src="http://g.search3.alicdn.com/img/i3/1867313838/T2Sv7QXsVaXXXXXXXX_!!1867313838.jpg_120x120.jpg">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <a class="iknow">Okay</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section class="knowledge">
+            <div class="header">
+                <a class="type" id="know-pm10">PM10</a>
+                <a class="type" id="know-pm2_5">PM2.5</a>
+                <a class="type" id="know-so2">SO2</a>
+                <a class="type" id="know-no2">NO2</a>
+                <a class="type" id="know-o3">O3</a>
+                <a class="type" id="know-aqi">AQI</a>
+            </div>
+            <div class="content-c">
+                <div class="content" id="content-pm10">
+                    <div class="title">
+                        <span class="circle"></span>
+                        <span class="title-name">PM10</span>
+                    </div>
+                    <p class="define">Causes</p>
+                    <p class="define-desc">Producing primarily from construction activities, road dust and sand soil.</p>
+                    <p class="jeop">Hazards</p>
+                    <p class="jeop-desc">Lead to heart disease, atherosclerosis, hardening of the lungs, lung cancer, asthma, bronchitis and other diseases.</p>
+                    <p class="pre">Precaution</p>
+                    <p class="pre-desc">Wear a dust mask outside.</p>
+                </div>
+                <div class="content  hidden" id="content-pm2_5">
+                    <div class="title">
+                        <span class="circle"></span>
+                        <span class="title-name">PM2.5</span>
+                    </div>
+                    <p class="define">Causes</p>
+                    <p class="define-desc">It mainly comes from the power generation, industrial production, such as vehicle emissions after combustion and emissions in the process of residues, mostly contain heavy metals and other toxic substances.</p>
+                    <p class="jeop">Hazards</p>
+                    <p class="jeop-desc">The health risks of micro-fine soot particles stem from their ability to penetrate the lungs and pass into the bloodstream. This is the reason they are associated with cardiovascular disease (diseases of the heart and blood circulation) as well as lung disease. </p>
+                    <p class="pre">Precaution</p>
+                    <p class="pre-desc">1.Staying indoors when the weather is haze. 2.Wear a PM2.5 mask outside.</p>
+                </div>
+                <div class="content hidden" id="content-so2">
+                    <div class="title">
+                        <span class="circle"></span>
+                        <span class="title-name">SO2</span>
+                    </div>
+                    <p class="define">Causes</p>
+                    <p class="define-desc">Power generation, metallurgy, building materials is the main source of sulfur dioxide.</p>
+                    <p class="jeop">Hazards</p>
+                    <p class="jeop-desc">Inhaling sulfur dioxide is associated with increased respiratory symptoms and disease, difficulty in breathing, and premature death.</p>
+                    <p class="pre">Precaution</p>
+                    <p class="pre-desc">Firecrackers Use Should Be Decreased.</p>
+                </div>
+                <div class="content hidden" id="content-no2">
+                    <div class="title">
+                        <span class="circle"></span>
+                        <span class="title-name">NO2</span>
+                    </div>
+                    <p class="define">Causes</p>
+                    <p class="define-desc"> Thermally produced NOx is the largest contributor to these types of emissions. Thermal NOx is produced during the combustion process when nitrogen and oxygen are present at elevated temperatures.</p>
+                    <p class="jeop">Hazards</p>
+                    <p class="jeop-desc">. As one of the components of smog, nitrogen dioxide is known to irritate the lungs and increase susceptibility to respiratory infections.</p>
+                    <p class="pre">Precaution</p>
+                    <p class="pre-desc">Avoid opening the window.</p>
+                </div>
+                <div class="content hidden" id="content-o3">
+                    <div class="title">
+                        <span class="circle"></span>
+                        <span class="title-name">O3</span>
+                    </div>
+                    <p class="define">Causes</p>
+                    <p class="define-desc">Ozone precursors are a group of pollutants, predominantly those emitted during the combustion of fossil fuels and break down in the lower atmosphere to normal dioxygen.</p>
+                    <p class="jeop">Hazards</p>
+                    <p class="jeop-desc">Ozone is a powerful oxidant and has many industrial and consumer applications related to oxidation. This same high oxidising potential, however, causes ozone to damage mucous and respiratory tissues in animals, and also tissues in plants. This makes ozone a potent respiratory hazard and pollutant near ground level.</p>
+                    <p class="pre">Precaution</p>
+                    <p class="pre-desc">Avoid opening the window.</p>
+                </div>
+                <div class="content hidden" id="content-aqi">
+                    <div class="title">
+                        <span class="circle"></span>
+                        <span class="title-name">AQI</span>
+                    </div>
+                    <p class="define">AQI</p>
+                    <p class="define-desc">An air quality index (AQI) is a number used by government agencies to communicate to the public how polluted the air currently is or how polluted it is forecast to become. As the AQI increases, an increasingly large percentage of the population is likely to experience increasingly severe adverse health effects. </p>
+                </div>
+            </div>
+            <div class="bottom">
+                <a class="return">Back to report</a>
+            </div>
+        </section>
+    </div>
+    <script type="text/javascript" src="src/TimelineLite.min.js"></script>
+    <script type="text/javascript" src="src/TweenLite.min.js"></script>
+    <script type="text/javascript" src="src/CSSPlugin.min.js"></script>
+    <script type="text/javascript" src="src/EasePack.min.js"></script>
+    <script type="text/javascript" src="src/core.js"></script>
+</body>
+</html>
