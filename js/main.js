@@ -57,7 +57,7 @@ $(document).ready(function(){
                     type: 'spline'
                 },
                 title: {
-                    text: '空气质量详情',
+                    text: 'Air Quality Information',
                     x: -20,
                     style: {
                         color: '#999999',
@@ -92,7 +92,7 @@ $(document).ready(function(){
                 },
                 yAxis: {
                     title: {
-                        text: '数值',
+                        text: 'Value',
                         style: {
                             color: '#999999',
                             'font-family': 'Microsoft Yahei'

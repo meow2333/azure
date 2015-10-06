@@ -506,7 +506,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         }
         function renderChart(results) {
             if (results.length === 0) {
-                alert('sorry, 没有这个城市，试试其他的吧');
+                alert('Not found the city in china. Try anthor one.');
                 return;
             }
             me.showCity();
@@ -551,7 +551,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                     renderTo: $('#chart').getDOMNode()
                 },
                 title: {
-                    text: '空气质量详情',
+                    text: 'Air Quality Information',
                     x: -20,
                     style: {
                         color: '#4b4b4b',
@@ -591,7 +591,7 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
                 },
                 yAxis: {
                     title: {
-                        text: '数值',
+                        text: 'Value',
                         style: {
                             color: '#999999',
                             'font-family': 'Microsoft Yahei'
@@ -804,43 +804,43 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
             })();
             if (aqi >= 300) {
                 me.face.addClass('icon-confused');
-                me.faceDesc.html('严重');
+                me.faceDesc.html('Damaging');
             } else if (aqi >= 200) {
                 me.face.addClass('icon-sad');
-                me.faceDesc.html('重度');
+                me.faceDesc.html('Severe');
             } else if (aqi >= 150) {
                 me.face.addClass('icon-wondering');
-                me.faceDesc.html('中度');
+                me.faceDesc.html('Medium');
             } else if (aqi >= 100) {
                 me.face.addClass('icon-neutral');
-                me.faceDesc.html('轻度');
+                me.faceDesc.html('Mild');
             } else if (aqi >= 50) {
                 me.face.addClass('icon-smiley');
-                me.faceDesc.html('良');
+                me.faceDesc.html('Good');
             } else {
                 me.face.addClass('icon-happy');
-                me.faceDesc.html('优');
+                me.faceDesc.html('Excellent');
             }
 
             if (aqi >= 50 && aqi < 100) {
                 //显示戴口罩
                 tips.tips.push({
                     img: './azure_png/face.png',
-                    titile: '佩戴口罩',
-                    desc: '外出请佩戴口罩（<a class="kouzhao">？如何挑选口罩</a>）'
+                    titile: 'Wearing Mask',
+                    desc: 'Go out to wear a dust mask(<a class="kouzhao">How to Chose?</a>)'
                 });
 
             } else if (aqi >= 100) {
                 //+室内
                 tips.tips.push({
                     img: './azure_png/face.png',
-                    titile: '佩戴口罩',
-                    desc: '外出请佩戴口罩（<a class="kouzhao">？如何挑选口罩</a>）'
+                    titile: 'Wearing Mask',
+                    desc: 'Go out to wear a dust mask(<a class="kouzhao">How to Chose?</a>)'
                 });
                 tips.tips.push({
                     img: './azure_png/house.png',
-                    titile: '室内活动',
-                    desc: '请尽量在室内活动，减少外出，同时关好门窗'
+                    titile: 'Indoor Activities',
+                    desc: 'Please try to stay indoors, go outside, close the doors and windows at the same time.'
                 });
             } else {
                 //室外
@@ -862,41 +862,41 @@ KISSY.use('dom, node, pkg/modernizr, pkg/onepageScroll, io, gallery/HashX/1.0/in
         }
 
         if (data.pm2_5[11] >= 75) {
-            result.pm2_5 = 'PM2.5含量过高';
+            result.pm2_5 = 'High levels of PM2.5';
         } else if (data.pm2_5[11] >= 50) {
-            result.pm2_5 = 'PM2.5含量偏高';
+            result.pm2_5 = 'Medium levels of PM2.5';
         } else if (data.pm2_5[11] >= 37.5) {
-            result.pm2_5 = 'PM2.5含量偏高';
+            result.pm2_5 = 'Medium levels of PM2.5';
         } else if (data.pm2_5[11] >= 25) {
-            result.pm2_5 = 'PM2.5含量略高';
+            result.pm2_5 = 'Low levels of PM2.5';
         } 
 
         if (data.pm10[11] >= 150) {
-            result.pm10 = 'PM10含量过高';
+            result.pm10 = 'High levels of PM10';
         } else if (data.pm10[11] >= 100) {
-            result.pm10 = 'PM10含量偏高';
+            result.pm10 = 'Medium levels of PM10';
         } else if (data.pm10[11] >= 75) {
-            result.pm10 = 'PM10含量偏高';
+            result.pm10 = 'Medium levels of PM10';
         } else if (data.pm10[11] >= 50) {
-            result.pm10 = 'PM10含量略高';
+            result.pm10 = 'Low levels of PM10';
         }
 
         if (data.o3[11] >= 160) {
-            result.o3 = 'O3含量过高';
+            result.o3 = 'High levels O3';
         } else if (data.o3[11] >= 100) {
-            result.o3 = 'O3含量偏高';
+            result.o3 = 'Medium levels O3';
         }
 
         if (data.no2[11] >= 200) {
-            result.o3 = 'NO2含量过高';
+            result.o3 = 'High levels of NO2';
         }
 
         if (data.so2[11] >= 125) {
-            result.so2 = 'SO2含量过高';
+            result.so2 = 'High levels of SO2';
         } else if (data.so2[11] >= 50) {
-            result.so2 = 'SO2含量偏高';
+            result.so2 = 'Medium levels of SO2';
         } else if (data.so2[11] >= 20) {
-            result.so2 = 'SO2含量略高';
+            result.so2 = 'Low levels of SO2';
         }
 
         renderInfo();
